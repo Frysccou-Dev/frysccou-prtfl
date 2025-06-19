@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-deluge-50: #f7f7fb;
+  --color-deluge-100: #f0eff8;
+  --color-deluge-200: #e4e2f2;
+  --color-deluge-300: #cecae8;
+  --color-deluge-400: #b4acd9;
+  --color-deluge-500: #998ac8;
+  --color-deluge-600: #7d65b3;
+  --color-deluge-700: #755ca5;
+  --color-deluge-800: #614d8a;
+  --color-deluge-900: #514171;
+  --color-deluge-950: #33294c;
+}
+
+body {
+  background-color: rgb(39, 39, 39);
+}
