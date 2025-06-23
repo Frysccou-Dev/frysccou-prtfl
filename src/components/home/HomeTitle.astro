@@ -1,0 +1,35 @@
+---
+import { Instagram, Mail, Github, Linkedin } from "@lucide/astro"
+---
+<div class="flex h-[90vh] w-screen bg-black">
+  <div class="w-[40%] h-full flex items-center justify-center">
+    <img src="/lines.png" alt="lines" class="h-full w-full object-fill block" />
+  </div>
+  <div class="flex-1 flex flex-col justify-center items-center text-white pl-[3vw]">
+    <h1 class="text-[6rem] font-black m-0 text-center w-full">Espíndola Francisco</h1>
+    <h2 class="text-[3.5rem] font-thin text-center w-full">Full Stack | Web Developer</h2>
+    <div class="flex items-center gap-12">
+      <button class="text-white/70 hover:text-white text-lg font-extralight tracking-[0.2em] transition-all duration-500 hover:glow">
+        WHO?
+      </button>
+
+      <div class="flex gap-6">
+        <a href="https://www.instagram.com/Frysccou/" target="_blank" class="group relative w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/10">
+          <Instagram class="w-5 h-5 text-white/60 group-hover:text-white transition-colors duration-300" />
+        </a>
+
+        <a href="mailto:franespindola71@gmail.com" class="group relative w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/10">
+          <Mail class="w-5 h-5 text-white/60 group-hover:text-white transition-colors duration-300" />
+        </a>
+
+        <a href="https://github.com/Frysccou" target="_blank" class="group relative w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/10">
+          <Github class="w-5 h-5 text-white/60 group-hover:text-white transition-colors duration-300" />
+        </a>
+
+        <a href="https://www.linkedin.com/in/espindola-francisco/" target="_blank" class="group relative w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:border-white/40 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-white/10">
+          <Linkedin class="w-5 h-5 text-white/60 group-hover:text-white transition-colors duration-300" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

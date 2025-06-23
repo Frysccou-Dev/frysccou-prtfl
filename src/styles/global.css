@@ -14,6 +14,10 @@
   --color-deluge-950: #33294c;
 }
 
+html {
+  font-family: Inter, sans-serif;
+}
+
 body {
-  background-color: rgb(39, 39, 39);
+  background-color: #ffffff;
 }
