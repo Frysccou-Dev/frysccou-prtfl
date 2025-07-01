@@ -10,13 +10,13 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frysccou | Portfolio</title>
   </head>
-  <body>
+  <body class="min-h-screen flex flex-col bg-white">
     <Navbar />
-    
-    <main>
+    <main class="flex-1 w-full">
       <slot />
     </main>
-
     <Footer />
+  </body>
+</html>
   </body>
 </html>
