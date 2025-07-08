@@ -4,11 +4,13 @@ import HomeTitle from "../components/home/HomeTitle.astro";
 import About from "../components/home/About.astro";
 import Tech from "../components/home/Tech.astro";
 import Projects from "../components/home/Projects.astro";
+import LanguageSelectorFixed from "../components/ui/LanguageSelectorFixed.astro";
 ---
 
-<Layout>
-  <HomeTitle/>
-  <Tech />
-  <About />
-  <Projects />
+<Layout lang="en">
+  <HomeTitle lang="en" />
+  <Tech lang="en" />
+  <About lang="en" />
+  <Projects lang="en" />
+  <LanguageSelectorFixed />
 </Layout>

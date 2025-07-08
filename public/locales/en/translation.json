@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "experience": "Experience",
+    "knowledge": "Knowledge",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Featured Projects",
+    "subtitle": "Crafting digital experiences with modern web technologies",
+    "viewPortfolio": "View Portfolio",
+    "viewLiveSite": "View Live Site",
+    "liveDemo": "Live Demo",
+    "github": "GitHub",
+    "comingSoon": "Coming Soon",
+    "moreProjects": "More projects coming soon..."
+  },
+  "projects": {
+    "portfolio": {
+      "title": "Portfolio Web",
+      "subtitle": "Personal Developer Portfolio",
+      "description": "Modern personal portfolio with multilingual support, showcasing projects with elegant design and smooth animations.",
+      "features": "Frontend Features",
+      "feature1": "Multi-language support system",
+      "feature2": "Smooth scroll animations",
+      "feature3": "Responsive modern design",
+      "feature4": "Interactive project showcase"
+    },
+    "supercell": {
+      "title": "Supercell × Esspíndola (coming soon)",
+      "subtitle": "Gaming Info Hub",
+      "description": "Comprehensive platform for Supercell games information, online stores, and player data management.",
+      "features": "Platform Features",
+      "feature1": "Player authentication system",
+      "feature2": "Game statistics & profiles",
+      "feature3": "Online store integration",
+      "feature4": "Player data lookup (Coming Soon)"
+    },
+    "bycarket": {
+      "title": "Bycarket",
+      "subtitle": "AI-Powered Vehicle Marketplace",
+      "description": "Team-built platform combining modern design, AI, and robust full-stack architecture for vehicle trading.",
+      "features": "My Frontend Contributions",
+      "feature1": "Frontend-Backend integration logic",
+      "feature2": "Stripe payment system implementation",
+      "feature3": "AI search experience integration",
+      "feature4": "TailwindCSS styling & UX polish"
+    },
+    "xview": {
+      "title": "Xview",
+      "subtitle": "Manga E-commerce Platform",
+      "description": "Complete manga platform with modern design, glassmorphism effects, and immersive user experience.",
+      "features": "Frontend Features",
+      "feature1": "Animated gradients & glassmorphism",
+      "feature2": "Framer Motion animations",
+      "feature3": "Responsive design & dark mode",
+      "feature4": "JWT authentication system"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "projects": "Proyectos",
+    "experience": "Experiencia",
+    "knowledge": "Conocimientos",
+    "contact": "Contacto"
+  },
+  "home": {
+    "title": "Proyectos Destacados",
+    "subtitle": "Creando experiencias digitales con tecnologías web modernas",
+    "viewPortfolio": "Ver Portfolio",
+    "viewLiveSite": "Ver Sitio",
+    "liveDemo": "Demo en Vivo",
+    "github": "GitHub",
+    "comingSoon": "Próximamente",
+    "moreProjects": "Más proyectos próximamente..."
+  },
+  "projects": {
+    "portfolio": {
+      "title": "Portfolio Web",
+      "subtitle": "Portfolio Personal de Desarrollador",
+      "description": "Portfolio personal moderno con soporte multiidioma, mostrando proyectos con diseño elegante y animaciones suaves.",
+      "features": "Características Frontend",
+      "feature1": "Sistema de soporte multiidioma",
+      "feature2": "Animaciones de scroll suaves",
+      "feature3": "Diseño moderno responsive",
+      "feature4": "Showcase interactivo de proyectos"
+    },
+    "supercell": {
+      "title": "Supercell × Esspíndola (próximamente)",
+      "subtitle": "Hub de Información Gaming",
+      "description": "Plataforma integral para información de juegos de Supercell, tiendas online y gestión de datos de jugadores.",
+      "features": "Características de la Plataforma",
+      "feature1": "Sistema de autenticación de jugadores",
+      "feature2": "Estadísticas y perfiles de juego",
+      "feature3": "Integración de tienda online",
+      "feature4": "Búsqueda de datos de jugador (Próximamente)"
+    },
+    "bycarket": {
+      "title": "Bycarket",
+      "subtitle": "Marketplace de Vehículos con IA",
+      "description": "Plataforma construida en equipo que combina diseño moderno, IA y arquitectura full-stack robusta para comercio de vehículos.",
+      "features": "Mis Contribuciones Frontend",
+      "feature1": "Lógica de integración Frontend-Backend",
+      "feature2": "Implementación del sistema de pagos Stripe",
+      "feature3": "Integración de experiencia de búsqueda IA",
+      "feature4": "Estilado TailwindCSS y pulido UX"
+    },
+    "xview": {
+      "title": "Xview",
+      "subtitle": "Plataforma E-commerce de Manga",
+      "description": "Plataforma completa de manga con diseño moderno, efectos glassmorphism y experiencia de usuario inmersiva.",
+      "features": "Características Frontend",
+      "feature1": "Gradientes animados y glassmorphism",
+      "feature2": "Animaciones Framer Motion",
+      "feature3": "Diseño responsive y modo oscuro",
+      "feature4": "Sistema de autenticación JWT"
+    }
+  }
+}
