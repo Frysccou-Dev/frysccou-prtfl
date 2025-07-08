@@ -1,0 +1,13 @@
+---
+import { getTranslation, getCurrentLanguage } from '../utils/i18n';
+
+interface Props {
+  key: string;
+  lang?: 'en' | 'es';
+}
+
+const { key, lang } = Astro.props;
+const currentLang = lang || (Astro.url.pathname.startsWith('/es') ? 'es' : 'en');
+---
+
+{getTranslation(currentLang, key)}
