@@ -1,11 +1,13 @@
 ---
+import '../styles/global.css';
+const { lang } = Astro.props;
 import Navbar from '../components/layout/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
-import '../styles/global.css';
 import ScrollToTop from '../components/core/ScrollToTop.astro';
+import LanguageSelectorFixed from '../components/ui/LanguageSelectorFixed.astro';
 ---
 
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,6 +19,7 @@ import ScrollToTop from '../components/core/ScrollToTop.astro';
     <main class="flex-1 w-full">
       <slot />
     </main>
+    <LanguageSelectorFixed />
     <ScrollToTop />
     <Footer />
   </body>

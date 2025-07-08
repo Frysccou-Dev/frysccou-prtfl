@@ -4,7 +4,7 @@
 <div class="relative language-selector">
   <button 
     id="language-toggle"
-    class="flex items-center gap-2 px-3 py-2 text-white hover:text-blue-300 transition-colors text-xs sm:text-sm font-medium rounded-lg hover:bg-white/10"
+    class="flex items-center gap-2 px-3 py-2 text-white hover:text-blue-300 text-xs sm:text-sm font-medium rounded-lg hover:bg-white/10"
     aria-label="Change Language"
   >
     <span id="current-flag" class="text-base">🇺🇸</span>
@@ -15,19 +15,19 @@
   
   <div 
     id="language-dropdown"
-    class="absolute left-0 bottom-12 w-36 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible transform scale-95 transition-all duration-200 z-50"
+    class="absolute left-0 bottom-12 w-36 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible transform scale-95 z-50"
   >
     <div class="py-2">
       <button 
         data-lang="en"
-        class="language-option w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 transition-colors flex items-center gap-3"
+        class="language-option w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 flex items-center gap-3"
       >
         <span class="text-base">🇺🇸</span>
         <span class="text-sm">English</span>
       </button>
       <button 
         data-lang="es"
-        class="language-option w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 transition-colors flex items-center gap-3"
+        class="language-option w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-100 flex items-center gap-3"
       >
         <span class="text-base">🇪🇸</span>
         <span class="text-sm">Español</span>
@@ -56,7 +56,6 @@
 
     toggle?.addEventListener('click', () => {
       const isVisible = dropdown?.classList.contains('opacity-100');
-      
       if (isVisible) {
         dropdown?.classList.remove('opacity-100', 'visible', 'scale-100');
         dropdown?.classList.add('opacity-0', 'invisible', 'scale-95');
@@ -77,29 +76,27 @@
       option.addEventListener('click', () => {
         const lang = option.getAttribute('data-lang');
         const flag = option.querySelector('span')?.textContent;
-        
-        if (lang && flag && currentFlag) {
+        const currentPath = window.location.pathname;
+        let newPath = currentPath;
+        let shouldRedirect = false;
+        if (lang === 'es') {
+          if (!currentPath.startsWith('/es')) {
+            newPath = currentPath === '/' ? '/es/' : `/es${currentPath}`;
+            shouldRedirect = true;
+          }
+        } else {
+          if (currentPath.startsWith('/es')) {
+            newPath = currentPath === '/es/' ? '/' : currentPath.substring(3);
+            shouldRedirect = true;
+          }
+        }
+        if (flag && currentFlag) {
           currentFlag.textContent = flag;
-          
-          dropdown?.classList.remove('opacity-100', 'visible', 'scale-100');
-          dropdown?.classList.add('opacity-0', 'invisible', 'scale-95');
-          
-          const currentPath = window.location.pathname;
-          let newPath = currentPath;
-          
-          if (lang === 'es') {
-            if (!currentPath.startsWith('/es')) {
-              newPath = currentPath === '/' ? '/es/' : `/es${currentPath}`;
-            }
-          } else {
-            if (currentPath.startsWith('/es')) {
-              newPath = currentPath === '/es/' ? '/' : currentPath.substring(3);
-            }
-          }
-          
-          if (newPath !== currentPath) {
-            window.location.href = newPath;
-          }
+        }
+        dropdown?.classList.remove('opacity-100', 'visible', 'scale-100');
+        dropdown?.classList.add('opacity-0', 'invisible', 'scale-95');
+        if (shouldRedirect && newPath !== currentPath) {
+          window.location.href = newPath;
         }
       });
     });
