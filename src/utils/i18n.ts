@@ -1,24 +1,3 @@
-export const developer = {
-  nombre: "Francisco Espíndola",
-  stack: [
-    "TypeScript",
-    "React",
-    "Next.js",
-    "Astro",
-    "Node.js",
-    "TailwindCSS",
-    "MongoDB",
-    "PostgreSQL",
-    "Figma",
-    "Git",
-  ],
-  github: "https://github.com/Frysccou",
-  linkedin: "https://www.linkedin.com/in/franciscoespindola/",
-  email: "frysccou@gmail.com",
-  frase:
-    "Transformando ideas en experiencias digitales con pasión, detalle y creatividad. Siempre aprendiendo, siempre creando.",
-};
-
 export const translations = {
   en: {
     nav: {
