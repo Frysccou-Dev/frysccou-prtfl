@@ -26,15 +26,15 @@
       "feature3": "Diseño moderno responsive",
       "feature4": "Showcase interactivo de proyectos"
     },
-    "supercell": {
-      "title": "Supercell × Esspíndola (próximamente)",
-      "subtitle": "Hub de Información Gaming",
-      "description": "Plataforma integral para información de juegos de Supercell, tiendas online y gestión de datos de jugadores.",
+    "zynner": {
+      "title": "Portafolio Corporativo Zynner",
+      "subtitle": "Plataforma de Portfolio Empresarial",
+      "description": "Portfolio corporativo moderno que muestra servicios empresariales, miembros del equipo y logros de la empresa con diseño profesional.",
       "features": "Características de la Plataforma",
-      "feature1": "Sistema de autenticación de jugadores",
-      "feature2": "Estadísticas y perfiles de juego",
-      "feature3": "Integración de tienda online",
-      "feature4": "Búsqueda de datos de jugador (Próximamente)"
+      "feature1": "Showcase profesional de servicios",
+      "feature2": "Perfiles de miembros del equipo",
+      "feature3": "Sistema de testimonios de clientes",
+      "feature4": "Formularios de contacto y consultas"
     },
     "bycarket": {
       "title": "Bycarket",

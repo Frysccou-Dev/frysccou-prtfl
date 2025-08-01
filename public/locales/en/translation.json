@@ -26,15 +26,15 @@
       "feature3": "Responsive modern design",
       "feature4": "Interactive project showcase"
     },
-    "supercell": {
-      "title": "Supercell × Esspíndola (coming soon)",
-      "subtitle": "Gaming Info Hub",
-      "description": "Comprehensive platform for Supercell games information, online stores, and player data management.",
+    "zynner": {
+      "title": "Zynner Corporate Portfolio",
+      "subtitle": "Business Portfolio Platform",
+      "description": "Modern corporate portfolio showcasing business services, team members, and company achievements with professional design.",
       "features": "Platform Features",
-      "feature1": "Player authentication system",
-      "feature2": "Game statistics & profiles",
-      "feature3": "Online store integration",
-      "feature4": "Player data lookup (Coming Soon)"
+      "feature1": "Professional service showcase",
+      "feature2": "Team member profiles",
+      "feature3": "Client testimonials system",
+      "feature4": "Contact & inquiry forms"
     },
     "bycarket": {
       "title": "Bycarket",
