@@ -1,141 +1,273 @@
 ---
-import { getTranslation } from "../../utils/i18n";
+import { getTranslation } from '../../utils/i18n';
 const { lang } = Astro.props;
 
 const educationData = [
   {
-    title: lang === "es" ? "Especialización en Frontend Moderno" : "Modern Frontend Specialization",
-    institution: "Codigo Facilito",
-    date: lang === "es" ? "Agosto 2025 - Noviembre 2025" : "August 2025 - November 2025",
-    status: lang === "es" ? getTranslation(lang, "home.comingSoon") : getTranslation(lang, "home.comingSoon"),
-    statusColor: "yellow",
+    title:
+      lang === 'es'
+        ? 'Especialización en Frontend Moderno'
+        : 'Modern Frontend Specialization',
+    institution: 'Codigo Facilito',
+    date:
+      lang === 'es'
+        ? 'Agosto 2025 - Noviembre 2025'
+        : 'August 2025 - November 2025',
+    status:
+      lang === 'es'
+        ? getTranslation(lang, 'home.inProgress')
+        : getTranslation(lang, 'home.inProgress'),
+    statusColor: 'blue',
     desc:
-      lang === "es"
-        ? "Profundización en React, Angular y Vue. Enfoque en diferencias clave, mejores prácticas, modularización, renderizado y uso avanzado. Énfasis en cuándo usar cada framework, cómo combinarlos y sus casos ideales en proyectos modernos."
-        : "Deep dive into mastering React, Angular, and Vue. Focused on key differences, usage, best practices, modularization, rendering, and advanced integration. Special emphasis on understanding when to use each framework, how to combine them effectively, and their ideal use cases in modern projects."
+      lang === 'es'
+        ? 'Profundización en React, Angular y Vue. Enfoque en diferencias clave, mejores prácticas, modularización, renderizado y uso avanzado. Énfasis en cuándo usar cada framework, cómo combinarlos y sus casos ideales en proyectos modernos.'
+        : 'Deep dive into mastering React, Angular, and Vue. Focused on key differences, usage, best practices, modularization, rendering, and advanced integration. Special emphasis on understanding when to use each framework, how to combine them effectively, and their ideal use cases in modern projects.',
   },
   {
-    title: lang === "es" ? "Desarrollo Web y Móvil" : "Web & Mobile Development",
-    institution: "Instituto Superior Santo Domingo (ISSD)",
-    date: lang === "es" ? "Marzo 2025 - Presente" : "March 2025 - Present",
-    status: lang === "es" ? getTranslation(lang, "home.inProgress") : getTranslation(lang, "home.inProgress"),
-    statusColor: "blue",
+    title:
+      lang === 'es' ? 'Desarrollo Web y Móvil' : 'Web & Mobile Development',
+    institution: 'Instituto Superior Santo Domingo (ISSD)',
+    date: lang === 'es' ? 'Marzo 2025 - Presente' : 'March 2025 - Present',
+    status:
+      lang === 'es'
+        ? getTranslation(lang, 'home.inProgress')
+        : getTranslation(lang, 'home.inProgress'),
+    statusColor: 'blue',
     desc:
-      lang === "es"
-        ? "Tecnicatura en Desarrollo Web y Móvil, enfocada en metodologías avanzadas y creación de aplicaciones móviles."
-        : "Currently pursuing a Technical Degree in Web & Mobile Development, focusing on advanced development methodologies and mobile application creation."
+      lang === 'es'
+        ? 'Tecnicatura en Desarrollo Web y Móvil, enfocada en metodologías avanzadas y creación de aplicaciones móviles.'
+        : 'Currently pursuing a Technical Degree in Web & Mobile Development, focusing on advanced development methodologies and mobile application creation.',
   },
   {
-    title: lang === "es" ? "Carrera de Desarrollador Full Stack" : "Full Stack Developer Career",
-    institution: "CoderHouse",
-    date: lang === "es" ? "Agosto 2024 - Febrero 2025" : "August 2024 - February 2025",
-    status: lang === "es" ? getTranslation(lang, "home.completed") : getTranslation(lang, "home.completed"),
-    statusColor: "green",
+    title:
+      lang === 'es'
+        ? 'Carrera de Desarrollador Full Stack'
+        : 'Full Stack Developer Career',
+    institution: 'CoderHouse',
+    date:
+      lang === 'es'
+        ? 'Agosto 2024 - Febrero 2025'
+        : 'August 2024 - February 2025',
+    status:
+      lang === 'es'
+        ? getTranslation(lang, 'home.completed')
+        : getTranslation(lang, 'home.completed'),
+    statusColor: 'green',
     desc:
-      lang === "es"
-        ? "Programa integral de desarrollo Full Stack abarcando tecnologías frontend y backend, gestión de bases de datos y flujos de trabajo modernos."
-        : "Comprehensive Full Stack Development career program covering frontend and backend technologies, database management, and modern development workflows."
+      lang === 'es'
+        ? 'Programa integral de desarrollo Full Stack abarcando tecnologías frontend y backend, gestión de bases de datos y flujos de trabajo modernos.'
+        : 'Comprehensive Full Stack Development career program covering frontend and backend technologies, database management, and modern development workflows.',
   },
   {
-    title: lang === "es" ? "Desarrollador Full Stack" : getTranslation(lang, "experience.fullStackDev"),
-    institution: "Henry Bootcamp",
-    date: lang === "es" ? "Enero 2025 - Junio 2025" : "January 2025 - June 2025",
-    status: lang === "es" ? getTranslation(lang, "home.completed") : getTranslation(lang, "home.completed"),
-    statusColor: "green",
+    title:
+      lang === 'es'
+        ? 'Desarrollador Full Stack'
+        : getTranslation(lang, 'experience.fullStackDev'),
+    institution: 'Henry Bootcamp',
+    date:
+      lang === 'es' ? 'Enero 2025 - Junio 2025' : 'January 2025 - June 2025',
+    status:
+      lang === 'es'
+        ? getTranslation(lang, 'home.completed')
+        : getTranslation(lang, 'home.completed'),
+    statusColor: 'green',
     desc:
-      lang === "es"
-        ? "Bootcamp intensivo de desarrollo Full Stack con tecnologías web modernas, algoritmos, estructuras de datos y trabajo colaborativo."
-        : "Intensive Full Stack Development bootcamp covering modern web technologies, algorithms, data structures, and collaborative development practices."
-  }
+      lang === 'es'
+        ? 'Bootcamp intensivo de desarrollo Full Stack con tecnologías web modernas, algoritmos, estructuras de datos y trabajo colaborativo.'
+        : 'Intensive Full Stack Development bootcamp covering modern web technologies, algorithms, data structures, and collaborative development practices.',
+  },
 ];
 ---
 
-<section id="experiencia" class="min-h-screen bg-blue-50 py-20">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-950 mb-6">
-        {getTranslation(lang, "experience.title")}
+<section id='experiencia' class='min-h-screen bg-blue-50 py-20'>
+  <div class='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'>
+    <div class='text-center mb-16'>
+      <h2 class='text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-950 mb-6'>
+        {getTranslation(lang, 'experience.title')}
       </h2>
-      <p class="text-xl text-blue-700 max-w-2xl mx-auto">
-        {getTranslation(lang, "experience.subtitle")}
+      <p class='text-xl text-blue-700 max-w-2xl mx-auto'>
+        {getTranslation(lang, 'experience.subtitle')}
       </p>
     </div>
-    <div class="grid lg:grid-cols-2 gap-12">
-      <div class="space-y-8">
-        <div class="flex items-center gap-4 mb-8">
-          <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+    <div class='grid lg:grid-cols-2 gap-12'>
+      <div class='space-y-8'>
+        <div class='flex items-center gap-4 mb-8'>
+          <div
+            class='w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center'
+          >
+            <svg
+              class='w-6 h-6 text-white'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2V6'
+              ></path>
             </svg>
           </div>
-          <h3 class="text-3xl font-bold text-blue-950">{getTranslation(lang, "experience.professionalExp")}</h3>
+          <h3 class='text-3xl font-bold text-blue-950'>
+            {getTranslation(lang, 'experience.professionalExp')}
+          </h3>
         </div>
-        <div class="relative">
-          <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-blue-200"></div>
-          <div class="relative pl-16 pb-12">
-            <div class="absolute left-4 w-4 h-4 bg-blue-600 rounded-full border-4 border-blue-50"></div>
-            <div class="bg-white/80 backdrop-blur-sm border border-blue-200/50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
-              <div class="flex items-center mb-4">
-                <h4 class="text-xl font-bold text-blue-950">{getTranslation(lang, "experience.fullStackDev")}</h4>
-                <span class="inline-block ml-2 text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full">{getTranslation(lang, "experience.current")}</span>
+        <div class='relative'>
+          <div class='absolute left-6 top-0 bottom-0 w-0.5 bg-blue-200'></div>
+          <div class='relative pl-16 pb-12'>
+            <div
+              class='absolute left-4 w-4 h-4 bg-blue-600 rounded-full border-4 border-blue-50'
+            >
+            </div>
+            <div
+              class='bg-white/80 backdrop-blur-sm border border-blue-200/50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300'
+            >
+              <div class='flex items-center mb-4'>
+                <h4 class='text-xl font-bold text-blue-950'>
+                  {getTranslation(lang, 'experience.zatoBox')}
+                </h4>
+                <span
+                  class='inline-block ml-2 text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full'
+                  >{getTranslation(lang, 'experience.current')}</span
+                >
               </div>
-              <p class="text-blue-700 font-medium mb-2">{getTranslation(lang, "experience.dragonPyramid")}</p>
-              <p class="text-blue-600 text-sm mb-4">{getTranslation(lang, "experience.dragonPyramidDate")}</p>
-              <p class="text-blue-800 leading-relaxed">
-                {getTranslation(lang, "experience.dragonPyramidDesc")}
+              <p class='text-blue-700 font-medium mb-2'>
+                {getTranslation(lang, 'experience.zatoBoxCompany')}
+              </p>
+              <p class='text-blue-600 text-sm mb-4'>
+                {getTranslation(lang, 'experience.zatoBoxDate')}
+              </p>
+              <p class='text-blue-800 leading-relaxed'>
+                {getTranslation(lang, 'experience.zatoBoxDesc')}
               </p>
             </div>
           </div>
-          <div class="relative pl-16">
-            <div class="absolute left-4 w-4 h-4 bg-blue-500 rounded-full border-4 border-blue-50"></div>
-            <div class="bg-white/80 backdrop-blur-sm border border-blue-200/50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
-              <div class="flex items-center mb-4">
-                <h4 class="text-xl font-bold text-blue-950">{getTranslation(lang, "experience.freelanceFullStack")}</h4>
-                <span class="inline-block ml-2 text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full">{getTranslation(lang, "experience.current")}</span>
+          <div class='relative pl-16 pb-12'>
+            <div
+              class='absolute left-4 w-4 h-4 bg-blue-600 rounded-full border-4 border-blue-50'
+            >
+            </div>
+            <div
+              class='bg-white/80 backdrop-blur-sm border border-blue-200/50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300'
+            >
+              <div class='flex items-center mb-4'>
+                <h4 class='text-xl font-bold text-blue-950'>
+                  {getTranslation(lang, 'experience.fullStackDev')}
+                </h4>
               </div>
-              <p class="text-blue-700 font-medium mb-2">Independent</p>
-              <p class="text-blue-600 text-sm mb-4">{getTranslation(lang, "experience.freelanceDate")}</p>
-              <p class="text-blue-800 leading-relaxed">
-                {getTranslation(lang, "experience.freelanceDesc")}
+              <p class='text-blue-700 font-medium mb-2'>
+                {getTranslation(lang, 'experience.dragonPyramid')}
+              </p>
+              <p class='text-blue-600 text-sm mb-4'>
+                {getTranslation(lang, 'experience.dragonPyramidDate')}
+              </p>
+              <p class='text-blue-800 leading-relaxed'>
+                {getTranslation(lang, 'experience.dragonPyramidDesc')}
+              </p>
+            </div>
+          </div>
+          <div class='relative pl-16'>
+            <div
+              class='absolute left-4 w-4 h-4 bg-blue-500 rounded-full border-4 border-blue-50'
+            >
+            </div>
+            <div
+              class='bg-white/80 backdrop-blur-sm border border-blue-200/50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300'
+            >
+              <div class='flex items-center mb-4'>
+                <h4 class='text-xl font-bold text-blue-950'>
+                  {getTranslation(lang, 'experience.freelanceFullStack')}
+                </h4>
+                <span
+                  class='inline-block ml-2 text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full'
+                  >{getTranslation(lang, 'experience.current')}</span
+                >
+              </div>
+              <p class='text-blue-700 font-medium mb-2'>Independent</p>
+              <p class='text-blue-600 text-sm mb-4'>
+                {getTranslation(lang, 'experience.freelanceDate')}
+              </p>
+              <p class='text-blue-800 leading-relaxed'>
+                {getTranslation(lang, 'experience.freelanceDesc')}
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div class="space-y-8">
-        <div class="flex items-center gap-4 mb-8">
-          <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+      <div class='space-y-8'>
+        <div class='flex items-center gap-4 mb-8'>
+          <div
+            class='w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center'
+          >
+            <svg
+              class='w-6 h-6 text-white'
+              fill='none'
+              stroke='currentColor'
+              viewBox='0 0 24 24'
+            >
+              <path
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                stroke-width='2'
+                d='M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'
+              ></path>
             </svg>
           </div>
-          <h3 class="text-3xl font-bold text-blue-950">{getTranslation(lang, "experience.education")}</h3>
+          <h3 class='text-3xl font-bold text-blue-950'>
+            {getTranslation(lang, 'experience.education')}
+          </h3>
         </div>
-        <div class="relative">
-          <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-blue-200"></div>
-          {educationData.map((edu, idx) => (
-            <div class={`relative pl-16${idx < educationData.length - 1 ? " pb-12" : ""}`}>
-              <div class={`absolute left-4 w-4 h-4 ${edu.statusColor === "green" ? "bg-blue-500" : edu.statusColor === "yellow" ? "bg-blue-600" : "bg-blue-600"} rounded-full border-4 border-blue-50`}></div>
-              <div class="bg-white/80 backdrop-blur-sm border border-blue-200/50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300">
-                <div class="flex items-center mb-4">
-                  <h4 class="text-xl font-bold text-blue-950">{edu.title}</h4>
-                  <span class={`text-center inline-block ml-2 text-sm font-medium ${edu.statusColor === "green" ? "text-green-600 bg-green-100" : edu.statusColor === "yellow" ? "text-yellow-600 bg-yellow-100" : "text-blue-600 bg-blue-100"} px-3 py-1 rounded-full`}>{edu.status}</span>
+        <div class='relative'>
+          <div class='absolute left-6 top-0 bottom-0 w-0.5 bg-blue-200'></div>
+          {
+            educationData.map((edu, idx) => (
+              <div
+                class={`relative pl-16${idx < educationData.length - 1 ? ' pb-12' : ''}`}
+              >
+                <div
+                  class={`absolute left-4 w-4 h-4 ${edu.statusColor === 'green' ? 'bg-blue-500' : edu.statusColor === 'yellow' ? 'bg-blue-600' : 'bg-blue-600'} rounded-full border-4 border-blue-50`}
+                />
+                <div class='bg-white/80 backdrop-blur-sm border border-blue-200/50 rounded-2xl p-6 hover:shadow-lg transition-all duration-300'>
+                  <div class='flex items-center mb-4'>
+                    <h4 class='text-xl font-bold text-blue-950'>{edu.title}</h4>
+                    <span
+                      class={`text-center inline-block ml-2 text-sm font-medium ${edu.statusColor === 'green' ? 'text-green-600 bg-green-100' : edu.statusColor === 'yellow' ? 'text-yellow-600 bg-yellow-100' : 'text-blue-600 bg-blue-100'} px-3 py-1 rounded-full`}
+                    >
+                      {edu.status}
+                    </span>
+                  </div>
+                  <p class='text-blue-700 font-medium mb-2'>
+                    {edu.institution}
+                  </p>
+                  <p class='text-blue-600 text-sm mb-4'>{edu.date}</p>
+                  <p class='text-blue-800 leading-relaxed'>{edu.desc}</p>
                 </div>
-                <p class="text-blue-700 font-medium mb-2">{edu.institution}</p>
-                <p class="text-blue-600 text-sm mb-4">{edu.date}</p>
-                <p class="text-blue-800 leading-relaxed">{edu.desc}</p>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </div>
-    <div class="mt-16 text-center">
-      <div class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl shadow-lg">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+    <div class='mt-16 text-center'>
+      <div
+        class='inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl shadow-lg'
+      >
+        <svg
+          class='w-5 h-5'
+          fill='none'
+          stroke='currentColor'
+          viewBox='0 0 24 24'
+        >
+          <path
+            stroke-linecap='round'
+            stroke-linejoin='round'
+            stroke-width='2'
+            d='M13 10V3L4 14h7v7l9-11h-7z'></path>
         </svg>
-        <span class="font-semibold">{getTranslation(lang, "home.readyChallenges")}</span>
+        <span class='font-semibold'
+          >{getTranslation(lang, 'home.readyChallenges')}</span
+        >
       </div>
     </div>
   </div>

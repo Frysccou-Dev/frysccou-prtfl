@@ -1,426 +1,145 @@
 ---
-import { getTranslation } from "../../utils/i18n";
+import { getTranslation } from '../../utils/i18n';
 const { lang } = Astro.props;
+
+interface Technology {
+  name: string;
+  icon: string;
+}
+
+interface Category {
+  id: string;
+  translationKey: string;
+  technologies: Technology[];
+}
+
+const categories: Category[] = [
+  {
+    id: 'frontend',
+    translationKey: 'tech.frontend',
+    technologies: [
+      { name: 'React', icon: 'react' },
+      { name: 'Next.js', icon: 'nextjs' },
+      { name: 'Astro', icon: 'astro' },
+      { name: 'Vue', icon: 'vue' },
+      { name: 'Angular', icon: 'angular' },
+    ],
+  },
+  {
+    id: 'styling',
+    translationKey: 'tech.styling',
+    technologies: [
+      { name: 'Tailwind', icon: 'tailwind' },
+      { name: 'CSS', icon: 'css' },
+      { name: 'Sass', icon: 'sass' },
+      { name: 'Less', icon: 'less' },
+      { name: 'Figma', icon: 'figma' },
+    ],
+  },
+  {
+    id: 'backend',
+    translationKey: 'tech.backend',
+    technologies: [
+      { name: 'Node.js', icon: 'nodejs' },
+      { name: 'Nest.js', icon: 'nestjs' },
+      { name: 'PHP', icon: 'php' },
+      { name: 'Python', icon: 'python' },
+      { name: 'Java', icon: 'java' },
+      { name: 'Spring Boot', icon: 'spring' },
+    ],
+  },
+  {
+    id: 'databases',
+    translationKey: 'tech.databases',
+    technologies: [
+      { name: 'PostgreSQL', icon: 'postgres' },
+      { name: 'MySQL', icon: 'mysql' },
+      { name: 'MongoDB', icon: 'mongodb' },
+      { name: 'Supabase', icon: 'supabase' },
+      { name: 'Firebase', icon: 'firebase' },
+    ],
+  },
+  {
+    id: 'tools',
+    translationKey: 'tech.tools',
+    technologies: [
+      { name: 'Git', icon: 'git' },
+      { name: 'GitHub', icon: 'github' },
+      { name: 'Docker', icon: 'docker' },
+    ],
+  },
+];
 ---
 
-<section id="conocimientos" class="min-h-screen bg-blue-100 py-20 rounded-t-[27px] relative overflow-hidden">
-  <div class="absolute inset-0 opacity-10">
-    <div class="absolute top-20 left-10 w-32 h-32 bg-blue-600 rounded-full blur-3xl"></div>
-    <div class="absolute top-40 right-20 w-24 h-24 bg-blue-400 rounded-full blur-2xl"></div>
-    <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-blue-500 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-20 right-10 w-28 h-28 bg-blue-300 rounded-full blur-2xl"></div>
+<section
+  id='conocimientos'
+  class='min-h-screen bg-blue-100 py-20 rounded-t-[27px] relative overflow-hidden'
+>
+  <div class='absolute inset-0 opacity-5'>
+    <div
+      class='absolute top-20 left-10 w-32 h-32 bg-blue-600 rounded-full blur-3xl'
+    >
+    </div>
+    <div
+      class='absolute top-40 right-20 w-24 h-24 bg-blue-400 rounded-full blur-2xl'
+    >
+    </div>
+    <div
+      class='absolute bottom-32 left-1/4 w-40 h-40 bg-blue-500 rounded-full blur-3xl'
+    >
+    </div>
+    <div
+      class='absolute bottom-20 right-10 w-28 h-28 bg-blue-300 rounded-full blur-2xl'
+    >
+    </div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="text-center mb-20">
-      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-950 mb-6">
-        {getTranslation(lang, "tech.title")}
+  <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10'>
+    <div class='text-center mb-16'>
+      <h2 class='text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-950 mb-6'>
+        {getTranslation(lang, 'tech.title')}
       </h2>
-      <p class="text-xl text-blue-700 max-w-2xl mx-auto">
-        {getTranslation(lang, "tech.subtitle")}
+      <p class='text-lg text-blue-700 max-w-2xl mx-auto'>
+        {getTranslation(lang, 'tech.subtitle')}
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-white/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-xl transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-        <div class="h-2 bg-gradient-to-r from-blue-500 to-blue-700"></div>
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-blue-950 mb-4">{getTranslation(lang, "tech.frontend")}</h3>
-          <div class="space-y-4">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=react" alt="React" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">React</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-500 to-blue-700 rounded-full" style="width: 100%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=nextjs" alt="Next.js" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Next.js</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-500 to-blue-700 rounded-full" style="width: 100%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=astro" alt="Astro" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Astro</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-500 to-blue-700 rounded-full" style="width: 85%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=vue" alt="Vue" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Vue</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.intermediate")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-500 to-blue-700 rounded-full" style="width: 75%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=angular" alt="Angular" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Angular</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.intermediate")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-500 to-blue-700 rounded-full" style="width: 70%"></div>
-                </div>
+    <div
+      class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8'
+    >
+      {
+        categories.map((category) => (
+          <div class='group h-full'>
+            <div class='relative h-full bg-gradient-to-b from-blue-50/50 to-white/30 backdrop-blur-sm rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-500 border border-blue-100/50 hover:border-blue-200/80 group-hover:bg-gradient-to-b group-hover:from-blue-50/70 group-hover:to-white/50'>
+              <div class='absolute -top-1 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-blue-300 to-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500' />
+
+              <h3 class='text-base font-semibold text-blue-900 mb-6 tracking-wide uppercase letter-spacing'>
+                {getTranslation(lang, category.translationKey)}
+              </h3>
+
+              <div class='flex flex-wrap gap-5 justify-center'>
+                {category.technologies.map((tech) => (
+                  <div class='flex flex-col items-center justify-center group/tech'>
+                    <div class='relative'>
+                      <div class='absolute -inset-1.5 bg-gradient-to-r from-blue-200/20 to-blue-300/20 rounded-2xl opacity-0 group-hover/tech:opacity-100 transition-opacity duration-300 blur' />
+                      <div class='relative w-12 h-12 bg-white/50 rounded-2xl flex items-center justify-center shadow-sm group-hover/tech:shadow-md transition-all duration-300 group-hover/tech:scale-125 group-hover/tech:bg-white/80 border border-blue-100/30 group-hover/tech:border-blue-200/60'>
+                        <img
+                          src={`https://skillicons.dev/icons?i=${tech.icon}`}
+                          alt={tech.name}
+                          class='w-6 h-6'
+                        />
+                      </div>
+                    </div>
+                    <p class='text-xs font-medium text-blue-800 text-center leading-tight mt-2.5 opacity-80 group-hover/tech:opacity-100 transition-opacity duration-300'>
+                      {tech.name}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      
-      <div class="bg-white/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-xl transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-        <div class="h-2 bg-gradient-to-r from-blue-600 to-blue-800"></div>
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-blue-950 mb-4">{getTranslation(lang, "tech.styling")}</h3>
-          <div class="space-y-4">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Tailwind</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-600 to-blue-800 rounded-full" style="width: 100%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=css" alt="CSS" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">CSS</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-600 to-blue-800 rounded-full" style="width: 100%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=sass" alt="Sass" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Sass</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-600 to-blue-800 rounded-full" style="width: 85%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=less" alt="Less" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Less</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.intermediate")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-600 to-blue-800 rounded-full" style="width: 75%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=figma" alt="Figma" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Figma</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.intermediate")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-600 to-blue-800 rounded-full" style="width: 70%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="bg-white/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-xl transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-        <div class="h-2 bg-gradient-to-r from-blue-700 to-blue-900"></div>
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-blue-950 mb-4">{getTranslation(lang, "tech.backend")}</h3>
-          <div class="space-y-4">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=nodejs" alt="Node.js" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Node.js</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-700 to-blue-900 rounded-full" style="width: 90%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=nestjs" alt="Nest.js" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Nest.js</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-700 to-blue-900 rounded-full" style="width: 85%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=php" alt="PHP" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">PHP</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.intermediate")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-700 to-blue-900 rounded-full" style="width: 75%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=laravel" alt="Laravel" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Laravel</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-700 to-blue-900 rounded-full" style="width: 85%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=python" alt="Python" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Python</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-700 to-blue-900 rounded-full" style="width: 90%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=dotnet" alt=".NET" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">C# / ASP.NET</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.intermediate")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-700 to-blue-900 rounded-full" style="width: 70%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="bg-white/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-xl transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-        <div class="h-2 bg-gradient-to-r from-blue-800 to-blue-950"></div>
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-blue-950 mb-4">{getTranslation(lang, "tech.databases")}</h3>
-          <div class="space-y-4">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=postgres" alt="PostgreSQL" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">PostgreSQL</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-800 to-blue-950 rounded-full" style="width: 90%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">MySQL</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-800 to-blue-950 rounded-full" style="width: 85%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=mongodb" alt="MongoDB" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">MongoDB</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-800 to-blue-950 rounded-full" style="width: 85%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=supabase" alt="Supabase" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Supabase</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.intermediate")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-800 to-blue-950 rounded-full" style="width: 75%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=firebase" alt="Firebase" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Firebase</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.intermediate")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-800 to-blue-950 rounded-full" style="width: 70%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="bg-white/80 backdrop-blur-md rounded-3xl overflow-hidden shadow-xl transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 md:col-span-2 lg:col-span-1">
-        <div class="h-2 bg-gradient-to-r from-blue-900 to-blue-950"></div>
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-blue-950 mb-4">{getTranslation(lang, "tech.tools")}</h3>
-          <div class="space-y-4">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=git" alt="Git" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Git</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-900 to-blue-950 rounded-full" style="width: 95%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=github" alt="GitHub" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">GitHub</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.expert")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-900 to-blue-950 rounded-full" style="width: 90%"></div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <img src="https://skillicons.dev/icons?i=docker" alt="Docker" class="w-6 h-6" />
-              </div>
-              <div class="flex-1">
-                <div class="flex justify-between items-center">
-                  <span class="font-medium text-blue-900">Docker</span>
-                  <span class="text-xs text-blue-600">{getTranslation(lang, "tech.intermediate")}</span>
-                </div>
-                <div class="mt-1 h-1.5 w-full bg-blue-100 rounded-full overflow-hidden">
-                  <div class="h-full bg-gradient-to-r from-blue-900 to-blue-950 rounded-full" style="width: 75%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        ))
+      }
     </div>
   </div>
 </section>
