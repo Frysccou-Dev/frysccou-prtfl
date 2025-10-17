@@ -39,7 +39,7 @@ export const translations = {
       current: 'Current',
       zatoBox: 'Full Stack & Cloud Solutions Architect',
       zatoBoxCompany: 'ZatoBox',
-      zatoBoxDate: 'October 2025 - Present',
+      zatoBoxDate: 'August 2025 - Present',
       zatoBoxDesc:
         'As a Full Stack Engineer and DevOps Lead, I oversee and optimize the entire software development lifecycle. I lead platform architecture from conception to deployment, ensuring each component is robust, scalable, and efficient. I specialize in integrating advanced data recognition systems and managing decentralized infrastructure. My primary focus is on streamlining workflows, reducing cloud costs, and continuously improving system resilience. I work closely with the team to define best practices, ensure code quality, and maintain an agile and reliable development environment. My contributions focus on delivering high-performance solutions that drive innovation and platform growth.',
       dragonPyramid: 'Dragon Pyramid - Internship',
@@ -223,7 +223,7 @@ export const translations = {
       current: 'Actual',
       zatoBox: 'Arquitecto Full Stack & Soluciones Cloud',
       zatoBoxCompany: 'ZatoBox',
-      zatoBoxDate: 'Octubre 2025 - Presente',
+      zatoBoxDate: 'Agosto 2025 - Presente',
       zatoBoxDesc:
         'Como Ingeniero Full Stack y Líder de DevOps, superviso y optimizo todo el ciclo de vida del desarrollo de software. Lidero la arquitectura de la plataforma desde la concepción hasta el despliegue, asegurando que cada componente sea robusto, escalable y eficiente. Me especializo en integrar sistemas avanzados de reconocimiento de datos y gestionar infraestructura descentralizada. Mi enfoque principal está en optimizar flujos de trabajo, reducir costos en la nube y mejorar continuamente la resiliencia del sistema. Trabajo estrechamente con el equipo para definir mejores prácticas, asegurar la calidad del código y mantener un entorno de desarrollo ágil y confiable. Mis contribuciones se centran en entregar soluciones de alto rendimiento que impulsen la innovación y el crecimiento de la plataforma.',
       dragonPyramid: 'Dragon Pyramid - Pasantía',
