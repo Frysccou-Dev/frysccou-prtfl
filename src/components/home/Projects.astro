@@ -16,6 +16,38 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 'liz',
+    titleKey: 'projects.liz.title',
+    subtitleKey: 'projects.liz.subtitle',
+    descKey: 'projects.liz.description',
+    featuresKey: 'projects.liz.features',
+    featureKeys: [
+      'projects.liz.feature1',
+      'projects.liz.feature2',
+      'projects.liz.feature3',
+      'projects.liz.feature4',
+    ],
+    techKey: 'projects.liz.tech',
+    urlKey: 'projects.liz.url',
+    gradient: 'from-pink-600 to-rose-800',
+  },
+  {
+    id: 'zatobox',
+    titleKey: 'projects.zatobox.title',
+    subtitleKey: 'projects.zatobox.subtitle',
+    descKey: 'projects.zatobox.description',
+    featuresKey: 'projects.zatobox.features',
+    featureKeys: [
+      'projects.zatobox.feature1',
+      'projects.zatobox.feature2',
+      'projects.zatobox.feature3',
+      'projects.zatobox.feature4',
+    ],
+    techKey: 'projects.zatobox.tech',
+    urlKey: 'projects.zatobox.url',
+    gradient: 'from-cyan-600 to-blue-800',
+  },
+  {
     id: 'portfolio',
     titleKey: 'projects.portfolio.title',
     subtitleKey: 'projects.portfolio.subtitle',
@@ -47,22 +79,7 @@ const projects: Project[] = [
     urlKey: 'projects.gymMaster.url',
     gradient: 'from-rose-600 to-red-800',
   },
-  {
-    id: 'zatobox',
-    titleKey: 'projects.zatobox.title',
-    subtitleKey: 'projects.zatobox.subtitle',
-    descKey: 'projects.zatobox.description',
-    featuresKey: 'projects.zatobox.features',
-    featureKeys: [
-      'projects.zatobox.feature1',
-      'projects.zatobox.feature2',
-      'projects.zatobox.feature3',
-      'projects.zatobox.feature4',
-    ],
-    techKey: 'projects.zatobox.tech',
-    urlKey: 'projects.zatobox.url',
-    gradient: 'from-cyan-600 to-blue-800',
-  },
+
   {
     id: 'zzyn',
     titleKey: 'projects.zzyn.title',
@@ -190,6 +207,7 @@ const techData: Record<string, Record<string, string[]>> = {
       'Secure Architecture',
       'Analytics',
     ],
+    'projects.liz.tech': ['Vue 3', 'Supabase', 'AniList API', 'GSAP'],
   },
   es: {
     'projects.portfolio.tech': ['Astro', 'TailwindCSS', 'i18n', 'TypeScript'],
@@ -235,6 +253,7 @@ const techData: Record<string, Record<string, string[]>> = {
       'Arquitectura Segura',
       'Análisis',
     ],
+    'projects.liz.tech': ['Vue 3', 'Supabase', 'AniList API', 'GSAP'],
   },
 };
 
@@ -247,6 +266,7 @@ const urlData: Record<string, string> = {
   'projects.xview.url': 'https://xview-f.vercel.app/',
   'projects.zynner.url': 'https://zynner-portfolio.vercel.app/',
   'projects.zynee.url': 'https://zynee.vercel.app/',
+  'projects.liz.url': 'https://liz-beth.vercel.app/',
 };
 
 function getTech(key: string): string[] {
@@ -276,7 +296,18 @@ function getUrl(key: string): string {
           const url = getUrl(project.urlKey);
           return (
             <div class='group h-full'>
-              <div class='relative h-full bg-white/70 backdrop-blur-sm border border-blue-100/50 rounded-3xl p-8 hover:border-blue-200/80 hover:shadow-lg transition-all duration-500 overflow-hidden'>
+              <div
+                class={`relative h-full bg-white/70 backdrop-blur-sm border rounded-3xl p-8 hover:shadow-lg transition-all duration-500 overflow-hidden ${
+                  ['liz', 'zatobox'].includes(project.id)
+                    ? 'border-amber-400/80 ring-2 ring-amber-400/20 shadow-amber-100'
+                    : 'border-blue-100/50 hover:border-blue-200/80'
+                }`}
+              >
+                {['liz', 'zatobox'].includes(project.id) && (
+                  <div class='absolute top-0 right-0 bg-gradient-to-bl from-amber-400 to-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl z-20 shadow-sm'>
+                    PREMIUM
+                  </div>
+                )}
                 <div
                   class={`absolute -top-1 -right-1 w-24 h-24 bg-gradient-to-br ${project.gradient} rounded-full blur-3xl opacity-10 group-hover:opacity-20 transition-opacity duration-500`}
                 />
