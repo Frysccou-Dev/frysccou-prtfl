@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import 'tailwindcss';
 
 @theme {
   --color-blue-50: #f4f7fb;
@@ -14,10 +14,42 @@
   --color-blue-800: #294563;
   --color-blue-900: #263b54;
   --color-blue-950: #1f2f44;
+  --color-dark-950: #0a0a0b;
+  --color-dark-900: #111113;
+  --color-dark-800: #18181b;
+  --color-dark-700: #27272a;
+  --color-dark-600: #3f3f46;
+}
+
+.ocean-bg {
+  background: radial-gradient(
+      70% 55% at 50% 50%,
+      #2a5d77 0%,
+      #184058 18%,
+      #0f2a43 34%,
+      #0a1b30 50%,
+      #071226 66%,
+      #040d1c 80%,
+      #020814 92%,
+      #01040d 97%,
+      #000309 100%
+    ),
+    radial-gradient(
+      160% 130% at 10% 10%,
+      rgba(0, 0, 0, 0) 38%,
+      #000309 76%,
+      #000208 100%
+    ),
+    radial-gradient(
+      160% 130% at 90% 90%,
+      rgba(0, 0, 0, 0) 38%,
+      #000309 76%,
+      #000208 100%
+    );
 }
 
 html {
-  font-family: Inter, sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -30,6 +62,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Lilita One", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 900;
 }

@@ -9,18 +9,20 @@ import LanguageSelectorFixed from '../components/ui/LanguageSelectorFixed.astro'
 
 <html lang={lang}>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Frysccou - Full Stack Dev | Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="/logo-brand.png" />
+    <link rel='icon' type='image/x-icon' href='/logo-brand.png' />
   </head>
-  <body class="min-h-screen flex flex-col bg-white">
-    <Navbar />
-    <main class="flex-1 w-full">
-      <slot />
+  <body class='min-h-screen flex flex-col'>
+    <main class='flex-1 w-full'>
+      <div class='ocean-bg'>
+        <Navbar />
+        <slot />
+        <Footer />
+      </div>
     </main>
     <LanguageSelectorFixed />
     <ScrollToTop />
-    <Footer />
   </body>
 </html>

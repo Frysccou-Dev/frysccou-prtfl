@@ -39,10 +39,15 @@ export const translations = {
       current: 'Current',
       zatoBox: 'Full Stack & Cloud Solutions Architect',
       zatoBoxCompany: 'ZatoBox',
-      zatoBoxDate: 'August 2025 - Present',
+      zatoBoxDate: 'August 2025 - December 2025',
       zatoBoxDesc:
         'As a Full Stack Engineer and DevOps Lead, I oversee and optimize the entire software development lifecycle. I lead platform architecture from conception to deployment, ensuring each component is robust, scalable, and efficient. I specialize in integrating advanced data recognition systems and managing decentralized infrastructure. My primary focus is on streamlining workflows, reducing cloud costs, and continuously improving system resilience. I work closely with the team to define best practices, ensure code quality, and maintain an agile and reliable development environment. My contributions focus on delivering high-performance solutions that drive innovation and platform growth.',
-      dragonPyramid: 'Dragon Pyramid - Internship',
+      tokenit: 'Full Stack Developer – Marketplace Platform',
+      tokenitCompany: 'Tokenit - Chile',
+      tokenitDate: 'December 2025 - Present',
+      tokenitDesc:
+        "Development and continuous improvement of Tokenit's real estate investment platform, focused on asset tokenization and investor experience. Implementing full features using React, Gatsby, Node.js (Meteor), GraphQL, and MongoDB. Optimizing user experience, documenting architecture, and stabilizing system functionalities. Collaborating on product improvement and migration to cloud infrastructure.",
+      dragonPyramid: 'Dragon Pyramid',
       dragonPyramidDate: 'June 2025 - October 2025',
       dragonPyramidDesc:
         'I worked on the Gym Master project as a Full Stack Developer with a focus on the Front-End at Dragon Pyramid. My responsibilities included developing modern and responsive interfaces using Next.js 14, TailwindCSS, and Shadcn UI, applying best design and accessibility practices. I implemented reusable components, fluid navigation, and an optimized user experience for desktop and mobile devices (PWA). I also participated in integrating functionalities such as authentication with NextAuth, real-time notifications, local storage with IndexedDB, and dynamic data visualization from Supabase. I worked closely with the UX/UI and Backend teams to achieve a functional, attractive, and scalable product.',
@@ -56,7 +61,7 @@ export const translations = {
       universityDesc:
         'Currently pursuing a degree in Systems Engineering, focusing on software development, algorithms, and system design.',
       frontendSpecialization: 'Frontend Specialization',
-      frontendSpecializationStatus: 'In Progress',
+      frontendSpecializationStatus: 'Finished',
     },
     home: {
       title: 'Featured Projects',
@@ -148,7 +153,7 @@ export const translations = {
         feature3: 'Responsive design & dark mode',
         feature4: 'JWT authentication system',
         tech: ['React', 'Glassmorphism', 'Framer Motion', 'JWT Auth'],
-        url: 'https://xview-f.vercel.app/',
+        url: 'https://xview.vercel.app/',
       },
       zynner: {
         title: 'Zynner Solutions Portfolio',
@@ -236,10 +241,15 @@ export const translations = {
       current: 'Actual',
       zatoBox: 'Arquitecto Full Stack & Soluciones Cloud',
       zatoBoxCompany: 'ZatoBox',
-      zatoBoxDate: 'Agosto 2025 - Presente',
+      zatoBoxDate: 'Agosto 2025 - Diciembre 2025',
       zatoBoxDesc:
         'Como Ingeniero Full Stack y Líder de DevOps, superviso y optimizo todo el ciclo de vida del desarrollo de software. Lidero la arquitectura de la plataforma desde la concepción hasta el despliegue, asegurando que cada componente sea robusto, escalable y eficiente. Me especializo en integrar sistemas avanzados de reconocimiento de datos y gestionar infraestructura descentralizada. Mi enfoque principal está en optimizar flujos de trabajo, reducir costos en la nube y mejorar continuamente la resiliencia del sistema. Trabajo estrechamente con el equipo para definir mejores prácticas, asegurar la calidad del código y mantener un entorno de desarrollo ágil y confiable. Mis contribuciones se centran en entregar soluciones de alto rendimiento que impulsen la innovación y el crecimiento de la plataforma.',
-      dragonPyramid: 'Dragon Pyramid - Pasantía',
+      tokenit: 'Desarrollador Full Stack – Plataforma Marketplace',
+      tokenitCompany: 'Tokenit - Chile',
+      tokenitDate: 'Diciembre 2025 - Actualidad',
+      tokenitDesc:
+        'Desarrollo y mejora continua de la plataforma de inversión inmobiliaria de Tokenit, centrada en la tokenización de activos y en la experiencia del inversionista. Implementación de features completas en React, Gatsby, Node.js con Meteor, GraphQL y MongoDB. Optimización de la experiencia del usuario, documentación de la arquitectura, y estabilización de funcionalidades del sistema. Trabajo colaborativo para la mejora del producto y migración a infraestructura cloud.',
+      dragonPyramid: 'Dragon Pyramid',
       dragonPyramidDate: 'Junio 2025 - Octubre 2025',
       dragonPyramidDesc:
         'Trabajé en el proyecto Gym Master como Desarrollador Full Stack con enfoque en Front-End en Dragon Pyramid. Mis responsabilidades incluían desarrollar interfaces modernas y responsivas usando Next.js 14, TailwindCSS y Shadcn UI, aplicando las mejores prácticas de diseño y accesibilidad. Implementé componentes reutilizables, navegación fluida y una experiencia de usuario optimizada para dispositivos desktop y móviles (PWA). También participé en la integración de funcionalidades como autenticación con NextAuth, notificaciones en tiempo real, almacenamiento local con IndexedDB y visualización dinámica de datos desde Supabase. Trabajé estrechamente con los equipos de UX/UI y Backend para lograr un producto funcional, atractivo y escalable.',
@@ -253,7 +263,7 @@ export const translations = {
       universityDesc:
         'Actualmente cursando la carrera de Ingeniería en Sistemas, profundizando en desarrollo de software, algoritmos, diseño de sistemas, participando en proyectos prácticos, colaborando en equipos multidisciplinarios y aplicando soluciones tecnológicas a problemas reales. Me involucro activamente en actividades académicas y extracurriculares para potenciar mis habilidades técnicas y de trabajo en equipo.',
       frontendSpecialization: 'Especialización en Frontend',
-      frontendSpecializationStatus: 'En curso',
+      frontendSpecializationStatus: 'Completado',
     },
     home: {
       title: 'Proyectos Destacados',
@@ -345,7 +355,7 @@ export const translations = {
         feature3: 'Diseño responsive y modo oscuro',
         feature4: 'Sistema de autenticación JWT',
         tech: ['React', 'Glassmorphism', 'Framer Motion', 'JWT Auth'],
-        url: 'https://xview-f.vercel.app/',
+        url: 'https://xview.vercel.app/',
       },
       zynner: {
         title: 'Zynner Solutions Portfolio',

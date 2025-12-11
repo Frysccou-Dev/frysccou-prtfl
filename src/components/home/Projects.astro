@@ -9,9 +9,10 @@ interface Project {
   descKey: string;
   featuresKey: string;
   featureKeys: string[];
-  techKey: string;
+  image: string;
   urlKey: string;
   gradient: string;
+  techKey: string;
 }
 
 const projects: Project[] = [
@@ -27,9 +28,10 @@ const projects: Project[] = [
       'projects.liz.feature3',
       'projects.liz.feature4',
     ],
-    techKey: 'projects.liz.tech',
+    image: '/projects/liz.png',
     urlKey: 'projects.liz.url',
     gradient: 'from-pink-600 to-rose-800',
+    techKey: 'projects.liz.tech',
   },
   {
     id: 'zatobox',
@@ -43,9 +45,10 @@ const projects: Project[] = [
       'projects.zatobox.feature3',
       'projects.zatobox.feature4',
     ],
-    techKey: 'projects.zatobox.tech',
+    image: '/projects/zatobox.png',
     urlKey: 'projects.zatobox.url',
     gradient: 'from-cyan-600 to-blue-800',
+    techKey: 'projects.zatobox.tech',
   },
   {
     id: 'portfolio',
@@ -59,9 +62,10 @@ const projects: Project[] = [
       'projects.portfolio.feature3',
       'projects.portfolio.feature4',
     ],
-    techKey: 'projects.portfolio.tech',
+    image: '/projects/portfolio.png',
     urlKey: 'projects.portfolio.url',
     gradient: 'from-purple-600 to-purple-800',
+    techKey: 'projects.portfolio.tech',
   },
   {
     id: 'gymMaster',
@@ -75,11 +79,11 @@ const projects: Project[] = [
       'projects.gymMaster.feature3',
       'projects.gymMaster.feature4',
     ],
-    techKey: 'projects.gymMaster.tech',
+    image: '/projects/gym-master.jpg',
     urlKey: 'projects.gymMaster.url',
     gradient: 'from-rose-600 to-red-800',
+    techKey: 'projects.gymMaster.tech',
   },
-
   {
     id: 'zzyn',
     titleKey: 'projects.zzyn.title',
@@ -92,9 +96,10 @@ const projects: Project[] = [
       'projects.zzyn.feature3',
       'projects.zzyn.feature4',
     ],
-    techKey: 'projects.zzyn.tech',
+    image: '/projects/zzyn.png',
     urlKey: 'projects.zzyn.url',
     gradient: 'from-amber-600 to-orange-800',
+    techKey: 'projects.zzyn.tech',
   },
   {
     id: 'bycarket',
@@ -108,9 +113,10 @@ const projects: Project[] = [
       'projects.bycarket.feature3',
       'projects.bycarket.feature4',
     ],
-    techKey: 'projects.bycarket.tech',
+    image: '/projects/bycarket.jpg',
     urlKey: 'projects.bycarket.url',
     gradient: 'from-blue-600 to-indigo-800',
+    techKey: 'projects.bycarket.tech',
   },
   {
     id: 'xview',
@@ -124,9 +130,10 @@ const projects: Project[] = [
       'projects.xview.feature3',
       'projects.xview.feature4',
     ],
-    techKey: 'projects.xview.tech',
+    image: '/projects/xview.jpg',
     urlKey: 'projects.xview.url',
     gradient: 'from-indigo-600 to-purple-800',
+    techKey: 'projects.xview.tech',
   },
   {
     id: 'zynner',
@@ -140,9 +147,10 @@ const projects: Project[] = [
       'projects.zynner.feature3',
       'projects.zynner.feature4',
     ],
-    techKey: 'projects.zynner.tech',
+    image: '/projects/zynner-solutions.png',
     urlKey: 'projects.zynner.url',
     gradient: 'from-emerald-600 to-emerald-800',
+    techKey: 'projects.zynner.tech',
   },
   {
     id: 'zynee',
@@ -156,9 +164,10 @@ const projects: Project[] = [
       'projects.zynee.feature3',
       'projects.zynee.feature4',
     ],
-    techKey: 'projects.zynee.tech',
+    image: '/projects/zynee.png',
     urlKey: 'projects.zynee.url',
     gradient: 'from-teal-600 to-cyan-800',
+    techKey: 'projects.zynee.tech',
   },
 ];
 
@@ -263,10 +272,23 @@ const urlData: Record<string, string> = {
   'projects.zatobox.url': 'https://zatobox.io/',
   'projects.zzyn.url': 'https://zzyn.vercel.app/',
   'projects.bycarket.url': 'https://bycarket-front-main.vercel.app/home',
-  'projects.xview.url': 'https://xview-f.vercel.app/',
+  'projects.xview.url': 'https://xview.vercel.app/',
   'projects.zynner.url': 'https://zynner-portfolio.vercel.app/',
   'projects.zynee.url': 'https://zynee.vercel.app/',
   'projects.liz.url': 'https://liz-beth.vercel.app/',
+};
+
+const repoData: Record<string, string> = {
+  'projects.portfolio.repo': 'https://github.com/Frysccou-Dev/frysccou-prtfl',
+  'projects.zatobox.repo': 'https://github.com/ZatoBox/main',
+  'projects.gymMaster.repo': 'https://github.com/Dragon-Pyramid/gym-master',
+  'projects.liz.repo': 'https://github.com/Frysccou-Dev/liz',
+  'projects.zynner.repo':
+    'https://github.com/Zynner-Solutions/zynner-portfolio',
+  'projects.zzyn.repo': 'https://github.com/Frysccou-Dev/zzyn',
+  'projects.xview.repo': 'https://github.com/Frysccou-Dev/Xview',
+  'projects.zynee.repo': 'https://github.com/Zynner-Solutions/Zynee',
+  'projects.bycarket.repo': 'https://github.com/ByCarket/bycarket--front',
 };
 
 function getTech(key: string): string[] {
@@ -276,124 +298,381 @@ function getTech(key: string): string[] {
 function getUrl(key: string): string {
   return urlData[key] || '#';
 }
+
+function getRepo(id: string): string {
+  return repoData[`projects.${id}.repo`] || '#';
+}
+
+function isLarge(index: number): boolean {
+  return index % 3 === 0;
+}
 ---
 
-<section id='proyectos' class='min-h-screen bg-blue-50 py-20'>
-  <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+<section id='proyectos' class='min-h-screen py-24 relative'>
+  <div class='max-w-[1600px] mx-auto px-6 sm:px-8 lg:px-12 relative z-10'>
     <div class='text-center mb-20'>
-      <h2 class='text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-950 mb-6'>
+      <h2 class='text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6'>
         {getTranslation(lang, 'home.title')}
       </h2>
-      <p class='text-lg text-blue-700 max-w-3xl mx-auto'>
+      <p class='text-lg text-blue-300 max-w-3xl mx-auto'>
         {getTranslation(lang, 'home.subtitle')}
       </p>
     </div>
 
-    <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+    <div class='space-y-8'>
       {
-        projects.map((project) => {
+        projects.map((project, index) => {
           const tech = getTech(project.techKey);
           const url = getUrl(project.urlKey);
-          return (
-            <div class='group h-full'>
-              <div
-                class={`relative h-full bg-white/70 backdrop-blur-sm border rounded-3xl p-8 hover:shadow-lg transition-all duration-500 overflow-hidden ${
-                  ['liz', 'zatobox'].includes(project.id)
-                    ? 'border-amber-400/80 ring-2 ring-amber-400/20 shadow-amber-100'
-                    : 'border-blue-100/50 hover:border-blue-200/80'
-                }`}
-              >
-                {['liz', 'zatobox'].includes(project.id) && (
-                  <div class='absolute top-0 right-0 bg-gradient-to-bl from-amber-400 to-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl z-20 shadow-sm'>
-                    PREMIUM
-                  </div>
-                )}
-                <div
-                  class={`absolute -top-1 -right-1 w-24 h-24 bg-gradient-to-br ${project.gradient} rounded-full blur-3xl opacity-10 group-hover:opacity-20 transition-opacity duration-500`}
-                />
+          const repoUrl = getRepo(project.id);
+          const large = isLarge(index);
+          const isPremium = ['liz', 'zatobox'].includes(project.id);
+          const isStartOfPair = index % 3 === 1;
+          const isEndOfPair = index % 3 === 2;
+          const nextProject = isStartOfPair ? projects[index + 1] : null;
 
-                <div class='relative z-10'>
-                  <div
-                    class={`w-14 h-14 bg-gradient-to-br ${project.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
-                  >
-                    <svg
-                      class='w-7 h-7 text-white'
-                      fill='none'
-                      stroke='currentColor'
-                      viewBox='0 0 24 24'
+          if (isEndOfPair) return null;
+
+          if (large) {
+            return (
+              <div class='bg-dark-800 border border-dark-600 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:border-blue-600 transition-all duration-300'>
+                <div class='grid grid-cols-1 lg:grid-cols-2'>
+                  <div class='relative h-[300px] sm:h-[350px] lg:h-[450px] overflow-hidden'>
+                    <img
+                      src={project.image}
+                      alt={`${project.id} project preview`}
+                      class='w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500'
+                      loading='lazy'
+                    />
+                    {isPremium && (
+                      <div class='absolute top-4 left-4 bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded'>
+                        PREMIUM
+                      </div>
+                    )}
+                  </div>
+
+                  <div class='p-8 lg:p-10 flex flex-col justify-center'>
+                    <div class='mb-4'>
+                      <h3 class='text-2xl sm:text-3xl font-bold text-white mb-2'>
+                        {getTranslation(lang, project.titleKey)}
+                      </h3>
+                      <p class='text-sm font-semibold text-blue-400'>
+                        {getTranslation(lang, project.subtitleKey)}
+                      </p>
+                    </div>
+
+                    <p
+                      class='text-dark-600 text-sm leading-relaxed mb-6'
+                      style='color: #a1a1aa;'
                     >
-                      <path
-                        stroke-linecap='round'
-                        stroke-linejoin='round'
-                        stroke-width='2'
-                        d='M13 10V3L4 14h7v7l9-11h-7z'
-                      />
-                    </svg>
-                  </div>
+                      {getTranslation(lang, project.descKey)}
+                    </p>
 
-                  <h3 class='text-2xl font-bold text-blue-950 mb-2'>
-                    {getTranslation(lang, project.titleKey)}
-                  </h3>
+                    <div class='mb-6'>
+                      <h4 class='text-xs font-bold text-blue-300 uppercase tracking-wider mb-3'>
+                        {getTranslation(lang, project.featuresKey)}
+                      </h4>
+                      <ul class='grid grid-cols-1 sm:grid-cols-2 gap-2'>
+                        {project.featureKeys.map((featureKey) => (
+                          <li
+                            class='flex items-start gap-2 text-sm'
+                            style='color: #a1a1aa;'
+                          >
+                            <svg
+                              class='w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0'
+                              fill='none'
+                              stroke='currentColor'
+                              viewBox='0 0 24 24'
+                            >
+                              <path
+                                stroke-linecap='round'
+                                stroke-linejoin='round'
+                                stroke-width='2'
+                                d='M5 13l4 4L19 7'
+                              />
+                            </svg>
+                            <span>{getTranslation(lang, featureKey)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                  <p
-                    class={`text-sm font-semibold mb-4 bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent`}
-                  >
-                    {getTranslation(lang, project.subtitleKey)}
-                  </p>
-
-                  <p class='text-blue-700 text-sm leading-relaxed mb-6'>
-                    {getTranslation(lang, project.descKey)}
-                  </p>
-
-                  <div class='mb-6'>
-                    <h4 class='text-xs font-bold text-blue-900 uppercase tracking-wider mb-3'>
-                      {getTranslation(lang, project.featuresKey)}
-                    </h4>
-                    <ul class='space-y-2'>
-                      {project.featureKeys.map((featureKey) => (
-                        <li class='flex items-start gap-2 text-xs text-blue-800'>
-                          <span
-                            class={`mt-1.5 w-1.5 h-1.5 bg-gradient-to-br ${project.gradient} rounded-full flex-shrink-0`}
-                          />
-                          <span>{getTranslation(lang, featureKey)}</span>
-                        </li>
+                    <div class='flex flex-wrap gap-2 mb-6'>
+                      {tech.map((t) => (
+                        <span class='px-3 py-1 text-xs font-medium text-blue-300 bg-dark-700 border border-dark-600 rounded'>
+                          {t}
+                        </span>
                       ))}
-                    </ul>
-                  </div>
+                    </div>
 
-                  <div class='flex flex-wrap gap-2 mb-6'>
-                    {tech.map((t) => (
-                      <span class='px-2.5 py-1 text-xs font-medium text-blue-900 bg-blue-100/60 rounded-lg border border-blue-200/50'>
-                        {t}
-                      </span>
-                    ))}
+                    <div class='flex flex-wrap gap-3'>
+                      <a
+                        href={url}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        class='inline-flex items-center gap-2 bg-blue-500 text-white px-5 py-2.5 rounded font-medium text-sm hover:bg-blue-400 transition-colors duration-200'
+                      >
+                        {getTranslation(lang, 'home.viewLiveSite')}
+                        <svg
+                          class='w-4 h-4'
+                          fill='none'
+                          stroke='currentColor'
+                          viewBox='0 0 24 24'
+                        >
+                          <path
+                            stroke-linecap='round'
+                            stroke-linejoin='round'
+                            stroke-width='2'
+                            d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
+                          />
+                        </svg>
+                      </a>
+                      {repoUrl !== '#' && (
+                        <a
+                          href={repoUrl}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          class='inline-flex items-center gap-2 bg-dark-700 text-white px-5 py-2.5 rounded font-medium text-sm hover:bg-dark-600 border border-dark-600 transition-colors duration-200'
+                        >
+                          GitHub
+                          <svg
+                            class='w-4 h-4'
+                            fill='currentColor'
+                            viewBox='0 0 24 24'
+                          >
+                            <path
+                              fill-rule='evenodd'
+                              d='M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z'
+                              clip-rule='evenodd'
+                            />
+                          </svg>
+                        </a>
+                      )}
+                    </div>
                   </div>
-
-                  <a
-                    href={url}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    class={`inline-flex items-center gap-2 bg-gradient-to-r ${project.gradient} hover:shadow-lg text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 w-full justify-center`}
-                  >
-                    <span>{getTranslation(lang, 'home.viewLiveSite')}</span>
-                    <svg
-                      class='w-4 h-4'
-                      fill='none'
-                      stroke='currentColor'
-                      viewBox='0 0 24 24'
-                    >
-                      <path
-                        stroke-linecap='round'
-                        stroke-linejoin='round'
-                        stroke-width='2'
-                        d='M13 7l5 5m0 0l-5 5m5-5H6'
-                      />
-                    </svg>
-                  </a>
                 </div>
               </div>
-            </div>
-          );
+            );
+          }
+
+          if (isStartOfPair && nextProject) {
+            const nextTech = getTech(nextProject.techKey);
+            const nextUrl = getUrl(nextProject.urlKey);
+            const nextRepoUrl = getRepo(nextProject.id);
+            const nextIsPremium = ['liz', 'zatobox'].includes(nextProject.id);
+
+            return (
+              <div class='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                <div class='bg-dark-800 border border-dark-600 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:border-blue-600 transition-all duration-300'>
+                  <div class='relative h-[220px] sm:h-[260px] overflow-hidden'>
+                    <img
+                      src={project.image}
+                      alt={`${project.id} project preview`}
+                      class='w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500'
+                      loading='lazy'
+                    />
+                    {isPremium && (
+                      <div class='absolute top-4 left-4 bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded'>
+                        PREMIUM
+                      </div>
+                    )}
+                  </div>
+
+                  <div class='p-6'>
+                    <div class='mb-3'>
+                      <h3 class='text-xl font-bold text-white mb-1'>
+                        {getTranslation(lang, project.titleKey)}
+                      </h3>
+                      <p class='text-xs font-semibold text-blue-400'>
+                        {getTranslation(lang, project.subtitleKey)}
+                      </p>
+                    </div>
+
+                    <p
+                      class='text-sm leading-relaxed mb-4 line-clamp-3'
+                      style='color: #a1a1aa;'
+                    >
+                      {getTranslation(lang, project.descKey)}
+                    </p>
+
+                    <div class='mb-4'>
+                      <ul class='space-y-1.5'>
+                        {project.featureKeys.slice(0, 2).map((featureKey) => (
+                          <li
+                            class='flex items-start gap-2 text-xs'
+                            style='color: #a1a1aa;'
+                          >
+                            <svg
+                              class='w-3.5 h-3.5 text-blue-400 mt-0.5 flex-shrink-0'
+                              fill='none'
+                              stroke='currentColor'
+                              viewBox='0 0 24 24'
+                            >
+                              <path
+                                stroke-linecap='round'
+                                stroke-linejoin='round'
+                                stroke-width='2'
+                                d='M5 13l4 4L19 7'
+                              />
+                            </svg>
+                            <span>{getTranslation(lang, featureKey)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div class='flex flex-wrap gap-1.5 mb-5'>
+                      {tech.slice(0, 4).map((t) => (
+                        <span class='px-2 py-0.5 text-xs font-medium text-blue-300 bg-dark-700 border border-dark-600 rounded'>
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div class='flex gap-2'>
+                      <a
+                        href={url}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        class='inline-flex items-center gap-1.5 bg-blue-500 text-white px-4 py-2 rounded font-medium text-xs hover:bg-blue-400 transition-colors duration-200'
+                      >
+                        {getTranslation(lang, 'home.viewLiveSite')}
+                        <svg
+                          class='w-3.5 h-3.5'
+                          fill='none'
+                          stroke='currentColor'
+                          viewBox='0 0 24 24'
+                        >
+                          <path
+                            stroke-linecap='round'
+                            stroke-linejoin='round'
+                            stroke-width='2'
+                            d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
+                          />
+                        </svg>
+                      </a>
+                      {repoUrl !== '#' && (
+                        <a
+                          href={repoUrl}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          class='inline-flex items-center gap-1.5 bg-dark-700 text-white px-4 py-2 rounded font-medium text-xs hover:bg-dark-600 border border-dark-600 transition-colors duration-200'
+                        >
+                          GitHub
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div class='bg-dark-800 border border-dark-600 rounded-lg overflow-hidden shadow-lg hover:shadow-2xl hover:border-blue-600 transition-all duration-300'>
+                  <div class='relative h-[220px] sm:h-[260px] overflow-hidden'>
+                    <img
+                      src={nextProject.image}
+                      alt={`${nextProject.id} project preview`}
+                      class='w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500'
+                      loading='lazy'
+                    />
+                    {nextIsPremium && (
+                      <div class='absolute top-4 left-4 bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded'>
+                        PREMIUM
+                      </div>
+                    )}
+                  </div>
+
+                  <div class='p-6'>
+                    <div class='mb-3'>
+                      <h3 class='text-xl font-bold text-white mb-1'>
+                        {getTranslation(lang, nextProject.titleKey)}
+                      </h3>
+                      <p class='text-xs font-semibold text-blue-400'>
+                        {getTranslation(lang, nextProject.subtitleKey)}
+                      </p>
+                    </div>
+
+                    <p
+                      class='text-sm leading-relaxed mb-4 line-clamp-3'
+                      style='color: #a1a1aa;'
+                    >
+                      {getTranslation(lang, nextProject.descKey)}
+                    </p>
+
+                    <div class='mb-4'>
+                      <ul class='space-y-1.5'>
+                        {nextProject.featureKeys
+                          .slice(0, 2)
+                          .map((featureKey) => (
+                            <li
+                              class='flex items-start gap-2 text-xs'
+                              style='color: #a1a1aa;'
+                            >
+                              <svg
+                                class='w-3.5 h-3.5 text-blue-400 mt-0.5 flex-shrink-0'
+                                fill='none'
+                                stroke='currentColor'
+                                viewBox='0 0 24 24'
+                              >
+                                <path
+                                  stroke-linecap='round'
+                                  stroke-linejoin='round'
+                                  stroke-width='2'
+                                  d='M5 13l4 4L19 7'
+                                />
+                              </svg>
+                              <span>{getTranslation(lang, featureKey)}</span>
+                            </li>
+                          ))}
+                      </ul>
+                    </div>
+
+                    <div class='flex flex-wrap gap-1.5 mb-5'>
+                      {nextTech.slice(0, 4).map((t) => (
+                        <span class='px-2 py-0.5 text-xs font-medium text-blue-300 bg-dark-700 border border-dark-600 rounded'>
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div class='flex gap-2'>
+                      <a
+                        href={nextUrl}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        class='inline-flex items-center gap-1.5 bg-blue-500 text-white px-4 py-2 rounded font-medium text-xs hover:bg-blue-400 transition-colors duration-200'
+                      >
+                        {getTranslation(lang, 'home.viewLiveSite')}
+                        <svg
+                          class='w-3.5 h-3.5'
+                          fill='none'
+                          stroke='currentColor'
+                          viewBox='0 0 24 24'
+                        >
+                          <path
+                            stroke-linecap='round'
+                            stroke-linejoin='round'
+                            stroke-width='2'
+                            d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'
+                          />
+                        </svg>
+                      </a>
+                      {nextRepoUrl !== '#' && (
+                        <a
+                          href={nextRepoUrl}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          class='inline-flex items-center gap-1.5 bg-dark-700 text-white px-4 py-2 rounded font-medium text-xs hover:bg-dark-600 border border-dark-600 transition-colors duration-200'
+                        >
+                          GitHub
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+
+          return null;
         })
       }
     </div>
