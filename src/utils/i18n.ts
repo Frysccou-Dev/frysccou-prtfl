@@ -42,11 +42,11 @@ export const translations = {
       zatoBoxDate: 'August 2025 - December 2025',
       zatoBoxDesc:
         'As a Full Stack Engineer and DevOps Lead, I oversee and optimize the entire software development lifecycle. I lead platform architecture from conception to deployment, ensuring each component is robust, scalable, and efficient. I specialize in integrating advanced data recognition systems and managing decentralized infrastructure. My primary focus is on streamlining workflows, reducing cloud costs, and continuously improving system resilience. I work closely with the team to define best practices, ensure code quality, and maintain an agile and reliable development environment. My contributions focus on delivering high-performance solutions that drive innovation and platform growth.',
-      tokenit: 'Full Stack Developer – Marketplace Platform',
-      tokenitCompany: 'Tokenit - Chile',
-      tokenitDate: 'December 2025 - Present',
-      tokenitDesc:
-        "Development and continuous improvement of Tokenit's real estate investment platform, focused on asset tokenization and investor experience. Implementing full features using React, Gatsby, Node.js (Meteor), GraphQL, and MongoDB. Optimizing user experience, documenting architecture, and stabilizing system functionalities. Collaborating on product improvement and migration to cloud infrastructure.",
+      niuro: 'Full Stack Developer - Marketplace Platform',
+      niuroCompany: 'Niuro',
+      niuroDate: 'December 2025 - Present',
+      niuroDesc:
+        "Working as a Full Stack Developer building custom web solutions for diverse clients across different industries. Implementing modern architectures using React, Next.js, Node.js, TypeScript, and cloud services. Collaborating on scalable projects with technologies like GraphQL, MongoDB, PostgreSQL, and AWS. Focused on delivering high-quality, maintainable code while adapting to each client's unique requirements and business needs.",
       dragonPyramid: 'Dragon Pyramid',
       dragonPyramidDate: 'June 2025 - October 2025',
       dragonPyramidDesc:
@@ -244,11 +244,11 @@ export const translations = {
       zatoBoxDate: 'Agosto 2025 - Diciembre 2025',
       zatoBoxDesc:
         'Como Ingeniero Full Stack y Líder de DevOps, superviso y optimizo todo el ciclo de vida del desarrollo de software. Lidero la arquitectura de la plataforma desde la concepción hasta el despliegue, asegurando que cada componente sea robusto, escalable y eficiente. Me especializo en integrar sistemas avanzados de reconocimiento de datos y gestionar infraestructura descentralizada. Mi enfoque principal está en optimizar flujos de trabajo, reducir costos en la nube y mejorar continuamente la resiliencia del sistema. Trabajo estrechamente con el equipo para definir mejores prácticas, asegurar la calidad del código y mantener un entorno de desarrollo ágil y confiable. Mis contribuciones se centran en entregar soluciones de alto rendimiento que impulsen la innovación y el crecimiento de la plataforma.',
-      tokenit: 'Desarrollador Full Stack – Plataforma Marketplace',
-      tokenitCompany: 'Tokenit - Chile',
-      tokenitDate: 'Diciembre 2025 - Actualidad',
-      tokenitDesc:
-        'Desarrollo y mejora continua de la plataforma de inversión inmobiliaria de Tokenit, centrada en la tokenización de activos y en la experiencia del inversionista. Implementación de features completas en React, Gatsby, Node.js con Meteor, GraphQL y MongoDB. Optimización de la experiencia del usuario, documentación de la arquitectura, y estabilización de funcionalidades del sistema. Trabajo colaborativo para la mejora del producto y migración a infraestructura cloud.',
+      niuro: 'Desarrollador Full Stack - Marketplace Platform',
+      niuroCompany: 'Niuro',
+      niuroDate: 'Diciembre 2025 - Actualidad',
+      niuroDesc:
+        'Trabajo como Desarrollador Full Stack construyendo soluciones web personalizadas para diversos clientes en distintas industrias. Implementando arquitecturas modernas con React, Next.js, Node.js, TypeScript y servicios cloud. Colaborando en proyectos escalables con tecnologías como GraphQL, MongoDB, PostgreSQL y AWS. Enfocado en entregar código de alta calidad y mantenible, adaptándome a los requerimientos únicos y necesidades de negocio de cada cliente.',
       dragonPyramid: 'Dragon Pyramid',
       dragonPyramidDate: 'Junio 2025 - Octubre 2025',
       dragonPyramidDesc:
