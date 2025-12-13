@@ -8,6 +8,12 @@ export const en = {
   sections: {
     selectedWorks: "Selected Works",
     studies: "Studies",
+    techStack: "Tech Stack",
+    mainStack: "Main Stack",
+    frontend: "Frontend",
+    backend: "Backend",
+    databases: "Databases",
+    tools: "Tools & Others",
   },
   studies: [
     {

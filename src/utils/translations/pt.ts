@@ -8,6 +8,12 @@ export const pt = {
   sections: {
     selectedWorks: "Trabalhos Selecionados",
     studies: "Estudos",
+    techStack: "Stack Tecnológico",
+    mainStack: "Stack Principal",
+    frontend: "Frontend",
+    backend: "Backend",
+    databases: "Bancos de Dados",
+    tools: "Ferramentas e Outros",
   },
   studies: [
     {
