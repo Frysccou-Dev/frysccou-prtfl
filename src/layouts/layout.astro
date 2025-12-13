@@ -1,28 +1,33 @@
 ---
-import '../styles/global.css';
-const { lang } = Astro.props;
-import Navbar from '../components/layout/Navbar.astro';
-import Footer from '../components/layout/Footer.astro';
-import ScrollToTop from '../components/core/ScrollToTop.astro';
-import LanguageSelectorFixed from '../components/ui/LanguageSelectorFixed.astro';
+import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
+import Navbar from "../components/layout/navbar.astro";
+import Footer from "../components/layout/footer.astro";
+import LanguageSelector from "../components/layout/LanguageSelector.astro";
+
+interface Props {
+  lang?: "en" | "es" | "pt";
+}
+
+const { lang = "en" } = Astro.props;
 ---
 
 <html lang={lang}>
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <title>Frysccou - Full Stack Dev | Portfolio</title>
-    <link rel='icon' type='image/x-icon' href='/logo-brand.png' />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esspindola - Full Stack</title>
+    <link rel="icon" type="image/x-icon" href="/logo-brand.png" />
+    <ViewTransitions />
   </head>
-  <body class='min-h-screen flex flex-col'>
-    <main class='flex-1 w-full'>
-      <div class='ocean-bg'>
-        <Navbar />
+  <body class="min-h-screen flex flex-col">
+    <main class="flex-1 w-full">
+      <div class="ocean-bg">
+        <Navbar lang={lang} />
         <slot />
         <Footer />
       </div>
     </main>
-    <LanguageSelectorFixed />
-    <ScrollToTop />
+    <LanguageSelector currentLang={lang} />
   </body>
 </html>

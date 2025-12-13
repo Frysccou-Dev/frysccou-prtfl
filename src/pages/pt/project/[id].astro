@@ -1,0 +1,270 @@
+---
+import { ArrowLeft, ExternalLink } from "lucide-astro";
+import { pt } from "../../../utils/translations/pt";
+import { ViewTransitions } from "astro:transitions";
+import LanguageSelector from "../../../components/layout/LanguageSelector.astro";
+
+export function getStaticPaths() {
+  return pt.projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const t = pt.projectDetail;
+const lang = "pt";
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{project.title} - Esspindola</title>
+    <link rel="icon" type="image/x-icon" href="/logo-brand.png" />
+    <ViewTransitions />
+  </head>
+  <body>
+    <main class="project-detail">
+      <a href="/pt" class="back-link" transition:animate="slide">
+        <ArrowLeft size={18} />
+        <span>{t.backToHome}</span>
+      </a>
+
+      <div class="project-header" transition:animate="fade">
+        <span class="project-year">{project.year}</span>
+        <h1 class="project-title">{project.title}</h1>
+        <p class="project-subtitle">{project.subtitle}</p>
+      </div>
+
+      <div class="project-content">
+        <div class="project-image-container" transition:animate="slide">
+          <img
+            src={project.image}
+            alt={project.title}
+            class="project-image"
+            transition:name={`project-image-${project.id}`}
+          />
+        </div>
+
+        <div class="project-info" transition:animate="fade">
+          <p class="project-description">{project.description}</p>
+
+          <div class="technologies-section">
+            <h3>{t.technologies}</h3>
+            <div class="tech-list">
+              {
+                project.tech.map((tech: string) => (
+                  <span class="tech-pill">{tech}</span>
+                ))
+              }
+            </div>
+          </div>
+
+          {
+            project.url && project.url !== "#" && (
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="visit-link"
+              >
+                <span>Visitar Projeto</span>
+                <ExternalLink size={16} />
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </main>
+    <LanguageSelector currentLang={lang} />
+  </body>
+</html>
+
+<style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+  @font-face {
+    font-family: "Gokil";
+    src: url("/fonts/Gokil.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Format";
+    src: url("/fonts/format.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Magna";
+    src: url("/fonts/magna.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Format", sans-serif;
+    background: #263b54;
+    min-height: 100vh;
+    color: white;
+  }
+</style>
+
+<style>
+  .project-detail {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem;
+    min-height: 100vh;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    font-family: "Magna", sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+  }
+
+  .back-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+  }
+
+  .project-header {
+    margin-bottom: 3rem;
+  }
+
+  .project-year {
+    font-family: "Magna", sans-serif;
+    font-size: 1rem;
+    color: white;
+    opacity: 0.7;
+  }
+
+  .project-title {
+    font-family: "Gokil", sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    color: #263b54;
+    -webkit-text-stroke: 1px white;
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+  }
+
+  .project-subtitle {
+    font-family: "Magna", sans-serif;
+    font-size: 1.2rem;
+    color: white;
+  }
+
+  .project-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .project-image-container {
+    position: sticky;
+    top: 3rem;
+  }
+
+  .project-image {
+    width: 100%;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .project-description {
+    font-family: "Format", sans-serif;
+    font-size: 1.1rem;
+    color: white;
+    line-height: 1.8;
+  }
+
+  .technologies-section h3 {
+    font-family: "Magna", sans-serif;
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-pill {
+    font-family: "Magna", sans-serif;
+    font-size: 0.8rem;
+    color: white;
+    background: #263b54;
+    border: 1px solid white;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+  }
+
+  .visit-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #263b54;
+    background: white;
+    text-decoration: none;
+    font-family: "Magna", sans-serif;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid white;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    width: fit-content;
+  }
+
+  .visit-link:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 900px) {
+    .project-detail {
+      padding: 2rem 1.5rem;
+    }
+
+    .project-content {
+      grid-template-columns: 1fr;
+    }
+
+    .project-image-container {
+      position: static;
+    }
+  }
+</style>
