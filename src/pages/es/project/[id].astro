@@ -3,6 +3,7 @@ import { ArrowLeft, ExternalLink } from "lucide-astro";
 import { es } from "../../../utils/translations/es";
 import { ViewTransitions } from "astro:transitions";
 import LanguageSelector from "../../../components/layout/LanguageSelector.astro";
+import PageLoader from "../../../components/layout/PageLoader.astro";
 
 export function getStaticPaths() {
   return es.projects.map((project) => ({
@@ -26,6 +27,7 @@ const lang = "es";
     <ViewTransitions />
   </head>
   <body>
+    <PageLoader lang="es" />
     <main class="project-detail">
       <a href="/es" class="back-link" transition:animate="slide">
         <ArrowLeft size={18} />

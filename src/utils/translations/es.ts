@@ -7,7 +7,42 @@ export const es = {
   },
   sections: {
     selectedWorks: "Trabajos Seleccionados",
+    studies: "Estudios",
   },
+  studies: [
+    {
+      title: "Desarrollo Web y Móvil",
+      institution: "ISSD - Instituto Superior Santo Domingo",
+      year: "Enero 2025 - Presente",
+      icon: "/student/issd.png",
+      description:
+        "Actualmente cursando la tecnicatura en desarrollo web y aplicaciones móviles, cubriendo Java, JavaScript, PostgreSQL, MongoDB, MySQL, AWS, TypeScript, Docker y Shell scripting.",
+    },
+    {
+      title: "Carrera Full Stack Developer",
+      institution: "Coderhouse",
+      year: "Agosto 2024 - Febrero 2025",
+      icon: "/student/coderhouse.jpg",
+      description:
+        "Carrera completa de full stack cubriendo Sass, CSS, MongoDB, PostgreSQL, JavaScript, HTML, React, TypeScript, Docker, Postman, TailwindCSS, Node.js y Nest.js.",
+    },
+    {
+      title: "Bootcamp Full Stack Development",
+      institution: "Henry",
+      year: "Enero 2025 - Julio 2025",
+      icon: "/student/henry.jpg",
+      description:
+        "Bootcamp intensivo cubriendo MongoDB, PostgreSQL, TailwindCSS, React, Next.js, Nest.js, JavaScript, TypeScript, CSS y Figma para diseño UI.",
+    },
+    {
+      title: "Especialización Frontend Moderno",
+      institution: "Código Facilito",
+      year: "Agosto 2025 - Noviembre 2025",
+      icon: "/student/codigo-facilito.png",
+      description:
+        "Especialización avanzada en frontend con enfoque profundo en Angular, React y Vue a nivel profesional.",
+    },
+  ],
   projectDetail: {
     technologies: "Tecnologías",
     backToHome: "Volver al Inicio",
