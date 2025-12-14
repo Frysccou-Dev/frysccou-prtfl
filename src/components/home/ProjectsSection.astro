@@ -36,7 +36,7 @@ const getProjectUrl = (projectId: string) => {
             <div class="grid-row full">
               <a
                 href={getProjectUrl(project.id)}
-                class="project-card"
+                class="project-card project-link"
                 transition:name={`project-${project.id}`}
               >
                 <div class="project-left">
@@ -57,7 +57,7 @@ const getProjectUrl = (projectId: string) => {
             <div class="grid-row half">
               <a
                 href={getProjectUrl(project.id)}
-                class="project-card"
+                class="project-card project-link"
                 transition:name={`project-${project.id}`}
               >
                 <div class="project-left">
@@ -73,7 +73,7 @@ const getProjectUrl = (projectId: string) => {
               {nextProject && (
                 <a
                   href={getProjectUrl(nextProject.id)}
-                  class="project-card"
+                  class="project-card project-link"
                   transition:name={`project-${nextProject.id}`}
                 >
                   <div class="project-left">
@@ -219,3 +219,32 @@ const getProjectUrl = (projectId: string) => {
     }
   }
 </style>
+
+<script>
+  const MIN_LOADER_DURATION = 1200;
+
+  function initProjectLinks() {
+    const projectLinks = document.querySelectorAll(".project-link");
+
+    projectLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const href = link.getAttribute("href");
+        if (!href) return;
+
+        const loader = document.getElementById("pageLoader");
+        if (loader) {
+          loader.classList.remove("exit");
+          loader.classList.add("enter");
+        }
+
+        setTimeout(() => {
+          window.location.href = href;
+        }, MIN_LOADER_DURATION);
+      });
+    });
+  }
+
+  initProjectLinks();
+  document.addEventListener("astro:page-load", initProjectLinks);
+</script>

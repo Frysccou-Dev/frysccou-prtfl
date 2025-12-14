@@ -1,7 +1,7 @@
 export const es = {
   nav: {
     projects: "Proyectos",
-    experience: "Experiencia",
+    aboutMe: "Sobre Mí",
     knowledge: "Conocimientos",
     contact: "Contacto",
   },

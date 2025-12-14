@@ -1,5 +1,5 @@
 ---
-import { Github, Linkedin, Youtube } from "lucide-astro";
+import { Github, Linkedin, Youtube, Menu, X } from "lucide-astro";
 import { en } from "../../utils/translations/en";
 import { es } from "../../utils/translations/es";
 import { pt } from "../../utils/translations/pt";
@@ -17,11 +17,16 @@ const t = translations[lang].nav;
 <nav class="navbar">
   <div class="navbar-container">
     <div class="navbar-left">
-      <a href="#projects" class="nav-btn">{t.projects}</a>
-      <a href="#experience" class="nav-btn">{t.experience}</a>
-      <a href="#knowledge" class="nav-btn">{t.knowledge}</a>
-      <a href="#contact" class="nav-btn">{t.contact}</a>
+      <a href="#projects" class="nav-btn smooth-scroll">{t.projects}</a>
+      <a href="#about" class="nav-btn smooth-scroll">{t.aboutMe}</a>
+      <a href="#tech" class="nav-btn smooth-scroll">{t.knowledge}</a>
+      <a href="#contact" class="nav-btn smooth-scroll">{t.contact}</a>
     </div>
+
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+      <Menu size={20} class="menu-icon" />
+      <X size={20} class="close-icon" />
+    </button>
 
     <div class="navbar-center">
       <a href="/" class="logo-link">
@@ -58,6 +63,13 @@ const t = translations[lang].nav;
         <Youtube size={14} />
       </a>
     </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#projects" class="mobile-nav-btn smooth-scroll">{t.projects}</a>
+    <a href="#about" class="mobile-nav-btn smooth-scroll">{t.aboutMe}</a>
+    <a href="#tech" class="mobile-nav-btn smooth-scroll">{t.knowledge}</a>
+    <a href="#contact" class="mobile-nav-btn smooth-scroll">{t.contact}</a>
   </div>
 </nav>
 
@@ -146,6 +158,74 @@ const t = translations[lang].nav;
     transform: translateY(-2px);
   }
 
+  .mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: 1px solid #9fbdda;
+    color: #9fbdda;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+
+  .mobile-menu-btn:hover {
+    background: rgba(159, 189, 218, 0.1);
+  }
+
+  .mobile-menu-btn .close-icon {
+    display: none;
+  }
+
+  .mobile-menu-btn.active .menu-icon {
+    display: none;
+  }
+
+  .mobile-menu-btn.active .close-icon {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: rgba(38, 59, 84, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(159, 189, 218, 0.2);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu.open {
+    max-height: 300px;
+    opacity: 1;
+    padding: 1.5rem;
+  }
+
+  .mobile-nav-btn {
+    background: transparent;
+    border: 1px solid #9fbdda;
+    color: #9fbdda;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-nav-btn:hover {
+    background: rgba(159, 189, 218, 0.1);
+  }
+
   @media (max-width: 900px) {
     .navbar-container {
       padding: 0 1.5rem;
@@ -170,6 +250,14 @@ const t = translations[lang].nav;
       display: none;
     }
 
+    .mobile-menu-btn {
+      display: flex;
+    }
+
+    .mobile-menu {
+      display: flex;
+    }
+
     .navbar-center {
       position: static;
       transform: none;
@@ -180,3 +268,57 @@ const t = translations[lang].nav;
     }
   }
 </style>
+
+<script>
+  function initNavbar() {
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileNavBtns = document.querySelectorAll(".mobile-nav-btn");
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenuBtn.classList.toggle("active");
+        mobileMenu.classList.toggle("open");
+      });
+
+      mobileNavBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          mobileMenuBtn.classList.remove("active");
+          mobileMenu.classList.remove("open");
+        });
+      });
+    }
+  }
+
+  function initSmoothScroll() {
+    const scrollLinks = document.querySelectorAll(".smooth-scroll");
+
+    scrollLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href");
+        if (!targetId) return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const navbarHeight = 80;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition =
+            elementPosition + window.pageYOffset - navbarHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      });
+    });
+  }
+
+  initNavbar();
+  initSmoothScroll();
+  document.addEventListener("astro:page-load", () => {
+    initNavbar();
+    initSmoothScroll();
+  });
+</script>
