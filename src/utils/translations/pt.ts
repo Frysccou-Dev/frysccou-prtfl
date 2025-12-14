@@ -14,7 +14,84 @@ export const pt = {
     backend: "Backend",
     databases: "Bancos de Dados",
     tools: "Ferramentas e Outros",
+    process: "Como Faço A Diferença",
+    contact: "Contato",
+    funnyFacts: "Curiosidades Sobre Mim",
   },
+  funnyFacts: [
+    {
+      emoji: "👨‍💻",
+      text: "Full Stack Developer desde 2023, transformando sonhos em código",
+    },
+    {
+      emoji: "🎂",
+      text: "20 anos, nascido em outubro de 2005 - vibes de Escorpião",
+    },
+    { emoji: "🎓", text: "Atualmente estudando Design UX/UI na Coderhouse" },
+    {
+      emoji: "🎯",
+      text: "Minha meta: conquistar o título de Engenheiro Full Stack",
+    },
+    {
+      emoji: "🎵",
+      text: "Viciado em música - confira minha playlist no YouTube Music!",
+    },
+    {
+      emoji: "🍜",
+      text: "Comida favorita: Milanesa com batatas fritas, sem discussão",
+    },
+    { emoji: "📺", text: "Entusiasta de anime com uma lista que só cresce" },
+    { emoji: "🎮", text: "Hora de jogar: Mario Kart, Pokémon e Brawl Stars" },
+    { emoji: "💻", text: "Programar é meu hobby, não apenas meu trabalho" },
+    { emoji: "☕", text: "Movido a chimarrão e sessões de debugging noturnas" },
+  ],
+  contactForm: {
+    email: "Seu Email",
+    subject: "Assunto",
+    message: "Mensagem",
+    send: "Enviar Mensagem",
+    sending: "Enviando...",
+    success: "Mensagem enviada com sucesso!",
+    error: "Houve um erro. Por favor tente novamente.",
+  },
+  processSteps: [
+    {
+      number: "01",
+      title: "Primeiro Contato",
+      description:
+        "Nos conectamos e conversamos sobre sua visão. Escuto atentamente para entender seus objetivos, desafios e expectativas do projeto.",
+    },
+    {
+      number: "02",
+      title: "Planejamento e Estratégia",
+      description:
+        "Analiso os requisitos e crio um roteiro detalhado. Definimos marcos, tecnologias e a melhor abordagem para suas necessidades.",
+    },
+    {
+      number: "03",
+      title: "Design e Protótipo",
+      description:
+        "Antes de programar, desenho a experiência e interface do usuário. Você vê e aprova a direção visual desde o início.",
+    },
+    {
+      number: "04",
+      title: "Desenvolvimento",
+      description:
+        "O código limpo e escalável ganha vida. Construo com tecnologias modernas, seguindo as melhores práticas e mantendo você informado.",
+    },
+    {
+      number: "05",
+      title: "Testes e Refinamento",
+      description:
+        "Testes rigorosos garantem que tudo funcione perfeitamente. Refino baseado no feedback até alcançar a perfeição.",
+    },
+    {
+      number: "06",
+      title: "Lançamento e Suporte",
+      description:
+        "Seu projeto vai ao ar. Ofereço suporte contínuo e supervisão para garantir o sucesso e funcionamento fluido.",
+    },
+  ],
   studies: [
     {
       title: "Desenvolvimento Web e Mobile",

@@ -14,7 +14,75 @@ export const en = {
     backend: "Backend",
     databases: "Databases",
     tools: "Tools & Others",
+    process: "How I Make The Difference",
+    contact: "Get In Touch",
+    funnyFacts: "Fun Facts About Me",
   },
+  funnyFacts: [
+    {
+      emoji: "👨‍💻",
+      text: "Full Stack Developer since 2023, building dreams into code",
+    },
+    { emoji: "🎂", text: "20 years old, born in October 2005 - Scorpio vibes" },
+    { emoji: "🎓", text: "Currently studying UX/UI Design at Coderhouse" },
+    { emoji: "🎯", text: "My goal: earn the title of Full Stack Engineer" },
+    {
+      emoji: "🎵",
+      text: "Music addict - check out my playlist on YouTube Music!",
+    },
+    { emoji: "🍜", text: "Favorite food: Milanesa with fries, no debate" },
+    { emoji: "📺", text: "Anime enthusiast with an ever-growing watchlist" },
+    { emoji: "🎮", text: "Gaming time: Mario Kart, Pokémon & Brawl Stars" },
+    { emoji: "💻", text: "Coding is my hobby, not just my job" },
+    { emoji: "☕", text: "Fueled by mate and late-night debugging sessions" },
+  ],
+  contactForm: {
+    email: "Your Email",
+    subject: "Subject",
+    message: "Message",
+    send: "Send Message",
+    sending: "Sending...",
+    success: "Message sent successfully!",
+    error: "There was an error. Please try again.",
+  },
+  processSteps: [
+    {
+      number: "01",
+      title: "First Contact",
+      description:
+        "We connect and discuss your vision. I listen carefully to understand your goals, challenges, and expectations for the project.",
+    },
+    {
+      number: "02",
+      title: "Planning & Strategy",
+      description:
+        "I analyze requirements and create a detailed roadmap. We define milestones, technologies, and the best approach for your needs.",
+    },
+    {
+      number: "03",
+      title: "Design & Prototype",
+      description:
+        "Before coding, I design the user experience and interface. You get to see and approve the visual direction early on.",
+    },
+    {
+      number: "04",
+      title: "Development",
+      description:
+        "Clean, scalable code comes to life. I build with modern technologies, following best practices and keeping you updated on progress.",
+    },
+    {
+      number: "05",
+      title: "Testing & Refinement",
+      description:
+        "Rigorous testing ensures everything works flawlessly. I refine based on feedback until we achieve perfection.",
+    },
+    {
+      number: "06",
+      title: "Launch & Support",
+      description:
+        "Your project goes live. I provide ongoing support and supervision to ensure continued success and smooth operation.",
+    },
+  ],
   studies: [
     {
       title: "Web & Mobile Development",

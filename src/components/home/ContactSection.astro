@@ -1,0 +1,256 @@
+---
+import { Mail } from "lucide-astro";
+import { en } from "../../utils/translations/en";
+import { es } from "../../utils/translations/es";
+import { pt } from "../../utils/translations/pt";
+
+interface Props {
+  lang?: "en" | "es" | "pt";
+}
+
+const { lang = "en" } = Astro.props;
+
+const translations = { en, es, pt };
+const t = translations[lang];
+---
+
+<section class="contact-section" id="contact">
+  <div class="section-header">
+    <Mail size={16} class="header-icon" />
+    <h3>{t.sections.contact}</h3>
+  </div>
+
+  <form
+    class="contact-form"
+    action="https://formspree.io/f/xzznoqva"
+    method="POST"
+    id="contactForm"
+  >
+    <input type="hidden" name="_subject" value="Portfolio Contact" />
+
+    <div class="form-group">
+      <label for="email">{t.contactForm.email}</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        autocomplete="email"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="subject">{t.contactForm.subject}</label>
+      <input type="text" id="subject" name="subject" required />
+    </div>
+
+    <div class="form-group">
+      <label for="message">{t.contactForm.message}</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">
+      <span class="btn-text">{t.contactForm.send}</span>
+      <span class="btn-loading">{t.contactForm.sending}</span>
+    </button>
+
+    <div class="form-status">
+      <p class="success-message">{t.contactForm.success}</p>
+      <p class="error-message">{t.contactForm.error}</p>
+    </div>
+  </form>
+</section>
+
+<style>
+  .contact-section {
+    padding: 4rem 3rem 6rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-header :global(.header-icon) {
+    color: #9fbdda;
+  }
+
+  .section-header h3 {
+    font-family: "Magna", sans-serif;
+    font-size: 1rem;
+    color: #9fbdda;
+    margin: 0;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-family: "Magna", sans-serif;
+    font-size: 0.85rem;
+    color: #9fbdda;
+    opacity: 0.8;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-family: "Format", sans-serif;
+    font-size: 1rem;
+    color: #9fbdda;
+    background: transparent;
+    border: 2px solid rgba(159, 189, 218, 0.3);
+    border-radius: 10px;
+    padding: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #9fbdda;
+    background: rgba(159, 189, 218, 0.05);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(159, 189, 218, 0.4);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .submit-btn {
+    font-family: "Magna", sans-serif;
+    font-size: 1rem;
+    color: #9fbdda;
+    background: transparent;
+    border: 2px solid #9fbdda;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+  }
+
+  .submit-btn:hover {
+    background: rgba(159, 189, 218, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .submit-btn .btn-loading {
+    display: none;
+  }
+
+  .submit-btn.loading .btn-text {
+    display: none;
+  }
+
+  .submit-btn.loading .btn-loading {
+    display: inline;
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .form-status {
+    display: none;
+  }
+
+  .form-status.show {
+    display: block;
+  }
+
+  .success-message,
+  .error-message {
+    font-family: "Format", sans-serif;
+    font-size: 0.9rem;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 0;
+    display: none;
+  }
+
+  .success-message {
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+  }
+
+  .error-message {
+    color: #f87171;
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+  }
+
+  .form-status.success .success-message {
+    display: block;
+  }
+
+  .form-status.error .error-message {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .contact-section {
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById("contactForm") as HTMLFormElement;
+  const submitBtn = form?.querySelector(".submit-btn") as HTMLButtonElement;
+  const formStatus = form?.querySelector(".form-status") as HTMLElement;
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    submitBtn.classList.add("loading");
+    submitBtn.disabled = true;
+    formStatus.classList.remove("show", "success", "error");
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        formStatus.classList.add("show", "success");
+        form.reset();
+      } else {
+        formStatus.classList.add("show", "error");
+      }
+    } catch (error) {
+      formStatus.classList.add("show", "error");
+    }
+
+    submitBtn.classList.remove("loading");
+    submitBtn.disabled = false;
+  });
+</script>
