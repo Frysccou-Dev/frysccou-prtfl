@@ -229,7 +229,7 @@ export const es = {
     },
     {
       id: "portfolio",
-      year: "2024",
+      year: "2025",
       title: "Portfolio Web",
       subtitle: "Portfolio Personal de Desarrollador",
       description:
@@ -240,7 +240,7 @@ export const es = {
     },
     {
       id: "zzyn",
-      year: "2024",
+      year: "2025",
       title: "Zzyn",
       subtitle: "Experimento Web Creativo",
       description:
@@ -251,7 +251,7 @@ export const es = {
     },
     {
       id: "xview",
-      year: "2024",
+      year: "2025",
       title: "Xview",
       subtitle: "Plataforma E-commerce de Manga",
       description:
@@ -262,7 +262,7 @@ export const es = {
     },
     {
       id: "zynner-solutions",
-      year: "2024",
+      year: "2025",
       title: "Zynner Solutions",
       subtitle: "Portfolio de Soluciones Profesionales",
       description:
@@ -273,7 +273,7 @@ export const es = {
     },
     {
       id: "zynee",
-      year: "2024",
+      year: "2025",
       title: "Zynee",
       subtitle: "Plataforma de Aplicación Financiera",
       description:
@@ -290,7 +290,7 @@ export const es = {
     },
     {
       id: "liz",
-      year: "2024",
+      year: "2025",
       title: "Liz",
       subtitle: "Plataforma de Anime y Manga",
       description:
