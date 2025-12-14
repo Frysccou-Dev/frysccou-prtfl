@@ -5,6 +5,7 @@ import Navbar from "../components/layout/Navbar.astro";
 import Footer from "../components/layout/Footer.astro";
 import LanguageSelector from "../components/layout/LanguageSelector.astro";
 import PageLoader from "../components/layout/PageLoader.astro";
+import ThemeToggle from "../components/layout/ThemeToggle.astro";
 
 interface Props {
   lang?: "en" | "es" | "pt";
@@ -31,5 +32,6 @@ const { lang = "en" } = Astro.props;
       </div>
     </main>
     <LanguageSelector currentLang={lang} />
+    <ThemeToggle />
   </body>
 </html>

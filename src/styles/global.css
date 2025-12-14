@@ -45,9 +45,29 @@
   font-display: swap;
 }
 
+:root {
+  --bg-color: #ffffff;
+  --transition-theme: background-color 0.4s ease;
+}
+
+html.dark {
+  --bg-color: #27272a;
+}
+
 html {
   font-family: "Format", sans-serif;
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color);
+  transition: var(--transition-theme);
+}
+
+.ocean-bg {
+  background-color: var(--bg-color);
+  transition: var(--transition-theme);
+  min-height: 100%;
 }
 
 h1 {
