@@ -1,14 +1,20 @@
 ---
-import Layout from '../layouts/layout.astro';
-import HomeTitle from '../components/home/HomeTitle.astro';
-import About from '../components/home/About.astro';
-import Tech from '../components/home/Tech.astro';
-import Projects from '../components/home/Projects.astro';
+import Layout from "../layouts/layout.astro";
+import HeroHeader from "../components/home/HeroHeader.astro";
+import ProjectsSection from "../components/home/ProjectsSection.astro";
+import StudiesSection from "../components/home/StudiesSection.astro";
+import TechStackSection from "../components/home/TechStackSection.astro";
+import ProcessSection from "../components/home/ProcessSection.astro";
+import ContactSection from "../components/home/ContactSection.astro";
+import FunnyFactsSection from "../components/home/FunnyFactsSection.astro";
 ---
 
-<Layout lang='en'>
-  <HomeTitle lang='en' />
-  <Tech lang='en' />
-  <About lang='en' />
-  <Projects lang='en' />
+<Layout lang="en">
+  <HeroHeader />
+  <ProjectsSection lang="en" />
+  <TechStackSection lang="en" />
+  <StudiesSection lang="en" />
+  <FunnyFactsSection lang="en" />
+  <ProcessSection lang="en" />
+  <ContactSection lang="en" />
 </Layout>

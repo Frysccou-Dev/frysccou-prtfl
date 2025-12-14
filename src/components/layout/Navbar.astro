@@ -1,29 +1,182 @@
 ---
-import { getTranslation } from "../../utils/i18n";
+import { Github, Linkedin, Youtube } from "lucide-astro";
+import { en } from "../../utils/translations/en";
+import { es } from "../../utils/translations/es";
+import { pt } from "../../utils/translations/pt";
 
-const currentLang = Astro.url.pathname.startsWith('/es') ? 'es' : 'en';
+interface Props {
+  lang?: "en" | "es" | "pt";
+}
+
+const { lang = "en" } = Astro.props;
+
+const translations = { en, es, pt };
+const t = translations[lang].nav;
 ---
 
-<nav id="navbar" class="relative transition-all duration-300 bg-transparent">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div id="nav-content" class="flex items-center justify-center rounded-full transition-all duration-300 px-6 py-3 bg-transparent">
-      <div id="nav-links" class="flex items-center gap-4 sm:gap-6 lg:gap-8">
-        <a id="nav-proyectos" href="#proyectos" class="text-white hover:text-blue-300 transition-colors text-xs sm:text-sm font-medium">
-          {getTranslation(currentLang, "nav.projects")}
-        </a>
-        <a id="nav-experiencia" href="#experiencia" class="text-white hover:text-blue-300 transition-colors text-xs sm:text-sm font-medium">
-          {getTranslation(currentLang, "nav.experience")}
-        </a>
-        <a id="nav-logo" href="#" class="mx-4 sm:mx-6 lg:mx-8">
-          <img src="/logo-brand.png" alt="Francisco Espíndola" class="w-8 h-8 sm:w-10 sm:h-10 hover:opacity-80 transition-opacity" />
-        </a>
-        <a id="nav-conocimientos" href="#conocimientos" class="text-white hover:text-blue-300 transition-colors text-xs sm:text-sm font-medium">
-          {getTranslation(currentLang, "nav.knowledge")}
-        </a>
-        <a id="nav-contacto" href="#contacto" class="text-white hover:text-blue-300 transition-colors text-xs sm:text-sm font-medium">
-          {getTranslation(currentLang, "nav.contact")}
-        </a>
-      </div>
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-left">
+      <a href="#projects" class="nav-btn">{t.projects}</a>
+      <a href="#experience" class="nav-btn">{t.experience}</a>
+      <a href="#knowledge" class="nav-btn">{t.knowledge}</a>
+      <a href="#contact" class="nav-btn">{t.contact}</a>
+    </div>
+
+    <div class="navbar-center">
+      <a href="/" class="logo-link">
+        <img src="/logo-brand.png" alt="Logo" class="logo" />
+      </a>
+    </div>
+
+    <div class="navbar-right">
+      <a
+        href="https://github.com/esspindola"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-btn"
+        aria-label="GitHub"
+      >
+        <Github size={14} />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/espindola-francisco/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-btn"
+        aria-label="LinkedIn"
+      >
+        <Linkedin size={14} />
+      </a>
+      <a
+        href="https://music.youtube.com/playlist?list=PLr8nCm0aobtRA0SAeeK4Fa9tbWf-r-ton"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-btn"
+        aria-label="YouTube"
+      >
+        <Youtube size={14} />
+      </a>
     </div>
   </div>
 </nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: transparent;
+    padding: 1rem 0;
+    font-family: "Magna", sans-serif;
+  }
+
+  .navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+  }
+
+  .navbar-left {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navbar-right {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .nav-btn {
+    background: transparent;
+    border: 1px solid #9fbdda;
+    color: #9fbdda;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .nav-btn:hover {
+    background: rgba(159, 189, 218, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo {
+    height: 55px;
+    width: auto;
+  }
+
+  .social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid #9fbdda;
+    color: #9fbdda;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .social-btn:hover {
+    background: rgba(159, 189, 218, 0.1);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 900px) {
+    .navbar-container {
+      padding: 0 1.5rem;
+    }
+
+    .navbar-left {
+      gap: 0.5rem;
+    }
+
+    .nav-btn {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.75rem;
+    }
+
+    .logo {
+      height: 32px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .navbar-left {
+      display: none;
+    }
+
+    .navbar-center {
+      position: static;
+      transform: none;
+    }
+
+    .navbar-container {
+      justify-content: space-between;
+    }
+  }
+</style>

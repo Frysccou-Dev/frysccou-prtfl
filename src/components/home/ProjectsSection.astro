@@ -1,0 +1,221 @@
+---
+import { Menu } from "lucide-astro";
+import { en } from "../../utils/translations/en";
+import { es } from "../../utils/translations/es";
+import { pt } from "../../utils/translations/pt";
+
+interface Props {
+  lang?: "en" | "es" | "pt";
+}
+
+const { lang = "en" } = Astro.props;
+
+const translations = { en, es, pt };
+const t = translations[lang];
+
+const getProjectUrl = (projectId: string) => {
+  if (lang === "en") return `/project/${projectId}`;
+  return `/${lang}/project/${projectId}`;
+};
+---
+
+<section class="projects-section" id="projects">
+  <div class="section-header">
+    <Menu size={16} class="header-icon" />
+    <h3>{t.sections.selectedWorks}</h3>
+  </div>
+
+  <div class="projects-grid">
+    {
+      t.projects.map((project, index) => {
+        const rowPosition = index % 3;
+        const isFullWidth = rowPosition === 0;
+
+        if (isFullWidth) {
+          return (
+            <div class="grid-row full">
+              <a
+                href={getProjectUrl(project.id)}
+                class="project-card"
+                transition:name={`project-${project.id}`}
+              >
+                <div class="project-left">
+                  <span class="project-year">{project.year}</span>
+                  <span class="project-title">{project.title}</span>
+                </div>
+                <div class="project-right">
+                  {project.tech.slice(0, 4).map((tech) => (
+                    <span class="tech-pill">{tech}</span>
+                  ))}
+                </div>
+              </a>
+            </div>
+          );
+        } else if (rowPosition === 1) {
+          const nextProject = t.projects[index + 1];
+          return (
+            <div class="grid-row half">
+              <a
+                href={getProjectUrl(project.id)}
+                class="project-card"
+                transition:name={`project-${project.id}`}
+              >
+                <div class="project-left">
+                  <span class="project-year">{project.year}</span>
+                  <span class="project-title">{project.title}</span>
+                </div>
+                <div class="project-right">
+                  {project.tech.slice(0, 3).map((tech) => (
+                    <span class="tech-pill">{tech}</span>
+                  ))}
+                </div>
+              </a>
+              {nextProject && (
+                <a
+                  href={getProjectUrl(nextProject.id)}
+                  class="project-card"
+                  transition:name={`project-${nextProject.id}`}
+                >
+                  <div class="project-left">
+                    <span class="project-year">{nextProject.year}</span>
+                    <span class="project-title">{nextProject.title}</span>
+                  </div>
+                  <div class="project-right">
+                    {nextProject.tech.slice(0, 3).map((tech) => (
+                      <span class="tech-pill">{tech}</span>
+                    ))}
+                  </div>
+                </a>
+              )}
+            </div>
+          );
+        }
+        return null;
+      })
+    }
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    padding: 4rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-header :global(.header-icon) {
+    color: #9fbdda;
+  }
+
+  .section-header h3 {
+    font-family: "Magna", sans-serif;
+    font-size: 1rem;
+    color: #9fbdda;
+    margin: 0;
+  }
+
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .grid-row {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .grid-row.full .project-card {
+    width: 100%;
+  }
+
+  .grid-row.half .project-card {
+    width: 50%;
+  }
+
+  .project-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    background: transparent;
+    border: 2px solid rgba(159, 189, 218, 0.3);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .project-card:hover {
+    background: rgba(159, 189, 218, 0.08);
+    border-color: rgba(159, 189, 218, 0.6);
+    transform: translateY(-2px);
+  }
+
+  .project-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .project-year {
+    font-family: "Magna", sans-serif;
+    font-size: 0.9rem;
+    color: #9fbdda;
+    opacity: 0.7;
+  }
+
+  .project-title {
+    font-family: "Format", sans-serif;
+    font-size: 1.1rem;
+    color: #9fbdda;
+  }
+
+  .project-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
+
+  .tech-pill {
+    font-family: "Magna", sans-serif;
+    font-size: 0.7rem;
+    color: #9fbdda;
+    background: transparent;
+    border: 1px solid #9fbdda;
+    padding: 0.3rem 0.75rem;
+    border-radius: 50px;
+  }
+
+  @media (max-width: 768px) {
+    .projects-section {
+      padding: 3rem 1.5rem;
+    }
+
+    .grid-row.half {
+      flex-direction: column;
+    }
+
+    .grid-row.half .project-card {
+      width: 100%;
+    }
+
+    .project-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .project-right {
+      justify-content: flex-start;
+    }
+  }
+</style>

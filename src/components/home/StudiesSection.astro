@@ -1,0 +1,156 @@
+---
+import { GraduationCap } from "lucide-astro";
+import { en } from "../../utils/translations/en";
+import { es } from "../../utils/translations/es";
+import { pt } from "../../utils/translations/pt";
+
+interface Props {
+  lang?: "en" | "es" | "pt";
+}
+
+const { lang = "en" } = Astro.props;
+
+const translations = { en, es, pt };
+const t = translations[lang];
+---
+
+<section class="studies-section" id="studies">
+  <div class="section-header">
+    <GraduationCap size={16} class="header-icon" />
+    <h3>{t.sections.studies}</h3>
+  </div>
+
+  <div class="studies-grid">
+    {
+      t.studies.map((study) => (
+        <div class="study-card">
+          <div class="study-header">
+            <img src={study.icon} alt={study.institution} class="study-icon" />
+            <div class="study-info">
+              <h4 class="study-title">{study.title}</h4>
+              <span class="study-institution">{study.institution}</span>
+            </div>
+            <span class="study-year">{study.year}</span>
+          </div>
+          <p class="study-description">{study.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .studies-section {
+    padding: 4rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-header :global(.header-icon) {
+    color: #9fbdda;
+  }
+
+  .section-header h3 {
+    font-family: "Magna", sans-serif;
+    font-size: 1rem;
+    color: #9fbdda;
+    margin: 0;
+  }
+
+  .studies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .study-card {
+    background: transparent;
+    border: 2px solid rgba(159, 189, 218, 0.3);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .study-card:hover {
+    background: rgba(159, 189, 218, 0.08);
+    border-color: rgba(159, 189, 218, 0.6);
+  }
+
+  .study-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .study-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(159, 189, 218, 0.5);
+    flex-shrink: 0;
+  }
+
+  .study-info {
+    flex: 1;
+  }
+
+  .study-title {
+    font-family: "Format", sans-serif;
+    font-size: 1rem;
+    color: #9fbdda;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .study-institution {
+    font-family: "Magna", sans-serif;
+    font-size: 0.8rem;
+    color: #9fbdda;
+    opacity: 0.6;
+  }
+
+  .study-year {
+    font-family: "Magna", sans-serif;
+    font-size: 0.75rem;
+    color: #9fbdda;
+    opacity: 0.7;
+    background: rgba(159, 189, 218, 0.1);
+    padding: 0.3rem 0.6rem;
+    border-radius: 50px;
+    white-space: nowrap;
+  }
+
+  .study-description {
+    font-family: "Format", sans-serif;
+    font-size: 0.85rem;
+    color: rgba(159, 189, 218, 0.8);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .studies-section {
+      padding: 3rem 1.5rem;
+    }
+
+    .studies-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .study-header {
+      flex-wrap: wrap;
+    }
+
+    .study-year {
+      margin-left: auto;
+    }
+  }
+</style>

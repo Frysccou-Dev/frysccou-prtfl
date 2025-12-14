@@ -1,0 +1,58 @@
+---
+
+---
+
+<section class="hero-header">
+  <div class="marquee">
+    <div class="marquee-content">
+      <h1>\ Full Stack | Web * Engineer /</h1>
+      <h1>\ Full Stack | Web * Engineer /</h1>
+    </div>
+    <div class="marquee-content" aria-hidden="true">
+      <h1>\ Full Stack | Web * Engineer /</h1>
+      <h1>\ Full Stack | Web * Engineer /</h1>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-header {
+    padding-top: 140px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .marquee {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .marquee-content {
+    display: flex;
+    gap: 3rem;
+    animation: scroll 60s linear infinite;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .marquee-content h1 {
+    font-family: "Gokil", sans-serif;
+    font-size: clamp(4rem, 12vw, 10rem);
+    color: white;
+    -webkit-text-stroke: 1px #9fbdda;
+    margin: 0;
+    padding: 0 1.5rem;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+</style>

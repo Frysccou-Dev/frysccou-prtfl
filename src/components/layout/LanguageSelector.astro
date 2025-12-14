@@ -1,0 +1,58 @@
+---
+interface Props {
+  currentLang: "en" | "es" | "pt";
+}
+
+const { currentLang } = Astro.props;
+
+const languages = [
+  { code: "en", label: "EN" },
+  { code: "es", label: "ES" },
+  { code: "pt", label: "PT" },
+];
+---
+
+<div class="language-selector">
+  {
+    languages.map((lang) => (
+      <a
+        href={lang.code === "en" ? "/" : `/${lang.code}`}
+        class:list={["lang-btn", { active: currentLang === lang.code }]}
+        data-lang={lang.code}
+      >
+        {lang.label}
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .language-selector {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 100;
+  }
+
+  .lang-btn {
+    font-family: "Magna", sans-serif;
+    font-size: 0.75rem;
+    color: #9fbdda;
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .lang-btn:hover {
+    background: rgba(159, 189, 218, 0.1);
+  }
+
+  .lang-btn.active {
+    background: rgba(159, 189, 218, 0.2);
+    border-color: #9fbdda;
+  }
+</style>

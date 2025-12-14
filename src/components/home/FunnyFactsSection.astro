@@ -1,0 +1,72 @@
+---
+import { Smile } from "lucide-astro";
+import { en } from "../../utils/translations/en";
+import { es } from "../../utils/translations/es";
+import { pt } from "../../utils/translations/pt";
+
+interface Props {
+  lang?: "en" | "es" | "pt";
+}
+
+const { lang = "en" } = Astro.props;
+
+const translations = { en, es, pt };
+const t = translations[lang];
+---
+
+<section class="funny-facts-section" id="about">
+  <div class="flex items-center gap-2 mb-8">
+    <Smile size={16} class="text-blue-300" />
+    <h3 class="font-['Magna'] text-base text-blue-300 m-0">
+      {t.sections.funnyFacts}
+    </h3>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+    {
+      t.funnyFacts.map((fact, index) => (
+        <div
+          class={`
+          group p-5 rounded-2xl transition-all duration-300 cursor-default
+          ${
+            index % 2 === 0
+              ? "border-2 border-blue-300/40 hover:border-blue-300/70 hover:bg-blue-300/5"
+              : "border border-blue-300/20 hover:border-blue-300/40"
+          }
+          ${index === 0 ? "md:col-span-2 md:row-span-2" : ""}
+          ${index === 4 ? "md:col-span-2" : ""}
+          ${index === 7 ? "md:col-span-2" : ""}
+        `}
+        >
+          <span
+            class={`block mb-2 ${index === 0 ? "text-4xl md:text-5xl" : "text-2xl"}`}
+          >
+            {fact.emoji}
+          </span>
+          <p
+            class={`
+          font-['Format'] text-blue-300 leading-relaxed m-0
+          ${index === 0 ? "text-sm md:text-base opacity-80" : "text-xs opacity-70"}
+        `}
+          >
+            {fact.text}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .funny-facts-section {
+    padding: 4rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .funny-facts-section {
+      padding: 3rem 1.5rem;
+    }
+  }
+</style>
