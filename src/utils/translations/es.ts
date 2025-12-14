@@ -17,6 +17,7 @@ export const es = {
     process: "Cómo Marco La Diferencia",
     contact: "Contacto",
     funnyFacts: "Datos Curiosos Sobre Mí",
+    workExperience: "Experiencia Laboral",
   },
   funnyFacts: [
     {
@@ -127,6 +128,44 @@ export const es = {
       icon: "/student/codigo-facilito.png",
       description:
         "Especialización avanzada en frontend con enfoque profundo en Angular, React y Vue a nivel profesional.",
+    },
+  ],
+  workExperience: [
+    {
+      title: "Full Stack Developer",
+      company: "Frysccou Dev",
+      type: "Freelance",
+      period: "Agosto 2024 - Actualidad",
+      icon: "/work/frysccou-dev.jpg",
+      description:
+        "Trabajo de forma independiente en proyectos de desarrollo web, tanto frontend como backend, aplicando los conocimientos adquiridos en mis estudios y formación (ISSD, Coderhouse, Henry). Me enfoco en construir soluciones funcionales y bien estructuradas con buenas prácticas de código, mientras aprendo y perfecciono continuamente mis habilidades en tecnologías como JavaScript, React, Node.js, Express, MongoDB y Git. Durante este tiempo, he desarrollado proyectos personales y colaborativos que simulan escenarios del mundo real, con enfoque en el aprendizaje continuo, resolución de problemas y crecimiento profesional.",
+    },
+    {
+      title: "Full Stack Developer, Frontend Focused",
+      company: "Dragon Pyramid",
+      type: "Tiempo Completo",
+      period: "Junio 2025 - Octubre 2025",
+      icon: "/work/dragon-pyramid.jpg",
+      description:
+        "Trabajé en el proyecto Gym Master como Full Stack Developer con enfoque en Front-End. Mis responsabilidades incluyeron desarrollar interfaces modernas y responsivas usando Next.js 14, TailwindCSS y Shadcn UI, aplicando las mejores prácticas de diseño y accesibilidad. Implementé componentes reutilizables, navegación fluida y experiencia de usuario optimizada para dispositivos desktop y móviles (PWA). También participé en la integración de funcionalidades como autenticación con NextAuth, notificaciones en tiempo real, almacenamiento local con IndexedDB y visualización dinámica de datos desde Supabase.",
+    },
+    {
+      title: "Full Stack & Cloud Solutions Architect",
+      company: "ZatoBox",
+      type: "Tiempo Completo",
+      period: "Agosto 2025 - Diciembre 2025",
+      icon: "/work/zatobox.jpg",
+      description:
+        "Como Ingeniero Full Stack y Líder de DevOps, supervisé y optimicé todo el ciclo de vida del desarrollo de software. Lideré la arquitectura de la plataforma desde la concepción hasta el despliegue, asegurando que cada componente fuera robusto, escalable y eficiente. Me especialicé en integrar sistemas avanzados de reconocimiento de datos y gestionar infraestructura descentralizada. Mi enfoque principal estuvo en optimizar flujos de trabajo, reducir costos en la nube y mejorar continuamente la resiliencia del sistema.",
+    },
+    {
+      title: "Full Stack Developer - Marketplace Platform",
+      company: "Niuro",
+      type: "Tiempo Completo",
+      period: "Diciembre 2025 - Actualidad",
+      icon: "/work/niuro.jpg",
+      description:
+        "Trabajo como desarrollador Full Stack a través de Niuro, una agencia de reclutamiento tecnológico que me asigna a diversos proyectos con clientes. Esta modalidad me permite enfrentar desafíos variados y trabajar con un amplio espectro de tecnologías, desde React y Next.js en el frontend hasta Node.js, Python y bases de datos SQL/NoSQL en el backend. Cada proyecto es una oportunidad para adaptarme a nuevos equipos, arquitecturas y requerimientos, fortaleciendo mi versatilidad como desarrollador.",
     },
   ],
   projectDetail: {

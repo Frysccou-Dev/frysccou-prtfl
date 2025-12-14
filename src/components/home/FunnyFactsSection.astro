@@ -28,11 +28,7 @@ const t = translations[lang];
         <div
           class={`
           group p-5 rounded-2xl transition-all duration-300 cursor-default
-          ${
-            index % 2 === 0
-              ? "border-2 border-blue-300/40 hover:border-blue-300/70 hover:bg-blue-300/5"
-              : "border border-blue-300/20 hover:border-blue-300/40"
-          }
+          border border-dotted border-blue-300 hover:bg-blue-300/5
           ${index === 0 ? "md:col-span-2 md:row-span-2" : ""}
           ${index === 4 ? "md:col-span-2" : ""}
           ${index === 7 ? "md:col-span-2" : ""}
