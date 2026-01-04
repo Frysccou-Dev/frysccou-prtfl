@@ -18,6 +18,7 @@ export const pt = {
     contact: "Contato",
     funnyFacts: "Curiosidades Sobre Mim",
     workExperience: "Experiência Profissional",
+    currentStack: "Stack utilizado atualmente",
   },
   funnyFacts: [
     {
@@ -162,7 +163,22 @@ export const pt = {
       period: "Dezembro 2025 - Presente",
       icon: "/work/niuro.jpg",
       description:
-        "Trabalho como desenvolvedor Full Stack através da Niuro, uma agência de recrutamento tecnológico que me atribui a diversos projetos com clientes. Esta modalidade me permite enfrentar desafios variados e trabalhar com um amplo espectro de tecnologias, desde React e Next.js no frontend até Node.js, Python e bancos de dados SQL/NoSQL no backend. Cada projeto é uma oportunidade para me adaptar a novas equipes, arquiteturas e requisitos, fortalecendo minha versatilidade como desenvolvedor.",
+        "Trabalho como desenvolvedor Full Stack através da Niuro, uma agência de recrutamento tecnológico que me atribui a diversos projetos com clientes. Esta modalidade me permite enfrentar desafios variados e trabalhar com um amplo espectro de tecnologias, desde React e Next.js no frontend até Node.js, Python e bancos de dados SQL/NoSQL no backend. Cada projeto é uma oportunidade para me adaptar a novas equipes, arquitetura e requisitos, fortalecendo minha versatilidade como desenvolvedor.",
+      stack: [
+        "Meteor.js",
+        "Node.js",
+        "Python",
+        "Django",
+        "Heroku",
+        "React",
+        "TailwindCSS",
+        "Gatsby.js",
+        "Brevo",
+        "Zod",
+        "PostgreSQL",
+        "MongoDB",
+        "Docker",
+      ],
     },
   ],
   projectDetail: {

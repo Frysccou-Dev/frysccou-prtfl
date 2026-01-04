@@ -67,6 +67,20 @@ const t = translations[lang];
                 <p class="font-['Format'] text-sm text-blue-300/80 leading-relaxed m-0">
                   {job.description}
                 </p>
+                {job.stack && (
+                  <div class="mt-4">
+                    <span class="font-['Magna'] text-[10px] text-blue-300/40 uppercase tracking-wider block mb-2">
+                      {t.sections.currentStack}:
+                    </span>
+                    <div class="flex flex-wrap gap-1.5">
+                      {job.stack.map((tech) => (
+                        <span class="font-['Magna'] text-[10px] text-blue-300/60 border border-blue-300/20 px-2 py-0.5 rounded-md bg-blue-300/5">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -99,6 +113,20 @@ const t = translations[lang];
                 <p class="font-['Format'] text-sm text-blue-300/80 leading-relaxed m-0">
                   {job.description}
                 </p>
+                {job.stack && (
+                  <div class="mt-4">
+                    <span class="font-['Magna'] text-[10px] text-blue-300/40 uppercase tracking-wider block mb-2">
+                      {t.sections.currentStack}:
+                    </span>
+                    <div class="flex flex-wrap gap-1.5">
+                      {job.stack.map((tech) => (
+                        <span class="font-['Magna'] text-[10px] text-blue-300/60 border border-blue-300/20 px-2 py-0.5 rounded-md bg-blue-300/5">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
