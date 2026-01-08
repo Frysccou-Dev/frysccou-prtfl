@@ -187,6 +187,24 @@ export const pt = {
   },
   projects: [
     {
+      id: "conscentido-cognitivo",
+      year: "2026",
+      title: "ConSentido Cognitivo",
+      subtitle: "Estimulação Neurocognitiva para Idosos",
+      description:
+        "Site informativo e acessível para estimulação neurocognitiva de idosos, com recursos para download e oficinas cognitivas focadas no envelhecimento ativo.",
+      image: "/projects/consentido.png",
+      tech: [
+        "Neurociência",
+        "Envelhecimento Ativo",
+        "Recursos Digitais",
+        "Acessibilidade",
+        "Oficinas Cognitivas",
+      ],
+      url: "https://www.consentidocognitivo.site/",
+      isNew: true,
+    },
+    {
       id: "zatobox",
       year: "2025",
       title: "ZatoBox",

@@ -41,7 +41,10 @@ const getProjectUrl = (projectId: string) => {
               >
                 <div class="project-left">
                   <span class="project-year">{project.year}</span>
-                  <span class="project-title">{project.title}</span>
+                  <div class="title-wrapper">
+                    <span class="project-title">{project.title}</span>
+                    {project.isNew && <span class="new-badge">NEW</span>}
+                  </div>
                 </div>
                 <div class="project-right">
                   {project.tech.slice(0, 4).map((tech) => (
@@ -62,7 +65,10 @@ const getProjectUrl = (projectId: string) => {
               >
                 <div class="project-left">
                   <span class="project-year">{project.year}</span>
-                  <span class="project-title">{project.title}</span>
+                  <div class="title-wrapper">
+                    <span class="project-title">{project.title}</span>
+                    {project.isNew && <span class="new-badge">NEW</span>}
+                  </div>
                 </div>
                 <div class="project-right">
                   {project.tech.slice(0, 3).map((tech) => (
@@ -78,7 +84,10 @@ const getProjectUrl = (projectId: string) => {
                 >
                   <div class="project-left">
                     <span class="project-year">{nextProject.year}</span>
-                    <span class="project-title">{nextProject.title}</span>
+                    <div class="title-wrapper">
+                      <span class="project-title">{nextProject.title}</span>
+                      {nextProject.isNew && <span class="new-badge">NEW</span>}
+                    </div>
                   </div>
                   <div class="project-right">
                     {nextProject.tech.slice(0, 3).map((tech) => (
@@ -224,6 +233,36 @@ const getProjectUrl = (projectId: string) => {
     font-family: "Format", sans-serif;
     font-size: 1.1rem;
     color: #9fbdda;
+  }
+
+  .title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .new-badge {
+    background: #9fbdda;
+    color: #0c1214;
+    font-family: "Magna", sans-serif;
+    font-size: 0.6rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   .project-right {

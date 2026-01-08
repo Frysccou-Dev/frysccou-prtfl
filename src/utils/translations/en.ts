@@ -178,6 +178,24 @@ export const en = {
   },
   projects: [
     {
+      id: "conscentido-cognitivo",
+      year: "2026",
+      title: "ConSentido Cognitivo",
+      subtitle: "Neurocognitive Stimulation for Older Adults",
+      description:
+        "Informational and accessible website for neurocognitive stimulation for older adults, featuring downloadable resources and cognitive workshops focused on active aging.",
+      image: "/projects/consentido.png",
+      tech: [
+        "Neuroscience",
+        "Active Aging",
+        "Digital Resources",
+        "Accessibility",
+        "Cognitive Workshops",
+      ],
+      url: "https://www.consentidocognitivo.site/",
+      isNew: true,
+    },
+    {
       id: "zatobox",
       year: "2025",
       title: "ZatoBox",

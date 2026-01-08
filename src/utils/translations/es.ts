@@ -8,7 +8,7 @@ export const es = {
   sections: {
     selectedWorks: "Trabajos Seleccionados",
     studies: "Estudios",
-    techStack: "Stack Tecnológico",
+    techStack: "Stack TecHolanológico",
     mainStack: "Stack Principal",
     frontend: "Frontend",
     backend: "Backend",
@@ -189,6 +189,24 @@ export const es = {
     backToHome: "Volver al Inicio",
   },
   projects: [
+    {
+      id: "conscentido-cognitivo",
+      year: "2026",
+      title: "ConSentido Cognitivo",
+      subtitle: "Estimulación Neurocognitiva para Adultos Mayores",
+      description:
+        "Sitio web informativo y accesible para la estimulación neurocognitiva de adultos mayores, con recursos descargables y talleres cognitivos enfocados en el envejecimiento activo.",
+      image: "/projects/consentido.png",
+      tech: [
+        "Neurociencia",
+        "Envejecimiento Activo",
+        "Recursos Digitales",
+        "Accesibilidad",
+        "Talleres Cognitivos",
+      ],
+      url: "https://www.consentidocognitivo.site/",
+      isNew: true,
+    },
     {
       id: "zatobox",
       year: "2025",
