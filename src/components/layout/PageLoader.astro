@@ -1,22 +1,10 @@
 ---
-interface Props {
-  lang?: "en" | "es" | "pt";
-}
 
-const { lang = "en" } = Astro.props;
-
-const texts = {
-  en: "Just a second...",
-  es: "Dame un segundo...",
-  pt: "Só um segundo...",
-};
-
-const loadingText = texts[lang];
 ---
 
 <div class="page-loader" id="pageLoader">
-  <div class="loader-overlay">
-    <span class="loader-text">{loadingText}</span>
+  <div class="loader-bar">
+    <div class="loader-progress"></div>
   </div>
 </div>
 
@@ -26,113 +14,154 @@ const loadingText = texts[lang];
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 3px;
     z-index: 9999;
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .page-loader.active {
+    opacity: 1;
+  }
+
+  .loader-bar {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
     overflow: hidden;
   }
 
-  .loader-overlay {
+  .loader-progress {
     position: absolute;
+    top: 0;
     left: 0;
-    width: 100%;
+    width: 0%;
     height: 100%;
-    background: #263b54;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(100%);
-    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background: linear-gradient(
+      90deg,
+      #263b54 0%,
+      #376492 25%,
+      #6b9ac5 50%,
+      #376492 75%,
+      #263b54 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+    border-radius: 0 2px 2px 0;
+    box-shadow:
+      0 0 10px rgba(107, 154, 197, 0.5),
+      0 0 20px rgba(55, 100, 146, 0.3);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .loader-text {
-    font-family: "Magna", sans-serif;
-    font-size: 1.2rem;
-    color: white;
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  .page-loader.complete .loader-progress {
+    width: 100%;
+    transition: width 0.2s ease-out;
+  }
+
+  .page-loader.complete {
     opacity: 0;
-    transition: opacity 0.3s ease;
-    letter-spacing: 0.1em;
-  }
-
-  .page-loader.enter .loader-overlay {
-    transform: translateY(0%);
-  }
-
-  .page-loader.enter .loader-text {
-    opacity: 1;
-    transition-delay: 0.4s;
-  }
-
-  .page-loader.exit .loader-overlay {
-    transform: translateY(-100%);
-  }
-
-  .page-loader.exit .loader-text {
-    opacity: 0;
+    transition: opacity 0.4s ease 0.2s;
   }
 </style>
 
 <script>
-  const MIN_DURATION = 1000;
-  let loadStartTime = Date.now();
+  let progressInterval: ReturnType<typeof setInterval> | null = null;
+  let currentProgress = 0;
 
   function initLoader() {
     const loader = document.getElementById("pageLoader");
-    if (!loader) return;
+    const progressBar = loader?.querySelector(
+      ".loader-progress",
+    ) as HTMLElement;
+    if (!loader || !progressBar) return;
 
-    loadStartTime = Date.now();
+    currentProgress = 0;
+    progressBar.style.width = "0%";
+    loader.classList.remove("complete");
+    loader.classList.add("active");
 
-    requestAnimationFrame(() => {
-      loader.classList.add("enter");
-    });
+    startProgress(progressBar);
 
-    const checkReady = () => {
-      if (document.readyState === "complete") {
-        exitLoader();
-      } else {
-        window.addEventListener("load", exitLoader, { once: true });
-      }
-    };
-
-    checkReady();
+    if (document.readyState === "complete") {
+      completeLoader();
+    } else {
+      window.addEventListener("load", completeLoader, { once: true });
+    }
   }
 
-  function exitLoader() {
-    const loader = document.getElementById("pageLoader");
-    if (!loader) return;
+  function startProgress(progressBar: HTMLElement) {
+    if (progressInterval) clearInterval(progressInterval);
 
-    const elapsed = Date.now() - loadStartTime;
-    const remaining = Math.max(0, MIN_DURATION - elapsed);
+    progressInterval = setInterval(() => {
+      if (currentProgress < 90) {
+        const increment = Math.random() * 10 + 5;
+        currentProgress = Math.min(currentProgress + increment, 90);
+        progressBar.style.width = `${currentProgress}%`;
+      }
+    }, 200);
+  }
+
+  function completeLoader() {
+    const loader = document.getElementById("pageLoader");
+    const progressBar = loader?.querySelector(
+      ".loader-progress",
+    ) as HTMLElement;
+    if (!loader || !progressBar) return;
+
+    if (progressInterval) {
+      clearInterval(progressInterval);
+      progressInterval = null;
+    }
+
+    currentProgress = 100;
+    progressBar.style.width = "100%";
+    loader.classList.add("complete");
 
     setTimeout(() => {
-      loader.classList.remove("enter");
-      loader.classList.add("exit");
-    }, remaining);
+      loader.classList.remove("active", "complete");
+      progressBar.style.width = "0%";
+      currentProgress = 0;
+    }, 600);
   }
 
   function showLoaderForNavigation() {
     const loader = document.getElementById("pageLoader");
-    if (!loader) return;
+    const progressBar = loader?.querySelector(
+      ".loader-progress",
+    ) as HTMLElement;
+    if (!loader || !progressBar) return;
 
-    loadStartTime = Date.now();
-    loader.classList.remove("exit");
+    currentProgress = 0;
+    progressBar.style.width = "0%";
+    loader.classList.remove("complete");
+    loader.classList.add("active");
 
-    requestAnimationFrame(() => {
-      loader.classList.add("enter");
-    });
+    startProgress(progressBar);
   }
 
   initLoader();
 
   document.addEventListener(
     "astro:before-preparation",
-    showLoaderForNavigation
+    showLoaderForNavigation,
   );
 
   document.addEventListener("astro:page-load", () => {
     const loader = document.getElementById("pageLoader");
-    if (loader && loader.classList.contains("enter")) {
-      exitLoader();
+    if (loader && loader.classList.contains("active")) {
+      completeLoader();
     }
   });
 </script>
