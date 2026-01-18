@@ -1,22 +1,20 @@
 ---
-import Layout from "../layouts/layout.astro";
-import HeroHeader from "../components/home/HeroHeader.astro";
-import ProjectsSection from "../components/home/ProjectsSection.astro";
-import StudiesSection from "../components/home/StudiesSection.astro";
-import TechStackSection from "../components/home/TechStackSection.astro";
-import ProcessSection from "../components/home/ProcessSection.astro";
-import ContactSection from "../components/home/ContactSection.astro";
-import FunnyFactsSection from "../components/home/FunnyFactsSection.astro";
-import ExperienceSection from "../components/home/ExperienceSection.astro";
+import SalesLayout from "../layouts/SalesLayout.astro";
+import HeroSales from "../components/sales/HeroSales.astro";
+import SocialProof from "../components/sales/SocialProof.astro";
+import ServicesSection from "../components/sales/ServicesSection.astro";
+import CasesSection from "../components/sales/CasesSection.astro";
+import ProcessSales from "../components/sales/ProcessSales.astro";
+import TestimonialsSection from "../components/sales/TestimonialsSection.astro";
+import ContactSales from "../components/sales/ContactSales.astro";
 ---
 
-<Layout lang="en">
-  <HeroHeader />
-  <ProjectsSection lang="en" />
-  <TechStackSection lang="en" />
-  <StudiesSection lang="en" />
-  <ExperienceSection lang="en" />
-  <FunnyFactsSection lang="en" />
-  <ProcessSection lang="en" />
-  <ContactSection lang="en" />
-</Layout>
+<SalesLayout>
+  <HeroSales />
+  <SocialProof />
+  <ServicesSection />
+  <CasesSection />
+  <ProcessSales />
+  <TestimonialsSection />
+  <ContactSales />
+</SalesLayout>

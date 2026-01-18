@@ -322,7 +322,7 @@ export const en = {
         "Liz is a web platform for anime and manga fans that allows discovering content, searching with advanced filters, viewing complete details, managing custom lists, tracking progress, and receiving recommendations via an integrated chatbot. It also includes a social system for posts, comments, and following users. A comprehensive platform for the anime and manga community.",
       image: "/projects/liz.png",
       tech: ["Vue 3", "Supabase", "AniList API", "GSAP", "AI Chatbot"],
-      url: "#",
+      url: "https://liz-beth.vercel.app",
     },
   ],
 };

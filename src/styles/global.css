@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -21,42 +21,22 @@
   --color-dark-600: #3f3f46;
 }
 
-@font-face {
-  font-family: "Gokil";
-  src: url("/fonts/Gokil.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Format";
-  src: url("/fonts/format.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Magna";
-  src: url("/fonts/magna.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --bg-color: #ffffff;
   --transition-theme: background-color 0.4s ease;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: "Space Grotesk", "Inter", sans-serif;
 }
 
 html.dark {
-  --bg-color: #27272a;
+  --bg-color: #0a0a0b;
 }
 
 html {
-  font-family: "Format", sans-serif;
+  font-family: var(--font-body);
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -70,15 +50,8 @@ body {
   min-height: 100%;
 }
 
-h1 {
-  font-family: "Gokil", sans-serif;
-  text-transform: uppercase;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Magna", sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }

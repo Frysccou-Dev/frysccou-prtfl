@@ -1,0 +1,184 @@
+---
+import {
+  MessageCircle,
+  FileSearch,
+  Palette,
+  Code,
+  Rocket,
+  Headphones,
+} from "lucide-astro";
+
+const steps = [
+  {
+    icon: MessageCircle,
+    number: "01",
+    title: "Contacto Inicial",
+    description:
+      "Me contás tu idea, analizamos tus necesidades y definimos objetivos claros para tu proyecto.",
+  },
+  {
+    icon: FileSearch,
+    number: "02",
+    title: "Propuesta y Presupuesto",
+    description:
+      "Recibís una propuesta detallada con alcance, tiempos y precio. Sin sorpresas.",
+  },
+  {
+    icon: Palette,
+    number: "03",
+    title: "Diseño UI/UX",
+    description:
+      "Diseño la interfaz completa. Aprobás antes de que se escriba una sola línea de código.",
+  },
+  {
+    icon: Code,
+    number: "04",
+    title: "Desarrollo",
+    description:
+      "Código limpio, escalable y con las mejores prácticas. Te mantengo al tanto del progreso.",
+  },
+  {
+    icon: Rocket,
+    number: "05",
+    title: "Lanzamiento",
+    description:
+      "Testing exhaustivo y deploy. Tu proyecto sale al mundo funcionando perfecto.",
+  },
+  {
+    icon: Headphones,
+    number: "06",
+    title: "Soporte Continuo",
+    description:
+      "No te abandono. Soporte post-lanzamiento para que tu web siga evolucionando.",
+  },
+];
+---
+
+<section class="process-sales" id="proceso">
+  <div class="section-header">
+    <span class="section-tag">Proceso</span>
+    <h2 class="section-title">Cómo trabajo</h2>
+    <p class="section-subtitle">Un proceso transparente de principio a fin</p>
+  </div>
+
+  <div class="process-grid">
+    {
+      steps.map((step) => {
+        const IconComponent = step.icon;
+        return (
+          <div class="process-step">
+            <div class="step-header">
+              <div class="step-icon">
+                <IconComponent size={24} />
+              </div>
+              <span class="step-number">{step.number}</span>
+            </div>
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-description">{step.description}</p>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>
+
+<style>
+  .process-sales {
+    padding: 6rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .section-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: #9fbdda;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    background: rgba(159, 189, 218, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #9fbdda;
+    margin: 0 0 1rem;
+  }
+  .section-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(159, 189, 218, 0.7);
+  }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .process-step {
+    position: relative;
+    padding: 2rem;
+    background: rgba(159, 189, 218, 0.03);
+    border: 2px solid rgba(159, 189, 218, 0.15);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+  }
+  .process-step:hover {
+    border-color: rgba(159, 189, 218, 0.4);
+    background: rgba(159, 189, 218, 0.06);
+    transform: translateY(-5px);
+  }
+  .step-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  .step-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(159, 189, 218, 0.1);
+    border-radius: 12px;
+    color: #9fbdda;
+  }
+  .step-number {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(159, 189, 218, 0.3);
+  }
+  .step-title {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    color: #9fbdda;
+    margin: 0 0 0.75rem;
+  }
+  .step-description {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: rgba(159, 189, 218, 0.7);
+    line-height: 1.6;
+    margin: 0;
+  }
+  @media (max-width: 1024px) {
+    .process-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .process-sales {
+      padding: 4rem 1.5rem;
+    }
+    .process-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

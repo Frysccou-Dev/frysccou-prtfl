@@ -1,26 +1,22 @@
 ---
-import { Github, Linkedin, Youtube, Menu, X } from "lucide-astro";
-import { en } from "../../utils/translations/en";
-import { es } from "../../utils/translations/es";
-import { pt } from "../../utils/translations/pt";
-
-interface Props {
-  lang?: "en" | "es" | "pt";
-}
-
-const { lang = "en" } = Astro.props;
-
-const translations = { en, es, pt };
-const t = translations[lang].nav;
+import {
+  Github,
+  Linkedin,
+  Youtube,
+  Menu,
+  X,
+  Phone,
+  MessageCircle,
+} from "lucide-astro";
 ---
 
 <nav class="navbar">
   <div class="navbar-container">
     <div class="navbar-left">
-      <a href="#projects" class="nav-btn smooth-scroll">{t.projects}</a>
-      <a href="#about" class="nav-btn smooth-scroll">{t.aboutMe}</a>
-      <a href="#tech" class="nav-btn smooth-scroll">{t.knowledge}</a>
-      <a href="#contact" class="nav-btn smooth-scroll">{t.contact}</a>
+      <a href="#servicios" class="nav-btn smooth-scroll">Servicios</a>
+      <a href="#casos" class="nav-btn smooth-scroll">Portafolio</a>
+      <a href="#proceso" class="nav-btn smooth-scroll">Proceso</a>
+      <a href="/about" class="nav-btn">Sobre Mí</a>
     </div>
 
     <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
@@ -30,7 +26,7 @@ const t = translations[lang].nav;
 
     <div class="navbar-center">
       <a href="/" class="logo-link">
-        <img src="/logo-brand.png" alt="Logo" class="logo" />
+        <img src="/logo-brand.png" alt="Frysccou Dev" class="logo" />
       </a>
     </div>
 
@@ -54,22 +50,31 @@ const t = translations[lang].nav;
         <Linkedin size={14} />
       </a>
       <a
-        href="https://music.youtube.com/playlist?list=PLr8nCm0aobtRA0SAeeK4Fa9tbWf-r-ton"
+        href="https://wa.me/541167672197"
         target="_blank"
         rel="noopener noreferrer"
-        class="social-btn"
-        aria-label="YouTube"
+        class="cta-nav"
       >
-        <Youtube size={14} />
+        <MessageCircle size={14} />
+        <span>WhatsApp</span>
       </a>
     </div>
   </div>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#projects" class="mobile-nav-btn smooth-scroll">{t.projects}</a>
-    <a href="#about" class="mobile-nav-btn smooth-scroll">{t.aboutMe}</a>
-    <a href="#tech" class="mobile-nav-btn smooth-scroll">{t.knowledge}</a>
-    <a href="#contact" class="mobile-nav-btn smooth-scroll">{t.contact}</a>
+    <a href="#servicios" class="mobile-nav-btn smooth-scroll">Servicios</a>
+    <a href="#casos" class="mobile-nav-btn smooth-scroll">Portafolio</a>
+    <a href="#proceso" class="mobile-nav-btn smooth-scroll">Proceso</a>
+    <a href="/about" class="mobile-nav-btn">Sobre Mí</a>
+    <a
+      href="https://wa.me/541167672197"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mobile-cta"
+    >
+      <MessageCircle size={16} />
+      <span>Contactar por WhatsApp</span>
+    </a>
   </div>
 </nav>
 
@@ -80,11 +85,15 @@ const t = translations[lang].nav;
     left: 0;
     right: 0;
     z-index: 50;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
     padding: 1rem 0;
     font-family: var(--font-body);
+    border-bottom: 1px solid rgba(159, 189, 218, 0.15);
   }
-
+  :global(html.dark) .navbar {
+    background: rgba(10, 10, 11, 0.9);
+  }
   .navbar-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -93,27 +102,24 @@ const t = translations[lang].nav;
     justify-content: space-between;
     padding: 0 3rem;
   }
-
   .navbar-left {
     display: flex;
     gap: 0.75rem;
   }
-
   .navbar-center {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
   }
-
   .navbar-right {
     display: flex;
     gap: 0.75rem;
+    align-items: center;
   }
-
   .nav-btn {
     background: transparent;
-    border: 1px solid #9fbdda;
-    color: #9fbdda;
+    border: 1px solid rgba(55, 100, 146, 0.4);
+    color: #376492;
     padding: 0.35rem 0.9rem;
     border-radius: 50px;
     font-size: 0.75rem;
@@ -121,30 +127,31 @@ const t = translations[lang].nav;
     text-decoration: none;
     transition: all 0.2s ease;
   }
-
+  :global(html.dark) .nav-btn {
+    border-color: rgba(159, 189, 218, 0.4);
+    color: #9fbdda;
+  }
   .nav-btn:hover {
     background: rgba(159, 189, 218, 0.1);
+    border-color: #9fbdda;
     transform: translateY(-2px);
   }
-
   .logo-link {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-
   .logo {
-    height: 55px;
+    height: 45px;
     width: auto;
   }
-
   .social-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
-    border: 1px solid #9fbdda;
-    color: #9fbdda;
+    border: 1px solid rgba(55, 100, 146, 0.4);
+    color: #376492;
     width: 30px;
     height: 30px;
     padding: 0;
@@ -152,17 +159,41 @@ const t = translations[lang].nav;
     text-decoration: none;
     transition: all 0.2s ease;
   }
-
+  :global(html.dark) .social-btn {
+    border-color: rgba(159, 189, 218, 0.4);
+    color: #9fbdda;
+  }
   .social-btn:hover {
-    background: rgba(159, 189, 218, 0.1);
+    background: rgba(55, 100, 146, 0.1);
+    border-color: #376492;
     transform: translateY(-2px);
   }
-
+  :global(html.dark) .social-btn:hover {
+    background: rgba(159, 189, 218, 0.1);
+    border-color: #9fbdda;
+  }
+  .cta-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #fff;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .cta-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  }
   .mobile-menu-btn {
     display: none;
     background: transparent;
-    border: 1px solid #9fbdda;
-    color: #9fbdda;
+    border: 1px solid rgba(55, 100, 146, 0.4);
+    color: #376492;
     width: 36px;
     height: 36px;
     border-radius: 50%;
@@ -172,47 +203,49 @@ const t = translations[lang].nav;
     transition: all 0.2s ease;
     padding: 0;
   }
-
+  :global(html.dark) .mobile-menu-btn {
+    border-color: rgba(159, 189, 218, 0.4);
+    color: #9fbdda;
+  }
   .mobile-menu-btn:hover {
+    background: rgba(55, 100, 146, 0.1);
+  }
+  :global(html.dark) .mobile-menu-btn:hover {
     background: rgba(159, 189, 218, 0.1);
   }
-
   .mobile-menu-btn .close-icon {
     display: none;
   }
-
   .mobile-menu-btn.active .menu-icon {
     display: none;
   }
-
   .mobile-menu-btn.active .close-icon {
     display: block;
   }
-
   .mobile-menu {
     display: none;
     flex-direction: column;
     gap: 0.75rem;
-    padding: 1.5rem;
-    background: rgba(38, 59, 84, 0.95);
+    padding: 0 1.5rem;
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(159, 189, 218, 0.2);
     max-height: 0;
     overflow: hidden;
     opacity: 0;
     transition: all 0.3s ease;
   }
-
+  :global(html.dark) .mobile-menu {
+    background: rgba(10, 10, 11, 0.98);
+  }
   .mobile-menu.open {
-    max-height: 300px;
+    max-height: 400px;
     opacity: 1;
     padding: 1.5rem;
   }
-
   .mobile-nav-btn {
     background: transparent;
-    border: 1px solid #9fbdda;
-    color: #9fbdda;
+    border: 1px solid rgba(55, 100, 146, 0.3);
+    color: #376492;
     padding: 0.75rem 1.25rem;
     border-radius: 50px;
     font-size: 0.85rem;
@@ -221,104 +254,123 @@ const t = translations[lang].nav;
     text-align: center;
     transition: all 0.2s ease;
   }
-
+  :global(html.dark) .mobile-nav-btn {
+    border-color: rgba(159, 189, 218, 0.3);
+    color: #9fbdda;
+  }
   .mobile-nav-btn:hover {
+    background: rgba(55, 100, 146, 0.1);
+  }
+  :global(html.dark) .mobile-nav-btn:hover {
     background: rgba(159, 189, 218, 0.1);
   }
-
+  .mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 0.5rem;
+  }
   @media (max-width: 900px) {
     .navbar-container {
       padding: 0 1.5rem;
     }
-
-    .navbar-left {
-      gap: 0.5rem;
-    }
-
     .nav-btn {
       padding: 0.4rem 0.75rem;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
     }
-
     .logo {
-      height: 32px;
+      height: 35px;
+    }
+    .cta-nav span {
+      display: none;
     }
   }
-
   @media (max-width: 768px) {
     .navbar-left {
       display: none;
     }
-
     .mobile-menu-btn {
       display: flex;
     }
-
     .mobile-menu {
       display: flex;
     }
-
     .navbar-center {
       position: static;
       transform: none;
     }
-
     .navbar-container {
       justify-content: space-between;
+    }
+    .navbar-right {
+      display: none;
     }
   }
 </style>
 
 <script>
-  function initNavbar() {
+  function setupNavbar() {
     const mobileMenuBtn = document.getElementById("mobileMenuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
-    const mobileNavBtns = document.querySelectorAll(".mobile-nav-btn");
+    const mobileNavBtns = document.querySelectorAll(
+      ".mobile-nav-btn, .mobile-cta",
+    );
 
-    if (mobileMenuBtn && mobileMenu) {
-      mobileMenuBtn.addEventListener("click", () => {
-        mobileMenuBtn.classList.toggle("active");
-        mobileMenu.classList.toggle("open");
-      });
+    if (!mobileMenuBtn || !mobileMenu) return;
 
-      mobileNavBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          mobileMenuBtn.classList.remove("active");
-          mobileMenu.classList.remove("open");
-        });
+    // Remove existing listeners to avoid doubles
+    const newBtn = mobileMenuBtn.cloneNode(true) as HTMLElement;
+    mobileMenuBtn.parentNode?.replaceChild(newBtn, mobileMenuBtn);
+
+    newBtn.addEventListener("click", () => {
+      newBtn.classList.toggle("active");
+      mobileMenu.classList.toggle("open");
+    });
+
+    mobileNavBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        newBtn.classList.remove("active");
+        mobileMenu.classList.remove("open");
       });
-    }
+    });
   }
 
-  function initSmoothScroll() {
+  function setupSmoothScroll() {
     const scrollLinks = document.querySelectorAll(".smooth-scroll");
-
     scrollLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
-        e.preventDefault();
         const targetId = link.getAttribute("href");
-        if (!targetId) return;
+        if (!targetId || !targetId.startsWith("#")) return;
 
+        e.preventDefault();
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           const navbarHeight = 80;
           const elementPosition = targetElement.getBoundingClientRect().top;
           const offsetPosition =
-            elementPosition + window.pageYOffset - navbarHeight;
+            elementPosition + window.scrollY - navbarHeight;
 
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth",
-          });
+          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
         }
       });
     });
   }
 
-  initNavbar();
-  initSmoothScroll();
+  // Run on first load
+  setupNavbar();
+  setupSmoothScroll();
+
+  // Run after every transition
   document.addEventListener("astro:page-load", () => {
-    initNavbar();
-    initSmoothScroll();
+    setupNavbar();
+    setupSmoothScroll();
   });
 </script>

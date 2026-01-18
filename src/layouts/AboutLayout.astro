@@ -1,0 +1,381 @@
+---
+import "../styles/global.css";
+import { ViewTransitions } from "astro:transitions";
+import PageLoader from "../components/layout/PageLoader.astro";
+import ThemeToggle from "../components/layout/ThemeToggle.astro";
+import {
+  Github,
+  Linkedin,
+  ArrowLeft,
+  MessageCircle,
+  Menu,
+  X,
+} from "lucide-astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Conocé más sobre Francisco Espíndola, Full Stack Engineer con 2+ años de experiencia. Mi formación, experiencia laboral y stack tecnológico."
+    />
+    <title>Sobre Mí - Francisco Espíndola | Full Stack Engineer</title>
+    <link rel="icon" type="image/x-icon" href="/logo-brand.png" />
+    <script is:inline>
+      const setTheme = () => {
+        const theme = localStorage.getItem("theme");
+        if (
+          theme === "dark" ||
+          (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      };
+      setTheme();
+      document.addEventListener("astro:after-swap", setTheme);
+    </script>
+    <ViewTransitions />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <PageLoader lang="es" />
+    <main class="flex-1 w-full">
+      <div class="ocean-bg">
+        <nav class="navbar">
+          <div class="navbar-container">
+            <a href="/" class="back-btn">
+              <ArrowLeft size={18} />
+              <span>Volver</span>
+            </a>
+            <a href="/" class="logo-link">
+              <img
+                src="/logo-brand.png"
+                alt="Francisco Espíndola"
+                class="logo"
+              />
+            </a>
+
+            <button
+              class="mobile-menu-btn"
+              id="aboutMobileBtn"
+              aria-label="Menu"
+            >
+              <Menu size={20} class="menu-icon" />
+              <X size={20} class="close-icon" />
+            </button>
+
+            <div class="navbar-right">
+              <a
+                href="https://github.com/esspindola"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-btn"
+                aria-label="GitHub"
+              >
+                <Github size={14} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/espindola-francisco/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-btn"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={14} />
+              </a>
+              <a
+                href="https://wa.me/541167672197"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cta-nav"
+              >
+                <MessageCircle size={14} />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </nav>
+
+        <nav class="mobile-menu" id="aboutMobileMenu">
+          <a href="/" class="mobile-nav-btn">Inicio</a>
+          <a href="/about#experience" class="mobile-nav-btn">Experiencia</a>
+          <a href="/about#studies" class="mobile-nav-btn">Estudios</a>
+          <a href="/about#projects" class="mobile-nav-btn">Proyectos</a>
+          <a href="https://wa.me/541167672197" class="mobile-cta">
+            <MessageCircle size={16} />
+            <span>Contactar</span>
+          </a>
+        </nav>
+
+        <slot />
+
+        <footer class="about-footer">
+          <p>© 2026 Frysccou Dev. Todos los derechos reservados.</p>
+        </footer>
+      </div>
+    </main>
+    <ThemeToggle />
+  </body>
+</html>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    font-family: var(--font-body);
+    border-bottom: 1px solid rgba(55, 100, 146, 0.1);
+  }
+  :global(html.dark) .navbar {
+    background: rgba(10, 10, 11, 0.9);
+    border-bottom-color: rgba(159, 189, 218, 0.1);
+  }
+  .navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+  }
+  .back-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #376492;
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(55, 100, 146, 0.4);
+    border-radius: 50px;
+    transition: all 0.2s ease;
+  }
+  :global(html.dark) .back-btn {
+    color: #9fbdda;
+    border-color: rgba(159, 189, 218, 0.4);
+  }
+  .back-btn:hover {
+    background: rgba(55, 100, 146, 0.1);
+    border-color: #376492;
+  }
+  :global(html.dark) .back-btn:hover {
+    background: rgba(159, 189, 218, 0.1);
+    border-color: #9fbdda;
+  }
+  .logo-link {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .logo {
+    height: 45px;
+  }
+  .navbar-right {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  .social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid rgba(55, 100, 146, 0.4);
+    color: #376492;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  :global(html.dark) .social-btn {
+    border-color: rgba(159, 189, 218, 0.4);
+    color: #9fbdda;
+  }
+  .social-btn:hover {
+    background: rgba(55, 100, 146, 0.1);
+    border-color: #376492;
+  }
+  :global(html.dark) .social-btn:hover {
+    background: rgba(159, 189, 218, 0.1);
+    border-color: #9fbdda;
+  }
+  .cta-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #fff;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .cta-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  }
+  .about-footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(55, 100, 146, 0.1);
+  }
+  :global(html.dark) .about-footer {
+    border-top-color: rgba(159, 189, 218, 0.1);
+  }
+  .about-footer p {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(55, 100, 146, 0.6);
+    margin: 0;
+  }
+  :global(html.dark) .about-footer p {
+    color: rgba(159, 189, 218, 0.5);
+  }
+
+  /* Estilos Mobile Menu */
+  .mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(55, 100, 146, 0.4);
+    color: #376492;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 0;
+  }
+  :global(html.dark) .mobile-menu-btn {
+    border-color: rgba(159, 189, 218, 0.4);
+    color: #9fbdda;
+  }
+  .mobile-menu-btn .close-icon {
+    display: none;
+  }
+  .mobile-menu-btn.active .menu-icon {
+    display: none;
+  }
+  .mobile-menu-btn.active .close-icon {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0 1.5rem;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    z-index: 49;
+    border-bottom: 1px solid rgba(55, 100, 146, 0.1);
+  }
+  :global(html.dark) .mobile-menu {
+    background: rgba(10, 10, 11, 0.98);
+    border-bottom-color: rgba(159, 189, 218, 0.1);
+  }
+  .mobile-menu.open {
+    max-height: 400px;
+    opacity: 1;
+    padding: 1.5rem;
+  }
+  .mobile-nav-btn {
+    background: transparent;
+    border: 1px solid rgba(55, 100, 146, 0.3);
+    color: #376492;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+  }
+  :global(html.dark) .mobile-nav-btn {
+    border-color: rgba(159, 189, 218, 0.3);
+    color: #9fbdda;
+  }
+  .mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #fff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 0.5rem;
+  }
+  @media (max-width: 768px) {
+    .navbar-container {
+      padding: 0 1.5rem;
+    }
+    .navbar-right {
+      display: none;
+    }
+    .logo-link {
+      position: static;
+      transform: none;
+    }
+    .back-btn {
+      display: none;
+    }
+    .mobile-menu-btn {
+      display: flex;
+    }
+    .mobile-menu {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  function setupAboutNavbar() {
+    const btn = document.getElementById("aboutMobileBtn");
+    const menu = document.getElementById("aboutMobileMenu");
+    const closeBtns = document.querySelectorAll(
+      "#aboutMobileMenu .mobile-nav-btn, #aboutMobileMenu .mobile-cta",
+    );
+
+    if (!btn || !menu) return;
+
+    const newBtn = btn.cloneNode(true) as HTMLElement;
+    btn.parentNode?.replaceChild(newBtn, btn);
+
+    newBtn.addEventListener("click", () => {
+      newBtn.classList.toggle("active");
+      menu.classList.toggle("open");
+    });
+
+    closeBtns.forEach((b) => {
+      b.addEventListener("click", () => {
+        newBtn.classList.remove("active");
+        menu.classList.remove("open");
+      });
+    });
+  }
+
+  setupAboutNavbar();
+  document.addEventListener("astro:page-load", setupAboutNavbar);
+</script>

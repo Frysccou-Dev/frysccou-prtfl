@@ -1,0 +1,219 @@
+---
+import { Star, Quote } from "lucide-astro";
+
+const testimonials = [
+  {
+    name: "Noelia Uvilla",
+    role: "Fundadora",
+    company: "ConSentido Cognitivo",
+    image: "/work/consentido.jpeg",
+    text: "Fran superó todas mis expectativas. Necesitaba una web accesible para adultos mayores y no solo cumplió con eso, sino que el diseño quedó hermoso y la experiencia de navegación es impecable. ¡Muy profesional y siempre disponible!",
+    rating: 5,
+  },
+  {
+    name: "Luis Leon",
+    role: "CEO",
+    company: "ZatoBox",
+    image: "/work/zatobox.jpg",
+    text: "Trabajar con Fran fue una experiencia increíble. Su conocimiento técnico es impresionante y su capacidad para entender las necesidades del negocio hizo que el proyecto saliera exactamente como lo imaginábamos. 100% recomendado.",
+    rating: 5,
+  },
+  {
+    name: "Gustavo Galdeano",
+    role: "Product Manager",
+    company: "Dragon Pyramid",
+    image: "/work/dragon-pyramid.jpg",
+    text: "Contratamos a Fran para el desarrollo frontend de Gym Master y quedamos fascinados. Su atención al detalle, las animaciones fluidas y la calidad del código son de otro nivel. Definitivamente volveremos a trabajar con él.",
+    rating: 5,
+  },
+];
+---
+
+<section class="testimonials-section" id="testimonios">
+  <div class="section-header">
+    <span class="section-tag">Testimonios</span>
+    <h2 class="section-title">Lo que dicen mis clientes</h2>
+    <p class="section-subtitle">
+      Cada proyecto es una oportunidad de superar expectativas
+    </p>
+  </div>
+
+  <div class="testimonials-grid">
+    {
+      testimonials.map((testimonial) => (
+        <div class="testimonial-card">
+          <div class="quote-icon">
+            <Quote size={24} />
+          </div>
+
+          <div class="rating">
+            {Array.from({ length: testimonial.rating }).map(() => (
+              <Star size={16} fill="#9fbdda" />
+            ))}
+          </div>
+
+          <p class="testimonial-text">{testimonial.text}</p>
+
+          <div class="testimonial-author">
+            <img
+              src={testimonial.image}
+              alt={testimonial.name}
+              class="author-image"
+            />
+            <div class="author-info">
+              <span class="author-name">{testimonial.name}</span>
+              <span class="author-role">
+                {testimonial.role} @ {testimonial.company}
+              </span>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    padding: 6rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: #9fbdda;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    background: rgba(159, 189, 218, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #9fbdda;
+    margin: 0 0 1rem;
+  }
+
+  .section-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(159, 189, 218, 0.7);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .testimonial-card {
+    position: relative;
+    background: rgba(159, 189, 218, 0.03);
+    border: 2px solid rgba(159, 189, 218, 0.15);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.4s ease;
+  }
+
+  .testimonial-card:hover {
+    border-color: rgba(159, 189, 218, 0.4);
+    background: rgba(159, 189, 218, 0.06);
+    transform: translateY(-5px);
+  }
+
+  .quote-icon {
+    position: absolute;
+    top: -15px;
+    right: 2rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #9fbdda 0%, #6b9ac5 100%);
+    border-radius: 10px;
+    color: #0a0a0b;
+  }
+
+  .rating {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+    color: #9fbdda;
+  }
+
+  .testimonial-text {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: rgba(159, 189, 218, 0.85);
+    line-height: 1.7;
+    margin: 0 0 1.5rem;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(159, 189, 218, 0.1);
+  }
+
+  .author-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(159, 189, 218, 0.3);
+  }
+
+  .author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .author-name {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: #9fbdda;
+  }
+
+  .author-role {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(159, 189, 218, 0.5);
+  }
+
+  @media (max-width: 1024px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-section {
+      padding: 4rem 1.5rem;
+    }
+
+    .testimonial-card {
+      padding: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,394 @@
+---
+import { ArrowRight, Sparkles, Zap } from "lucide-astro";
+---
+
+<section class="hero-sales">
+  <div class="hero-badge">
+    <Sparkles size={14} />
+    <span>Full Stack Engineer disponible para proyectos</span>
+  </div>
+
+  <h1 class="hero-title">
+    <span class="line-1">Transformo tu idea</span>
+    <span class="line-2"
+      >en una <span class="highlight">web que vende</span></span
+    >
+  </h1>
+
+  <p class="hero-subtitle">
+    Desarrollo webs profesionales, e-commerce y aplicaciones que
+    <strong>generan resultados reales</strong> para tu negocio. Sin plantillas genéricas.
+    Sin excusas.
+  </p>
+
+  <div class="hero-cta-group">
+    <a href="#contacto" class="cta-primary smooth-scroll">
+      <Zap size={18} />
+      <span>Quiero mi web</span>
+      <ArrowRight size={18} />
+    </a>
+    <a href="#servicios" class="cta-secondary smooth-scroll"> Ver servicios </a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-number">+20</span>
+      <span class="stat-label">Proyectos entregados</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-number">100%</span>
+      <span class="stat-label">Clientes satisfechos</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <span class="stat-number">2+</span>
+      <span class="stat-label">Años de experiencia</span>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <span>Scroll para descubrir</span>
+  </div>
+</section>
+
+<style>
+  .hero-sales {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-sales::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(
+      circle,
+      rgba(159, 189, 218, 0.08) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(159, 189, 218, 0.1);
+    border: 1px solid rgba(159, 189, 218, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.6s ease forwards;
+    z-index: 1;
+  }
+
+  .hero-badge span {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #9fbdda;
+  }
+
+  .hero-badge :global(svg) {
+    color: #9fbdda;
+    animation: pulse 2s infinite;
+  }
+
+  .hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 1.5rem;
+    z-index: 1;
+  }
+
+  .hero-title .line-1 {
+    display: block;
+    color: #9fbdda;
+    animation: fadeInUp 0.6s ease 0.1s forwards;
+    opacity: 0;
+  }
+
+  .hero-title .line-2 {
+    display: block;
+    color: #9fbdda;
+    animation: fadeInUp 0.6s ease 0.2s forwards;
+    opacity: 0;
+  }
+
+  .hero-title .highlight {
+    position: relative;
+    background: linear-gradient(135deg, #9fbdda 0%, #6b9ac5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-title .highlight::after {
+    content: "";
+    position: absolute;
+    bottom: 0.1em;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #9fbdda, #6b9ac5);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: underlineGrow 0.8s ease 0.8s forwards;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 400;
+    color: rgba(159, 189, 218, 0.8);
+    max-width: 600px;
+    line-height: 1.7;
+    margin: 0 0 2.5rem;
+    animation: fadeInUp 0.6s ease 0.3s forwards;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .hero-subtitle strong {
+    color: #9fbdda;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeInUp 0.6s ease 0.4s forwards;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #9fbdda 0%, #6b9ac5 100%);
+    color: #0a0a0b;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(159, 189, 218, 0.3);
+  }
+
+  .cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(159, 189, 218, 0.4);
+  }
+
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: #9fbdda;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 1rem 2rem;
+    border: 2px solid rgba(159, 189, 218, 0.5);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-secondary:hover {
+    background: rgba(159, 189, 218, 0.1);
+    border-color: #9fbdda;
+    transform: translateY(-3px);
+  }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 4rem;
+    padding: 1.5rem 2.5rem;
+    background: rgba(159, 189, 218, 0.05);
+    border: 1px solid rgba(159, 189, 218, 0.15);
+    border-radius: 20px;
+    animation: fadeInUp 0.6s ease 0.5s forwards;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .stat-number {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #9fbdda;
+  }
+
+  .stat-label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(159, 189, 218, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(159, 189, 218, 0.2);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation:
+      fadeInUp 0.6s ease 0.6s forwards,
+      bounce 2s ease-in-out infinite 1.5s;
+    opacity: 0;
+  }
+
+  .scroll-indicator span {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: rgba(159, 189, 218, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .mouse {
+    width: 24px;
+    height: 38px;
+    border: 2px solid rgba(159, 189, 218, 0.4);
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .wheel {
+    width: 4px;
+    height: 8px;
+    background: #9fbdda;
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes underlineGrow {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes scroll {
+    0%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(-50%) translateY(10px);
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-sales {
+      padding: 100px 1.5rem 3rem;
+    }
+
+    .hero-stats {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.5rem;
+    }
+
+    .stat-divider {
+      width: 60px;
+      height: 1px;
+    }
+
+    .hero-cta-group {
+      flex-direction: column;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .scroll-indicator {
+      display: none;
+    }
+  }
+</style>

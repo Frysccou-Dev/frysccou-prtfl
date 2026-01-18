@@ -1,0 +1,358 @@
+---
+import {
+  Rocket,
+  ShoppingCart,
+  Globe,
+  Smartphone,
+  ArrowRight,
+  Check,
+} from "lucide-astro";
+
+const services = [
+  {
+    icon: "rocket",
+    title: "Landing Page",
+    subtitle: "Convierte visitantes en clientes",
+    description:
+      "Página de aterrizaje optimizada para captar leads y ventas. Diseño persuasivo, carga ultra-rápida y 100% responsive.",
+    features: [
+      "Diseño personalizado",
+      "Optimizada para conversión",
+      "SEO básico incluido",
+      "Formulario de contacto",
+    ],
+    popular: false,
+  },
+  {
+    icon: "globe",
+    title: "Web Profesional",
+    subtitle: "Tu presencia digital completa",
+    description:
+      "Sitio web completo con múltiples páginas, blog integrado y panel de administración. Ideal para empresas y profesionales.",
+    features: [
+      "Diseño premium multi-página",
+      "Panel de administración",
+      "Blog integrado",
+      "SEO avanzado",
+      "Hosting primer año incluido",
+      "Soporte post-lanzamiento",
+    ],
+    popular: true,
+  },
+  {
+    icon: "cart",
+    title: "E-commerce",
+    subtitle: "Vende online 24/7",
+    description:
+      "Tienda online completa con pasarela de pagos, gestión de inventario y panel de ventas. Empezá a vender desde el día uno.",
+    features: [
+      "Catálogo de productos ilimitado",
+      "Pasarela de pagos integrada",
+      "Gestión de inventario",
+      "Panel de ventas y reportes",
+      "Carrito abandonado",
+      "Integraciones disponibles",
+    ],
+    popular: false,
+  },
+  {
+    icon: "smartphone",
+    title: "Web App",
+    subtitle: "Soluciones a medida",
+    description:
+      "Aplicaciones web personalizadas con funcionalidades específicas para tu negocio. Sistemas, dashboards, plataformas.",
+    features: [
+      "Desarrollo 100% a medida",
+      "Arquitectura escalable",
+      "API propia",
+      "Autenticación segura",
+      "Base de datos optimizada",
+      "Mantenimiento disponible",
+    ],
+    popular: false,
+  },
+];
+
+const getIcon = (iconName: string) => {
+  switch (iconName) {
+    case "rocket":
+      return Rocket;
+    case "globe":
+      return Globe;
+    case "cart":
+      return ShoppingCart;
+    case "smartphone":
+      return Smartphone;
+    default:
+      return Rocket;
+  }
+};
+---
+
+<section class="services-section" id="servicios">
+  <div class="section-header">
+    <span class="section-tag">Servicios</span>
+    <h2 class="section-title">Soluciones para cada necesidad</h2>
+    <p class="section-subtitle">
+      No importa en qué etapa esté tu negocio, tengo el servicio perfecto para
+      vos
+    </p>
+  </div>
+
+  <div class="services-grid">
+    {
+      services.map((service) => {
+        const IconComponent = getIcon(service.icon);
+        return (
+          <div class={`service-card ${service.popular ? "popular" : ""}`}>
+            {service.popular && <div class="popular-badge">Más elegido</div>}
+            <div class="service-icon">
+              <IconComponent size={28} />
+            </div>
+            <h3 class="service-title">{service.title}</h3>
+            <span class="service-subtitle">{service.subtitle}</span>
+            <p class="service-description">{service.description}</p>
+            <ul class="service-features">
+              {service.features.map((feature) => (
+                <li>
+                  <Check size={16} />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="#contacto" class="service-cta smooth-scroll">
+              <span>Consultar precio</span>
+              <ArrowRight size={16} />
+            </a>
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <div class="services-note">
+    <p>
+      ¿Necesitás algo diferente? <a href="#contacto" class="smooth-scroll"
+        >Contame tu proyecto</a
+      > y te armo una propuesta a medida.
+    </p>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    padding: 6rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: #9fbdda;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    background: rgba(159, 189, 218, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #9fbdda;
+    margin: 0 0 1rem;
+  }
+
+  .section-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: rgba(159, 189, 218, 0.7);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    position: relative;
+    background: rgba(159, 189, 218, 0.03);
+    border: 2px solid rgba(159, 189, 218, 0.15);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease;
+  }
+
+  .service-card:hover {
+    border-color: rgba(159, 189, 218, 0.4);
+    background: rgba(159, 189, 218, 0.06);
+    transform: translateY(-8px);
+  }
+
+  .service-card.popular {
+    border-color: #9fbdda;
+    background: rgba(159, 189, 218, 0.08);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #9fbdda 0%, #6b9ac5 100%);
+    color: #0a0a0b;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(159, 189, 218, 0.1);
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    color: #9fbdda;
+  }
+
+  .service-title {
+    font-family: var(--font-body);
+    font-size: 1.4rem;
+    color: #9fbdda;
+    margin: 0 0 0.25rem;
+  }
+
+  .service-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(159, 189, 218, 0.5);
+    margin-bottom: 1rem;
+  }
+
+  .service-description {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: rgba(159, 189, 218, 0.7);
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+    flex-grow: 1;
+  }
+
+  .service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .service-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(159, 189, 218, 0.8);
+  }
+
+  .service-features li :global(svg) {
+    color: #6b9ac5;
+    flex-shrink: 0;
+  }
+
+  .service-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 2px solid #9fbdda;
+    color: #9fbdda;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: auto;
+  }
+
+  .service-cta:hover {
+    background: rgba(159, 189, 218, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .service-card.popular .service-cta {
+    background: linear-gradient(135deg, #9fbdda 0%, #6b9ac5 100%);
+    color: #0a0a0b;
+    border-color: transparent;
+  }
+
+  .service-card.popular .service-cta:hover {
+    box-shadow: 0 4px 20px rgba(159, 189, 218, 0.3);
+  }
+
+  .services-note {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .services-note p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: rgba(159, 189, 218, 0.6);
+  }
+
+  .services-note a {
+    color: #9fbdda;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.2s;
+  }
+
+  .services-note a:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 1200px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-section {
+      padding: 4rem 1.5rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .service-card {
+      padding: 2rem;
+    }
+  }
+</style>
