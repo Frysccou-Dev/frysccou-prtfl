@@ -1,0 +1,109 @@
+---
+import { translations } from "../i18n/translations.js";
+const t = translations.en;
+---
+
+<section
+  id="hero"
+  class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+>
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div
+      class="absolute top-40 right-20 w-96 h-96 bg-accent-soft/40 rounded-full blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute bottom-20 left-10 w-72 h-72 bg-gray-100/60 rounded-full blur-3xl"
+    >
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+    <div class="hero-content">
+      <p
+        class="text-lg md:text-xl text-accent font-medium mb-4 hero-greeting"
+        data-i18n="hero.greeting"
+      >
+        {t.hero.greeting}
+      </p>
+
+      <h1
+        class="text-6xl md:text-8xl lg:text-9xl font-[Outfit] font-bold mb-6 hero-name text-text-primary"
+        data-i18n="hero.name"
+      >
+        {t.hero.name}
+      </h1>
+
+      <h2
+        class="text-xl md:text-2xl lg:text-3xl text-text-secondary font-light mb-8 hero-role"
+        data-i18n="hero.role"
+      >
+        {t.hero.role}
+      </h2>
+
+      <p
+        class="max-w-2xl mx-auto text-text-muted text-base md:text-lg mb-12 leading-relaxed hero-desc"
+        data-i18n="hero.description"
+      >
+        {t.hero.description}
+      </p>
+
+      <div
+        class="flex flex-col sm:flex-row items-center justify-center gap-4 hero-buttons"
+      >
+        <a
+          href="#projects"
+          class="group px-8 py-4 bg-text-primary text-white rounded-full font-medium text-sm transition-all duration-300 hover:bg-accent hover:scale-105"
+        >
+          <span data-i18n="hero.cta">{t.hero.cta}</span>
+          <span
+            class="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1"
+            >→</span
+          >
+        </a>
+
+        <a
+          href="https://dot-studio.site"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group px-8 py-4 bg-white border border-gray-200 text-text-primary rounded-full font-medium text-sm transition-all duration-300 hover:border-accent hover:text-accent hover:scale-105"
+        >
+          <span data-i18n="hero.ctaStudio">{t.hero.ctaStudio}</span>
+          <span
+            class="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1"
+            >↗</span
+          >
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg
+      class="w-6 h-6 text-gray-300"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+    </svg>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap !== "undefined") {
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      tl.from(".hero-greeting", { opacity: 0, y: 30, duration: 0.8 })
+        .from(".hero-name", { opacity: 0, y: 50, duration: 1 }, "-=0.4")
+        .from(".hero-role", { opacity: 0, y: 30, duration: 0.8 }, "-=0.6")
+        .from(".hero-desc", { opacity: 0, y: 20, duration: 0.8 }, "-=0.5")
+        .from(".hero-buttons", { opacity: 0, y: 20, duration: 0.8 }, "-=0.4");
+    }
+  });
+</script>

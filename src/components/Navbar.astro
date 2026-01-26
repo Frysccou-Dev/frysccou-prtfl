@@ -1,0 +1,132 @@
+---
+import { translations } from "../i18n/translations.js";
+const t = translations.en;
+---
+
+<nav
+  class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/80 border-b border-gray-100"
+>
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a
+      href="#"
+      class="text-2xl font-[Outfit] font-bold text-text-primary hover:text-accent transition-colors duration-300"
+    >
+      Frysccou<span class="text-accent">.</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a
+        href="#about"
+        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
+        data-i18n="nav.about">{t.nav.about}</a
+      >
+      <a
+        href="#skills"
+        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
+        data-i18n="nav.skills">{t.nav.skills}</a
+      >
+      <a
+        href="#projects"
+        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
+        data-i18n="nav.projects">{t.nav.projects}</a
+      >
+      <a
+        href="#experience"
+        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
+        data-i18n="nav.experience">{t.nav.experience}</a
+      >
+      <a
+        href="#contact"
+        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
+        data-i18n="nav.contact">{t.nav.contact}</a
+      >
+    </div>
+
+    <div class="flex items-center gap-4">
+      <button
+        id="lang-toggle"
+        class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-50 hover:bg-accent-soft hover:border-accent transition-colors duration-300 text-sm font-medium text-text-secondary border border-gray-200"
+      >
+        <span id="current-lang">EN</span>
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 rounded-lg hover:bg-gray-50 transition-colors"
+      >
+        <svg
+          class="w-6 h-6 text-text-primary"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-white border-t border-gray-100 overflow-hidden"
+  >
+    <div class="px-6 py-4 flex flex-col gap-4">
+      <a
+        href="#about"
+        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
+        data-i18n="nav.about">{t.nav.about}</a
+      >
+      <a
+        href="#skills"
+        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
+        data-i18n="nav.skills">{t.nav.skills}</a
+      >
+      <a
+        href="#projects"
+        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
+        data-i18n="nav.projects">{t.nav.projects}</a
+      >
+      <a
+        href="#experience"
+        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
+        data-i18n="nav.experience">{t.nav.experience}</a
+      >
+      <a
+        href="#contact"
+        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
+        data-i18n="nav.contact">{t.nav.contact}</a
+      >
+    </div>
+  </div>
+</nav>
+
+<script>
+  const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  mobileMenuBtn?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+  });
+
+  document.querySelectorAll("#mobile-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu?.classList.add("hidden");
+    });
+  });
+</script>

@@ -1,0 +1,77 @@
+<div
+  id="custom-cursor"
+  class="custom-cursor pointer-events-none fixed top-0 left-0 z-9999 hidden lg:block"
+>
+  <div class="cursor-inner relative flex items-center justify-center">
+    <!-- El "punto" central: un pequeño rombo sutil -->
+    <div
+      class="w-1.5 h-1.5 bg-text-primary rotate-45 transform transition-transform duration-300"
+    >
+    </div>
+    <!-- El "marco" exterior: un cuadrado rotado con borde lila -->
+    <div
+      class="absolute w-8 h-8 border border-accent rotate-45 transform transition-all duration-500 ease-out opacity-50"
+    >
+    </div>
+    <!-- Elementos decorativos en las esquinas -->
+    <div
+      class="absolute -top-1 -right-1 w-1 h-1 bg-rose-accent rounded-full scale-0 transition-transform duration-300 corner-dot"
+    >
+    </div>
+  </div>
+</div>
+
+<style>
+  .custom-cursor {
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+  }
+
+  /* Cuando el cursor está sobre un link o botón */
+  .cursor-active .cursor-inner div:first-child {
+    transform: rotate(225deg) scale(0.5);
+    background-color: var(--color-accent);
+  }
+
+  .cursor-active .cursor-inner div:nth-child(2) {
+    transform: rotate(225deg) scale(1.5);
+    border-color: var(--color-rose-accent);
+    opacity: 1;
+  }
+
+  .cursor-active .corner-dot {
+    transform: scale(1);
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+
+  const cursor = document.getElementById("custom-cursor");
+  const inner = cursor?.querySelector(".cursor-inner");
+
+  if (cursor) {
+    window.addEventListener("mousemove", (e) => {
+      // Usamos GSAP para un movimiento suave (smoothing)
+      gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.1,
+        ease: "power2.out",
+      });
+    });
+
+    // Efecto interactivo al pasar por encima de elementos clickeables
+    const clickables = document.querySelectorAll('a, button, [role="button"]');
+
+    clickables.forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        cursor.classList.add("cursor-active");
+      });
+      el.addEventListener("mouseleave", () => {
+        cursor.classList.remove("cursor-active");
+      });
+    });
+  }
+</script>

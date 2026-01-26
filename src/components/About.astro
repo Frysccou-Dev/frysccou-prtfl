@@ -1,0 +1,146 @@
+---
+import { translations } from "../i18n/translations.js";
+import { hobbies } from "../i18n/data.js";
+const t = translations.en;
+---
+
+<section id="about" class="py-32 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 about-header opacity-0 translate-y-10">
+      <h2
+        class="text-4xl md:text-5xl font-[Outfit] font-bold mb-4 text-text-primary"
+        data-i18n="about.title"
+      >
+        {t.about.title}
+      </h2>
+      <p class="text-text-muted text-lg italic" data-i18n="about.subtitle">
+        {t.about.subtitle}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="about-image opacity-0 -translate-x-10 relative">
+        <div
+          class="aspect-square rounded-3xl bg-gray-50 p-4 relative overflow-hidden border border-gray-100 hover:border-accent transition-all duration-500 hover:shadow-2xl hover:shadow-accent-soft/20"
+        >
+          <div class="relative z-10 h-full w-full overflow-hidden rounded-2xl">
+            <img
+              src="/me.png"
+              alt="Francisco"
+              class="w-full h-full object-cover transition-all duration-700 scale-110 hover:scale-100 grayscale hover:grayscale-0"
+              style="filter: grayscale(100%);"
+              onmouseover="this.style.filter='grayscale(0%)'"
+              onmouseout="this.style.filter='grayscale(100%)'"
+            />
+          </div>
+          <div
+            class="absolute top-4 right-4 w-3 h-3 rounded-full bg-accent animate-pulse"
+          >
+          </div>
+          <div
+            class="absolute bottom-8 left-8 w-2 h-2 rounded-full bg-rose-accent animate-pulse"
+          >
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text opacity-0 translate-x-10">
+        <p
+          class="text-text-secondary text-lg leading-relaxed mb-6 font-medium"
+          data-i18n="about.description1"
+        >
+          {t.about.description1}
+        </p>
+        <p
+          class="text-text-secondary text-lg leading-relaxed mb-10"
+          data-i18n="about.description2"
+        >
+          {t.about.description2}
+        </p>
+
+        <div class="grid sm:grid-cols-1 gap-6 mb-10">
+          <div class="space-y-4">
+            <h3
+              class="text-xs font-bold uppercase tracking-widest text-accent mb-4"
+              data-i18n="about.hobbiesTitle"
+            >
+              {t.about.hobbiesTitle}
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-text-secondary text-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                <span data-i18n="about.funFact1">{t.about.funFact1}</span>
+              </li>
+              <li class="flex items-center gap-3 text-text-secondary text-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-rose-accent"></span>
+                <span data-i18n="about.funFact2">{t.about.funFact2}</span>
+              </li>
+              <li class="flex items-center gap-3 text-text-secondary text-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                <span data-i18n="about.funFact3">{t.about.funFact3}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2">
+          {
+            hobbies.map((hobby) => (
+              <span class="hobby-tag px-4 py-1.5 bg-white rounded-full border border-gray-100 text-text-secondary text-xs font-bold flex items-center gap-2 hover:border-accent hover:bg-accent-soft/30 hover:shadow-sm transition-all duration-300 cursor-default">
+                <span>{hobby.icon}</span>
+                <span data-i18n={`hobbies.${hobby.key}`}>
+                  {t.hobbies[hobby.key as keyof typeof t.hobbies]}
+                </span>
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.to(".about-header", {
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    gsap.to(".about-image", {
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top 75%",
+        toggleActions: "play none none none",
+      },
+      opacity: 1,
+      x: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    gsap.to(".about-text", {
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top 75%",
+        toggleActions: "play none none none",
+      },
+      opacity: 1,
+      x: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+  });
+</script>
