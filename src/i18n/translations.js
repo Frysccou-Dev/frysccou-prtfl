@@ -65,6 +65,11 @@ export const translations = {
       or: "or explore",
       studioDescription: "My creative studio for high-end web solutions.",
     },
+    donations: {
+      title: "Support my work",
+      description: "If you like what I do, you can support me with a donation.",
+      button: "Buy me a coffee",
+    },
     footer: {
       madeWith: "Made with 🖤🐈⬛",
       by: "by Francisco (Esspindola)",
@@ -137,6 +142,11 @@ export const translations = {
       or: "o explora",
       studioDescription:
         "Mi estudio creativo para soluciones web de alto nivel.",
+    },
+    donations: {
+      title: "Apoya mi trabajo",
+      description: "Si te gusta lo que hago, puedes apoyarme con una donación.",
+      button: "Invitame un café",
     },
     footer: {
       madeWith: "Hecho con 🖤🐈⬛",
