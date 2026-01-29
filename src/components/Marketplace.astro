@@ -1,0 +1,421 @@
+---
+const topics = [
+  "React",
+  "Portfolio",
+  "Marketing",
+  "Astro 5",
+  "Professional",
+  "Tailwind CSS 4",
+  "Framer Motion",
+  "Lucide React",
+  "Hexagonal Architecture",
+];
+---
+
+<section id="market" class="py-24 px-6 bg-white relative">
+  <div class="max-w-7xl mx-auto">
+    <div
+      class="text-center mb-16 opacity-0 translate-y-8 transition-all duration-700 ease-out"
+      data-animate
+    >
+      <h2
+        class="text-4xl md:text-6xl font-[Outfit] font-bold mb-6 text-text-primary bg-gradient-to-r from-text-primary to-accent bg-clip-text text-transparent"
+        data-i18n="market.title"
+      >
+        Marketplace
+      </h2>
+      <p
+        class="text-lg text-text-muted max-w-2xl mx-auto"
+        data-i18n="market.subtitle"
+      >
+        High-performance premium templates
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-12 items-start">
+      <div
+        class="flex-1 basis-[600px] min-w-0 bg-gray-50/50 rounded-3xl border border-gray-100 overflow-hidden shadow-sm opacity-0 translate-y-10 transition-all duration-700 ease-out"
+        data-animate
+        data-delay="100"
+      >
+        <div
+          class="relative w-full aspect-video bg-black overflow-hidden group"
+        >
+          <div
+            class="absolute inset-0 z-10 flex items-center justify-center transition-all duration-500"
+            id="poster-preview"
+          >
+            <img
+              src="/templates/landing-template.png"
+              alt="Template Preview"
+              class="w-full h-full object-cover"
+            />
+            <button
+              class="absolute w-20 h-20 rounded-full bg-accent text-text-primary flex items-center justify-center shadow-xl shadow-accent/40 transition-transform duration-300 hover:scale-110"
+              id="play-video-btn"
+              aria-label="Play video preview"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="ml-1"
+                ><polygon points="5 3 19 12 5 21 5 3"></polygon></svg
+              >
+            </button>
+          </div>
+
+          <div
+            class="relative w-full h-full z-0 hidden opacity-0 transition-opacity duration-500"
+            id="video-wrapper"
+          >
+            <video
+              id="template-video-player"
+              src="/preview/preview.mp4"
+              controls
+              loop
+              muted
+              playsinline
+              class="w-full h-full object-cover"></video>
+          </div>
+        </div>
+
+        <div class="p-8 md:p-10">
+          <div class="mb-10">
+            <h3
+              class="text-sm font-bold uppercase tracking-wider text-text-primary mb-4"
+              data-i18n="market.aboutTitle"
+            >
+              About this template
+            </h3>
+            <p
+              class="text-text-muted leading-relaxed text-lg"
+              data-i18n="market.aboutDesc"
+            >
+              A professional, high-performance landing page template built with
+              Astro 5, Tailwind CSS 4, and Framer Motion. Designed with a
+              Hexagonal Architecture approach to ensure maximum maintainability.
+            </p>
+          </div>
+
+          <div>
+            <h3
+              class="text-sm font-bold uppercase tracking-wider text-text-primary mb-4"
+              data-i18n="market.topicsTitle"
+            >
+              Technologies
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {
+                topics.map((topic) => (
+                  <span class="text-xs font-semibold px-4 py-2 rounded-full border border-accent/20 bg-accent-soft text-text-secondary hover:bg-accent-muted transition-colors">
+                    {topic}
+                  </span>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="flex-1 basis-[400px] min-w-0 bg-white rounded-[2rem] p-8 md:p-10 border border-gray-100 shadow-xl shadow-gray-100/50 opacity-0 translate-y-10 transition-all duration-700 ease-out lg:sticky lg:top-24"
+        data-animate
+        data-delay="300"
+      >
+        <div class="mb-10 pb-8 border-b border-dashed border-gray-200">
+          <div class="flex items-center justify-between gap-6">
+            <div class="flex flex-col">
+              <span
+                class="text-xs font-bold text-text-muted mb-1 uppercase tracking-widest leading-none"
+                >ARS</span
+              >
+              <span
+                class="text-3xl font-black text-text-primary leading-none"
+                data-i18n="market.priceARS">35,000 ARS</span
+              >
+            </div>
+            <div class="w-px h-10 bg-gray-200"></div>
+            <div class="flex flex-col">
+              <span
+                class="text-xs font-bold text-text-muted mb-1 uppercase tracking-widest leading-none"
+                >USD</span
+              >
+              <span
+                class="text-3xl font-black text-text-primary leading-none"
+                data-i18n="market.priceUSD">30 USD</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-8 mb-10">
+          <div>
+            <h4
+              class="flex items-center gap-3 text-sm font-bold text-text-primary mb-5 uppercase tracking-wide"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-accent"
+                ><rect width="20" height="14" x="2" y="5" rx="2"></rect><line
+                  x1="2"
+                  x2="22"
+                  y1="10"
+                  y2="10"></line></svg
+              >
+              Mercado Pago (ARS)
+            </h4>
+            <a
+              href="https://mpago.la/2EQWepT"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-3 w-full py-5 rounded-2xl font-bold text-lg bg-accent text-text-primary transition-all duration-300 hover:bg-accent-muted hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/30"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><circle cx="8" cy="21" r="1"></circle><circle
+                  cx="19"
+                  cy="21"
+                  r="1"></circle><path
+                  d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+                ></path></svg
+              >
+              <span data-i18n="market.buyNow">Buy Now</span>
+            </a>
+          </div>
+
+          <div class="p-6 bg-accent-soft border border-accent/20 rounded-2xl">
+            <h4
+              class="flex items-center gap-3 text-sm font-bold text-text-primary mb-4 uppercase tracking-wide"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-accent"
+                ><path
+                  d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
+                ></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"
+                ></path></svg
+              >
+              <span data-i18n="market.cryptoTitle"
+                >Crypto Payment (Polygon)</span
+              >
+            </h4>
+            <p
+              class="text-xs text-text-muted mb-3"
+              data-i18n="market.cryptoDesc"
+            >
+              Send USDT or USDC via Polygon Network to:
+            </p>
+            <div
+              class="bg-white px-4 py-3 rounded-xl border border-accent/10 mb-3 overflow-x-auto scroller-hidden"
+            >
+              <code
+                class="text-[10px] font-mono whitespace-nowrap text-accent break-all"
+                >0xf2f000a27e36778597f79d9fb38ce31841a3f028</code
+              >
+            </div>
+            <p
+              class="text-[10px] font-bold text-accent uppercase tracking-widest text-center"
+            >
+              USDT / USDC (Polygon)
+            </p>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-gray-100">
+          <div class="flex items-center gap-3 mb-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-accent"
+              ><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline
+                points="22 4 12 14.01 9 11.01"></polyline></svg
+            >
+            <h4
+              class="text-sm font-bold text-text-primary uppercase tracking-wide"
+              data-i18n="market.postPaymentTitle"
+            >
+              Post-Payment Instructions
+            </h4>
+          </div>
+          <p
+            class="text-sm text-text-muted leading-relaxed mb-6"
+            data-i18n="market.postPaymentDesc"
+          >
+            After payment, send the receipt to dot_studio_dev@gmail.com
+            (preferred) including your GitHub info.
+          </p>
+
+          <ul class="space-y-3 mb-8">
+            <li
+              class="flex items-center gap-3 text-sm font-bold text-text-primary"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-accent-muted"
+                ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
+                  d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+              >
+              GitHub Email
+            </li>
+            <li
+              class="flex items-center gap-3 text-sm font-bold text-text-primary"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-accent-muted"
+                ><path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                ></path><path d="M9 18c-4.51 2-5-3-7-3"></path></svg
+              >
+              GitHub Username
+            </li>
+            <li
+              class="flex items-center gap-3 text-sm font-bold text-text-primary"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="text-accent-muted"
+                ><path
+                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                ></path><path d="M9 18c-4.51 2-5-3-7-3"></path></svg
+              >
+              GitHub Profile Link
+            </li>
+          </ul>
+
+          <div class="flex flex-col gap-2">
+            <a
+              href="mailto:dot_studio_dev@gmail.com"
+              class="text-sm md:text-base font-black text-accent border-b-2 border-accent-muted pb-1 self-start transition-colors hover:text-text-primary hover:border-accent break-all"
+            >
+              dot_studio_dev@gmail.com
+            </a>
+            <span class="text-[10px] font-bold text-text-muted uppercase"
+              >o</span
+            >
+            <a
+              href="mailto:franespindola71@gmail.com"
+              class="text-xs font-bold text-text-muted transition-colors hover:text-accent break-all"
+            >
+              franespindola71@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .scroller-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  .scroller-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delay = entry.target.getAttribute("data-delay") || "0";
+          setTimeout(() => {
+            entry.target.classList.remove(
+              "opacity-0",
+              "translate-y-8",
+              "translate-y-10",
+            );
+            entry.target.classList.add("opacity-100", "translate-y-0");
+          }, parseInt(delay));
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+
+  document
+    .querySelectorAll("[data-animate]")
+    .forEach((el) => observer.observe(el));
+
+  const playBtn = document.getElementById("play-video-btn");
+  const posterPreview = document.getElementById("poster-preview");
+  const videoWrapper = document.getElementById("video-wrapper");
+  const player = document.getElementById(
+    "template-video-player",
+  ) as HTMLVideoElement;
+
+  playBtn?.addEventListener("click", () => {
+    if (posterPreview && videoWrapper && player) {
+      posterPreview.classList.add("opacity-0", "invisible");
+      videoWrapper.classList.remove("hidden");
+      setTimeout(() => videoWrapper.classList.add("opacity-100"), 50);
+      player.play();
+    }
+  });
+</script>

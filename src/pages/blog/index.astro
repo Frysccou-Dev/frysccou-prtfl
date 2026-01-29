@@ -1,0 +1,73 @@
+---
+import Layout from "../../presentation/layouts/Layout.astro";
+import BlogCard from "../../presentation/components/marketing/BlogCard.astro";
+import ScrollReveal from "../../presentation/components/ui/ScrollReveal";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog");
+
+const blogMap = new Map();
+allPosts.forEach((post) => {
+  const parts = post.slug.split("/");
+  const seriesSlug = parts[0];
+  if (!blogMap.has(seriesSlug)) {
+    blogMap.set(seriesSlug, {
+      id: seriesSlug,
+      slug: seriesSlug,
+      title: post.data.blogTitle,
+      description: post.data.description,
+      date: post.data.date,
+      author: post.data.author,
+      category: post.data.category,
+      chaptersCount: 0,
+    });
+  }
+  blogMap.get(seriesSlug).chaptersCount++;
+});
+
+const blogs = Array.from(blogMap.values());
+---
+
+<Layout title="Archive | All Series">
+  <section class="pt-64 pb-40">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="mb-32">
+        <ScrollReveal client:load>
+          <div class="flex items-center gap-4 mb-8">
+            <div class="h-[1px] w-12 bg-primary"></div>
+            <span
+              class="text-[10px] font-black uppercase tracking-[0.3em] text-primary"
+              >Library</span
+            >
+          </div>
+          <h1
+            class="text-6xl md:text-9xl font-display font-black uppercase tracking-tighter mb-12"
+          >
+            The <span class="text-white/10 outline-text">Archive</span>
+          </h1>
+          <p class="text-2xl text-surface-400 max-w-2xl italic leading-relaxed">
+            A curated collection of digital series, research, and deep dives
+            into modern technology.
+          </p>
+        </ScrollReveal>
+      </div>
+
+      <div class="flex flex-col">
+        {
+          blogs.map((blog, index) => (
+            <ScrollReveal client:load delay={index * 0.1}>
+              <BlogCard blog={blog} />
+            </ScrollReveal>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .outline-text {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    color: transparent;
+  }
+</style>
