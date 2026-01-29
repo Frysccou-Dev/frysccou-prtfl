@@ -1,5 +1,8 @@
 ---
-const topics = [
+import { translations } from "../i18n/translations.js";
+const t = translations.en;
+
+const technologies = [
   "React",
   "Portfolio",
   "Marketing",
@@ -12,410 +15,561 @@ const topics = [
 ];
 ---
 
-<section id="market" class="py-24 px-6 bg-white relative">
-  <div class="max-w-7xl mx-auto">
-    <div
-      class="text-center mb-16 opacity-0 translate-y-8 transition-all duration-700 ease-out"
-      data-animate
-    >
+<section id="marketplace" class="py-32 relative overflow-hidden bg-white/50">
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 marketplace-header opacity-0 translate-y-10">
       <h2
-        class="text-4xl md:text-6xl font-[Outfit] font-bold mb-6 text-text-primary bg-gradient-to-r from-text-primary to-accent bg-clip-text text-transparent"
-        data-i18n="market.title"
+        class="text-4xl md:text-5xl font-[Outfit] font-bold mb-4 text-text-primary"
+        data-i18n="marketplace.title"
       >
-        Marketplace
+        {t.marketplace.title}
       </h2>
       <p
-        class="text-lg text-text-muted max-w-2xl mx-auto"
-        data-i18n="market.subtitle"
+        class="text-text-muted text-lg max-w-2xl mx-auto"
+        data-i18n="marketplace.subtitle"
       >
-        High-performance premium templates
+        {t.marketplace.subtitle}
       </p>
     </div>
 
-    <div class="flex flex-wrap gap-12 items-start">
+    <div class="grid lg:grid-cols-12 gap-12 items-start">
+      <!-- Info Card -->
       <div
-        class="flex-1 basis-[600px] min-w-0 bg-gray-50/50 rounded-3xl border border-gray-100 overflow-hidden shadow-sm opacity-0 translate-y-10 transition-all duration-700 ease-out"
-        data-animate
-        data-delay="100"
+        class="lg:col-span-7 marketplace-card opacity-0 -translate-x-5 bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-accent-soft/10"
       >
-        <div
-          class="relative w-full aspect-video bg-black overflow-hidden group"
-        >
+        <div class="relative aspect-video group bg-gray-900 overflow-hidden">
           <div
-            class="absolute inset-0 z-10 flex items-center justify-center transition-all duration-500"
-            id="poster-preview"
+            id="media-container"
+            class="w-full h-full relative cursor-pointer"
           >
             <img
+              id="template-image"
               src="/templates/landing-template.png"
-              alt="Template Preview"
-              class="w-full h-full object-cover"
+              alt="Landing Page Professional Template"
+              class="w-full h-full object-cover transition-transform duration-700"
             />
-            <button
-              class="absolute w-20 h-20 rounded-full bg-accent text-text-primary flex items-center justify-center shadow-xl shadow-accent/40 transition-transform duration-300 hover:scale-110"
-              id="play-video-btn"
-              aria-label="Play video preview"
+            <div
+              id="play-overlay"
+              class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-all duration-300"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="ml-1"
-                ><polygon points="5 3 19 12 5 21 5 3"></polygon></svg
+              <div
+                class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 transform group-hover:scale-110 transition-transform duration-300"
               >
-            </button>
+                <svg
+                  class="w-8 h-8 text-white fill-current"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z"></path>
+                </svg>
+              </div>
+              <p
+                class="absolute bottom-8 text-white font-medium tracking-wide text-sm bg-black/40 px-4 py-2 rounded-full backdrop-blur-sm"
+                data-i18n="marketplace.previewBtn"
+              >
+                {t.marketplace.previewBtn}
+              </p>
+            </div>
           </div>
-
-          <div
-            class="relative w-full h-full z-0 hidden opacity-0 transition-opacity duration-500"
-            id="video-wrapper"
+          <video
+            id="template-video"
+            class="hidden w-full h-full object-cover"
+            controls
+            playsinline
           >
-            <video
-              id="template-video-player"
-              src="/preview/preview.mp4"
-              controls
-              loop
-              muted
-              playsinline
-              class="w-full h-full object-cover"></video>
-          </div>
+            <source src="/preview/preview.mp4" type="video/mp4" />
+          </video>
         </div>
 
         <div class="p-8 md:p-10">
-          <div class="mb-10">
-            <h3
-              class="text-sm font-bold uppercase tracking-wider text-text-primary mb-4"
-              data-i18n="market.aboutTitle"
-            >
-              About this template
-            </h3>
-            <p
-              class="text-text-muted leading-relaxed text-lg"
-              data-i18n="market.aboutDesc"
-            >
-              A professional, high-performance landing page template built with
-              Astro 5, Tailwind CSS 4, and Framer Motion. Designed with a
-              Hexagonal Architecture approach to ensure maximum maintainability.
-            </p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            {
+              technologies.map((tech) => (
+                <span class="px-3 py-1 bg-gray-50 text-text-secondary text-xs font-semibold rounded-lg border border-gray-100">
+                  {tech}
+                </span>
+              ))
+            }
           </div>
+          <h3
+            class="text-3xl font-[Outfit] font-bold text-text-primary mb-4"
+            data-i18n="marketplace.templateTitle"
+          >
+            {t.marketplace.templateTitle}
+          </h3>
+          <p
+            class="text-text-muted text-base leading-relaxed mb-8"
+            data-i18n="marketplace.templateDesc"
+          >
+            {t.marketplace.templateDesc}
+          </p>
 
-          <div>
-            <h3
-              class="text-sm font-bold uppercase tracking-wider text-text-primary mb-4"
-              data-i18n="market.topicsTitle"
+          <div
+            class="bg-accent-soft/20 rounded-2xl p-6 border border-accent/10"
+          >
+            <p
+              class="text-sm font-bold text-accent uppercase tracking-wider mb-4 flex items-center gap-2"
             >
-              Technologies
-            </h3>
-            <div class="flex flex-wrap gap-2">
-              {
-                topics.map((topic) => (
-                  <span class="text-xs font-semibold px-4 py-2 rounded-full border border-accent/20 bg-accent-soft text-text-secondary hover:bg-accent-muted transition-colors">
-                    {topic}
-                  </span>
-                ))
-              }
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              <span data-i18n="marketplace.postPaymentTitle">
+                {t.marketplace.postPaymentTitle}
+              </span>
+            </p>
+            <p
+              class="text-text-secondary text-sm mb-4"
+              data-i18n="marketplace.postPaymentDesc"
+            >
+              {t.marketplace.postPaymentDesc}
+            </p>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div
+                class="flex items-center gap-3 bg-white p-3 rounded-xl border border-gray-100"
+              >
+                <div
+                  class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center text-accent"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <span class="text-xs font-medium text-text-primary truncate"
+                  >dot_studio_dev@gmail.com</span
+                >
+              </div>
+              <div
+                class="flex items-center gap-3 bg-white p-3 rounded-xl border border-gray-100"
+              >
+                <div
+                  class="w-8 h-8 bg-rose-soft rounded-lg flex items-center justify-center text-rose-accent"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                </div>
+                <span class="text-xs font-medium text-text-primary truncate"
+                  >franespindola71@gmail.com</span
+                >
+              </div>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- Payment Section -->
       <div
-        class="flex-1 basis-[400px] min-w-0 bg-white rounded-[2rem] p-8 md:p-10 border border-gray-100 shadow-xl shadow-gray-100/50 opacity-0 translate-y-10 transition-all duration-700 ease-out lg:sticky lg:top-24"
-        data-animate
-        data-delay="300"
+        class="lg:col-span-5 flex flex-col gap-6 marketplace-payment opacity-0 translate-x-5"
       >
-        <div class="mb-10 pb-8 border-b border-dashed border-gray-200">
-          <div class="flex items-center justify-between gap-6">
-            <div class="flex flex-col">
-              <span
-                class="text-xs font-bold text-text-muted mb-1 uppercase tracking-widest leading-none"
-                >ARS</span
-              >
-              <span
-                class="text-3xl font-black text-text-primary leading-none"
-                data-i18n="market.priceARS">35,000 ARS</span
-              >
-            </div>
-            <div class="w-px h-10 bg-gray-200"></div>
-            <div class="flex flex-col">
-              <span
-                class="text-xs font-bold text-text-muted mb-1 uppercase tracking-widest leading-none"
-                >USD</span
-              >
-              <span
-                class="text-3xl font-black text-text-primary leading-none"
-                data-i18n="market.priceUSD">30 USD</span
-              >
-            </div>
-          </div>
-        </div>
-
-        <div class="space-y-8 mb-10">
-          <div>
-            <h4
-              class="flex items-center gap-3 text-sm font-bold text-text-primary mb-5 uppercase tracking-wide"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="text-accent"
-                ><rect width="20" height="14" x="2" y="5" rx="2"></rect><line
-                  x1="2"
-                  x2="22"
-                  y1="10"
-                  y2="10"></line></svg
-              >
-              Mercado Pago (ARS)
-            </h4>
-            <a
-              href="https://mpago.la/2EQWepT"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center justify-center gap-3 w-full py-5 rounded-2xl font-bold text-lg bg-accent text-text-primary transition-all duration-300 hover:bg-accent-muted hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/30"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><circle cx="8" cy="21" r="1"></circle><circle
-                  cx="19"
-                  cy="21"
-                  r="1"></circle><path
-                  d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
-                ></path></svg
-              >
-              <span data-i18n="market.buyNow">Buy Now</span>
-            </a>
-          </div>
-
-          <div class="p-6 bg-accent-soft border border-accent/20 rounded-2xl">
-            <h4
-              class="flex items-center gap-3 text-sm font-bold text-text-primary mb-4 uppercase tracking-wide"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="text-accent"
-                ><path
-                  d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"
-                ></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"
-                ></path></svg
-              >
-              <span data-i18n="market.cryptoTitle"
-                >Crypto Payment (Polygon)</span
-              >
-            </h4>
-            <p
-              class="text-xs text-text-muted mb-3"
-              data-i18n="market.cryptoDesc"
-            >
-              Send USDT or USDC via Polygon Network to:
-            </p>
-            <div
-              class="bg-white px-4 py-3 rounded-xl border border-accent/10 mb-3 overflow-x-auto scroller-hidden"
-            >
-              <code
-                class="text-[10px] font-mono whitespace-nowrap text-accent break-all"
-                >0xf2f000a27e36778597f79d9fb38ce31841a3f028</code
-              >
-            </div>
-            <p
-              class="text-[10px] font-bold text-accent uppercase tracking-widest text-center"
-            >
-              USDT / USDC (Polygon)
-            </p>
-          </div>
-        </div>
-
-        <div class="pt-8 border-t border-gray-100">
-          <div class="flex items-center gap-3 mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="text-accent"
-              ><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline
-                points="22 4 12 14.01 9 11.01"></polyline></svg
-            >
-            <h4
-              class="text-sm font-bold text-text-primary uppercase tracking-wide"
-              data-i18n="market.postPaymentTitle"
-            >
-              Post-Payment Instructions
-            </h4>
-          </div>
-          <p
-            class="text-sm text-text-muted leading-relaxed mb-6"
-            data-i18n="market.postPaymentDesc"
+        <div
+          class="bg-white rounded-4xl p-10 border border-gray-100 shadow-2xl shadow-accent-soft/20 relative overflow-hidden"
+        >
+          <!-- Decorative element -->
+          <div
+            class="absolute -top-12 -right-12 w-32 h-32 bg-accent/5 rounded-full blur-3xl"
           >
-            After payment, send the receipt to dot_studio_dev@gmail.com
-            (preferred) including your GitHub info.
-          </p>
-
-          <ul class="space-y-3 mb-8">
-            <li
-              class="flex items-center gap-3 text-sm font-bold text-text-primary"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="text-accent-muted"
-                ><rect width="20" height="16" x="2" y="4" rx="2"></rect><path
-                  d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
-              >
-              GitHub Email
-            </li>
-            <li
-              class="flex items-center gap-3 text-sm font-bold text-text-primary"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="text-accent-muted"
-                ><path
-                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
-                ></path><path d="M9 18c-4.51 2-5-3-7-3"></path></svg
-              >
-              GitHub Username
-            </li>
-            <li
-              class="flex items-center gap-3 text-sm font-bold text-text-primary"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="text-accent-muted"
-                ><path
-                  d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
-                ></path><path d="M9 18c-4.51 2-5-3-7-3"></path></svg
-              >
-              GitHub Profile Link
-            </li>
-          </ul>
-
-          <div class="flex flex-col gap-2">
-            <a
-              href="mailto:dot_studio_dev@gmail.com"
-              class="text-sm md:text-base font-black text-accent border-b-2 border-accent-muted pb-1 self-start transition-colors hover:text-text-primary hover:border-accent break-all"
-            >
-              dot_studio_dev@gmail.com
-            </a>
-            <span class="text-[10px] font-bold text-text-muted uppercase"
-              >o</span
-            >
-            <a
-              href="mailto:franespindola71@gmail.com"
-              class="text-xs font-bold text-text-muted transition-colors hover:text-accent break-all"
-            >
-              franespindola71@gmail.com
-            </a>
           </div>
+
+          <div class="relative z-10">
+            <h4
+              class="text-2xl font-[Outfit] font-bold text-text-primary mb-2"
+              data-i18n="marketplace.buyTitle"
+            >
+              {t.marketplace.buyTitle}
+            </h4>
+            <p
+              class="text-text-muted text-sm mb-8"
+              data-i18n="marketplace.buySubtitle"
+            >
+              {t.marketplace.buySubtitle}
+            </p>
+
+            <!-- Price Display with animated transition -->
+            <div class="mb-10 min-h-25 flex items-center">
+              <div id="price-ars" class="w-full">
+                <span
+                  class="text-text-muted text-xs font-bold uppercase tracking-widest mb-1 block"
+                  data-i18n="marketplace.investment"
+                  >{t.marketplace.investment}</span
+                >
+                <div class="flex items-baseline gap-3">
+                  <span
+                    class="text-6xl font-[Outfit] font-extrabold bg-linear-to-br from-accent to-purple-600 bg-clip-text text-transparent tracking-tight"
+                    >$35.000</span
+                  >
+                  <span class="text-xl font-bold text-accent/60">ARS</span>
+                </div>
+              </div>
+              <div id="price-usd" class="w-full hidden">
+                <span
+                  class="text-text-muted text-xs font-bold uppercase tracking-widest mb-1 block"
+                  data-i18n="marketplace.investment"
+                  >{t.marketplace.investment}</span
+                >
+                <div class="flex items-baseline gap-3">
+                  <span
+                    class="text-6xl font-[Outfit] font-extrabold bg-linear-to-br from-accent to-purple-600 bg-clip-text text-transparent tracking-tight"
+                    >$30</span
+                  >
+                  <span class="text-xl font-bold text-accent/60">USD</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- New Switcher UI -->
+            <div
+              class="bg-gray-50 p-2 rounded-2xl flex relative mb-8 border border-gray-100"
+            >
+              <div
+                id="switcher-bg"
+                class="absolute top-2 left-2 bottom-2 w-[calc(50%-8px)] bg-white rounded-xl shadow-md transition-all duration-500 ease-out z-0 border border-gray-100"
+              >
+              </div>
+              <button
+                id="btn-ars"
+                class="flex-1 py-3 text-sm font-bold z-10 text-text-primary transition-colors duration-300"
+                data-i18n="marketplace.arsLabel"
+              >
+                {t.marketplace.arsLabel}
+              </button>
+              <button
+                id="btn-usd"
+                class="flex-1 py-3 text-sm font-bold z-10 text-text-muted transition-colors duration-300 hover:text-text-primary"
+                data-i18n="marketplace.usdLabel"
+              >
+                {t.marketplace.usdLabel}
+              </button>
+            </div>
+
+            <!-- Action Area -->
+            <div id="action-ars" class="block space-y-4">
+              <a
+                href="https://mpago.la/2EQWepT"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group relative block w-full py-5 bg-linear-to-r from-accent to-purple-600 text-white rounded-2xl font-bold text-center transition-all duration-300 hover:shadow-xl hover:shadow-accent/40 overflow-hidden"
+              >
+                <span
+                  class="relative z-10 flex items-center justify-center gap-3"
+                >
+                  <span data-i18n="marketplace.mpLabel">
+                    {t.marketplace.mpLabel}
+                  </span>
+                  <svg
+                    class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                </span>
+                <div
+                  class="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+                >
+                </div>
+              </a>
+              <p
+                class="text-[10px] text-center text-text-muted font-medium uppercase tracking-widest"
+                data-i18n="marketplace.mpSecure"
+              >
+                {t.marketplace.mpSecure}
+              </p>
+            </div>
+
+            <div id="action-usd" class="hidden space-y-6">
+              <div
+                class="p-6 bg-accent-soft/30 rounded-2xl border border-dashed border-accent/20"
+              >
+                <div class="flex items-center gap-4 mb-5">
+                  <div
+                    class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-accent shadow-sm border border-gray-100"
+                  >
+                    <svg
+                      class="w-7 h-7"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p
+                      class="text-xs font-bold text-text-primary uppercase tracking-wider"
+                      data-i18n="marketplace.cryptoTitle"
+                    >
+                      {t.marketplace.cryptoTitle}
+                    </p>
+                    <p
+                      class="text-[10px] text-text-muted"
+                      data-i18n="marketplace.cryptoSubtitle"
+                    >
+                      {t.marketplace.cryptoSubtitle}
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="bg-white p-4 rounded-xl border border-gray-100 mb-5 break-all shadow-sm"
+                >
+                  <p
+                    class="text-[10px] font-bold text-text-muted uppercase mb-2"
+                    data-i18n="marketplace.walletLabel"
+                  >
+                    {t.marketplace.walletLabel}
+                  </p>
+                  <code
+                    id="wallet-address"
+                    class="text-xs font-mono font-medium text-text-primary"
+                    >0xf2f000a27e36778597f79d9fb38ce31841a3f028</code
+                  >
+                </div>
+
+                <button
+                  id="copy-address"
+                  class="w-full py-4 bg-white border border-gray-200 text-text-primary rounded-xl text-sm font-bold transition-all duration-300 hover:border-accent hover:bg-accent-soft/20 flex items-center justify-center gap-2"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
+                    ></path>
+                  </svg>
+                  <span id="copy-text" data-i18n="marketplace.copyAddress">
+                    {t.marketplace.copyAddress}
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Help Card -->
+        <div
+          class="bg-linear-to-br from-accent-soft to-white p-8 rounded-4xl border border-accent/10 shadow-xl shadow-accent-soft/20 overflow-hidden relative group"
+        >
+          <!-- Animated gradient blob -->
+          <div
+            class="absolute -bottom-10 -right-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl group-hover:bg-accent/30 transition-colors duration-500"
+          >
+          </div>
+
+          <div class="flex items-start justify-between relative z-10">
+            <div class="max-w-[70%]">
+              <h4
+                class="text-xl font-[Outfit] font-bold mb-2 text-text-primary"
+                data-i18n="marketplace.helpTitle"
+              >
+                {t.marketplace.helpTitle}
+              </h4>
+              <p
+                class="text-text-secondary text-sm mb-0"
+                data-i18n="marketplace.helpDesc"
+              >
+                {t.marketplace.helpDesc}
+              </p>
+            </div>
+            <div
+              class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-accent shadow-sm border border-accent/10"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <a
+            href="#contact"
+            class="mt-6 flex items-center justify-center gap-2 text-sm font-bold bg-text-primary text-white w-full py-4 rounded-xl hover:bg-accent hover:shadow-lg hover:shadow-accent/20 transition-all duration-300 relative z-10"
+            data-i18n="marketplace.helpCta"
+          >
+            {t.marketplace.helpCta}
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<style>
-  .scroller-hidden::-webkit-scrollbar {
-    display: none;
-  }
-  .scroller-hidden {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-</style>
-
 <script>
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const delay = entry.target.getAttribute("data-delay") || "0";
-          setTimeout(() => {
-            entry.target.classList.remove(
-              "opacity-0",
-              "translate-y-8",
-              "translate-y-10",
-            );
-            entry.target.classList.add("opacity-100", "translate-y-0");
-          }, parseInt(delay));
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1 },
-  );
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { translations } from "../i18n/translations.js";
 
-  document
-    .querySelectorAll("[data-animate]")
-    .forEach((el) => observer.observe(el));
+  gsap.registerPlugin(ScrollTrigger);
 
-  const playBtn = document.getElementById("play-video-btn");
-  const posterPreview = document.getElementById("poster-preview");
-  const videoWrapper = document.getElementById("video-wrapper");
-  const player = document.getElementById(
-    "template-video-player",
-  ) as HTMLVideoElement;
+  document.addEventListener("DOMContentLoaded", () => {
+    // Animations
+    gsap.to(".marketplace-header", {
+      scrollTrigger: {
+        trigger: "#marketplace",
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
 
-  playBtn?.addEventListener("click", () => {
-    if (posterPreview && videoWrapper && player) {
-      posterPreview.classList.add("opacity-0", "invisible");
-      videoWrapper.classList.remove("hidden");
-      setTimeout(() => videoWrapper.classList.add("opacity-100"), 50);
-      player.play();
+    gsap.to(".marketplace-card", {
+      scrollTrigger: {
+        trigger: "#marketplace",
+        start: "top 70%",
+        toggleActions: "play none none none",
+      },
+      opacity: 1,
+      x: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    gsap.to(".marketplace-payment", {
+      scrollTrigger: {
+        trigger: "#marketplace",
+        start: "top 70%",
+        toggleActions: "play none none none",
+      },
+      opacity: 1,
+      x: 0,
+      duration: 1,
+      delay: 0.2,
+      ease: "power3.out",
+    });
+
+    // Video Logic
+    const mediaContainer = document.getElementById("media-container");
+    const templateVideo = document.getElementById(
+      "template-video",
+    ) as HTMLVideoElement;
+
+    mediaContainer?.addEventListener("click", () => {
+      mediaContainer.classList.add("hidden");
+      templateVideo?.classList.remove("hidden");
+      templateVideo?.play();
+    });
+
+    // Reinvented Switcher Logic
+    const btnArs = document.getElementById("btn-ars");
+    const btnUsd = document.getElementById("btn-usd");
+    const switcherBg = document.getElementById("switcher-bg");
+    const priceArs = document.getElementById("price-ars");
+    const priceUsd = document.getElementById("price-usd");
+    const actionArs = document.getElementById("action-ars");
+    const actionUsd = document.getElementById("action-usd");
+
+    function updateUI(toUsd: boolean) {
+      if (toUsd) {
+        switcherBg?.style.setProperty("left", "calc(50%)");
+        btnUsd?.classList.replace("text-text-muted", "text-text-primary");
+        btnArs?.classList.replace("text-text-primary", "text-text-muted");
+
+        priceArs?.classList.add("hidden");
+        priceUsd?.classList.remove("hidden");
+        actionArs?.classList.add("hidden");
+        actionUsd?.classList.remove("hidden");
+      } else {
+        switcherBg?.style.setProperty("left", "8px");
+        btnArs?.classList.replace("text-text-muted", "text-text-primary");
+        btnUsd?.classList.replace("text-text-primary", "text-text-muted");
+
+        priceUsd?.classList.add("hidden");
+        priceArs?.classList.remove("hidden");
+        actionUsd?.classList.add("hidden");
+        actionArs?.classList.remove("hidden");
+      }
     }
+
+    btnArs?.addEventListener("click", () => updateUI(false));
+    btnUsd?.addEventListener("click", () => updateUI(true));
+
+    // Copy Address
+    const copyBtn = document.getElementById("copy-address");
+    const copyText = document.getElementById("copy-text");
+    const walletAddress =
+      document.getElementById("wallet-address")?.textContent;
+
+    copyBtn?.addEventListener("click", () => {
+      if (walletAddress) {
+        navigator.clipboard.writeText(walletAddress);
+
+        const lang = (document.documentElement.lang as "en" | "es") || "en";
+        const t = (translations as any)[lang];
+
+        if (copyText) {
+          const originalText = copyText.innerHTML;
+          copyText.textContent = t.marketplace.copied;
+          copyBtn.classList.add(
+            "!text-green-600",
+            "border-green-200",
+            "bg-green-50",
+          );
+
+          setTimeout(() => {
+            copyText.innerHTML = originalText;
+            copyBtn.classList.remove(
+              "!text-green-600",
+              "border-green-200",
+              "bg-green-50",
+            );
+          }, 2000);
+        }
+      }
+    });
   });
 </script>

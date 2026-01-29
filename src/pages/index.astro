@@ -1,67 +1,107 @@
 ---
-import Layout from "../presentation/layouts/Layout.astro";
-import Hero from "../presentation/components/marketing/Hero.astro";
-import BlogCard from "../presentation/components/marketing/BlogCard.astro";
-import ScrollReveal from "../presentation/components/ui/ScrollReveal";
-import { getCollection } from "astro:content";
-
-const allPosts = await getCollection("blog");
-
-const blogMap = new Map();
-allPosts.forEach((post) => {
-  const parts = post.slug.split("/");
-  const seriesSlug = parts[0];
-  if (!blogMap.has(seriesSlug)) {
-    blogMap.set(seriesSlug, {
-      id: seriesSlug,
-      slug: seriesSlug,
-      title: post.data.blogTitle,
-      description: post.data.description,
-      date: post.data.date,
-      author: post.data.author,
-      category: post.data.category,
-      chaptersCount: 0,
-    });
-  }
-  blogMap.get(seriesSlug).chaptersCount++;
-});
-
-const featuredBlogs = Array.from(blogMap.values()).slice(0, 5);
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Skills from "../components/Skills.astro";
+import Projects from "../components/Projects.astro";
+import Experience from "../components/Experience.astro";
+import Marketplace from "../components/Marketplace.astro";
+import Contact from "../components/Contact.astro";
+import Donations from "../components/Donations.astro";
+import Footer from "../components/Footer.astro";
+import CustomCursor from "../components/CustomCursor.astro";
 ---
 
-<Layout title="Elegant Minimalist Studio | Blog">
-  <Hero />
-
-  <section class="pb-40 border-t border-white/5">
-    <div class="max-w-6xl mx-auto px-6 pt-24">
-      <div
-        class="flex flex-col md:flex-row md:items-baseline justify-between gap-6 mb-24"
-      >
-        <ScrollReveal client:load direction="right">
-          <h2
-            class="text-4xl md:text-7xl font-display font-black uppercase tracking-tighter"
-          >
-            Selected <span class="text-primary italic">Works</span>
-          </h2>
-        </ScrollReveal>
-        <ScrollReveal client:load direction="left">
-          <p
-            class="text-surface-400 font-bold uppercase tracking-[0.2em] text-[10px]"
-          >
-            Recent Series
-          </p>
-        </ScrollReveal>
-      </div>
-
-      <div class="flex flex-col">
-        {
-          featuredBlogs.map((blog, index) => (
-            <ScrollReveal client:load delay={index * 0.1}>
-              <BlogCard blog={blog} />
-            </ScrollReveal>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+<Layout>
+  <CustomCursor />
+  <Navbar />
+  <main>
+    <Hero />
+    <About />
+    <Skills />
+    <Projects />
+    <Experience />
+    <Marketplace />
+    <Contact />
+    <Donations />
+  </main>
+  <Footer />
 </Layout>
+
+<script>
+  import { translations } from "../i18n/translations.js";
+
+  let currentLang = "en";
+
+  function updateTexts(lang: "en" | "es") {
+    const t = (translations as any)[lang];
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (!key) return;
+      const keys = key.split(".");
+      let value: any = t;
+      for (const k of keys) {
+        value = value?.[k];
+      }
+      if (value && typeof value === "string") {
+        el.textContent = value;
+      }
+    });
+
+    document.querySelectorAll(".project-title").forEach((el) => {
+      const text = el.getAttribute(`data-lang-${lang}`);
+      if (text) el.textContent = text;
+    });
+
+    document.querySelectorAll(".project-desc").forEach((el) => {
+      const text = el.getAttribute(`data-lang-${lang}`);
+      if (text) el.textContent = text;
+    });
+
+    document
+      .querySelectorAll(".work-company, .work-role, .work-desc")
+      .forEach((el) => {
+        const text = el.getAttribute(`data-lang-${lang}`);
+        if (text) el.textContent = text;
+      });
+
+    document
+      .querySelectorAll(".edu-institution, .edu-degree, .edu-desc")
+      .forEach((el) => {
+        const text = el.getAttribute(`data-lang-${lang}`);
+        if (text) el.textContent = text;
+      });
+
+    document.documentElement.lang = lang;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const langToggle = document.getElementById("lang-toggle");
+    const currentLangSpan = document.getElementById("current-lang");
+
+    langToggle?.addEventListener("click", () => {
+      currentLang = currentLang === "en" ? "es" : "en";
+      if (currentLangSpan) {
+        currentLangSpan.textContent = currentLang.toUpperCase();
+      }
+      updateTexts(currentLang as any);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (this: HTMLAnchorElement, e) {
+        e.preventDefault();
+        const targetId = this.getAttribute("href");
+        if (!targetId) return;
+        const target = document.querySelector(targetId);
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      });
+    });
+  });
+</script>
