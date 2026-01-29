@@ -1,5 +1,6 @@
 ---
 import { translations } from "../i18n/translations.js";
+import { ArrowRight, ExternalLink, ArrowDown } from "lucide-astro";
 const t = translations.en;
 ---
 
@@ -53,44 +54,31 @@ const t = translations.en;
       >
         <a
           href="#projects"
-          class="group px-8 py-4 bg-text-primary text-white rounded-full font-medium text-sm transition-all duration-300 hover:bg-accent hover:scale-105"
+          class="group px-8 py-4 bg-text-primary text-white rounded-full font-medium text-sm transition-all duration-300 hover:bg-accent hover:scale-105 flex items-center gap-2"
         >
           <span data-i18n="hero.cta">{t.hero.cta}</span>
-          <span
-            class="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1"
-            >→</span
-          >
+          <ArrowRight
+            class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+          />
         </a>
 
         <a
           href="https://dot-studio.site"
           target="_blank"
           rel="noopener noreferrer"
-          class="group px-8 py-4 bg-white border border-gray-200 text-text-primary rounded-full font-medium text-sm transition-all duration-300 hover:border-accent hover:text-accent hover:scale-105"
+          class="group px-8 py-4 bg-white border border-gray-200 text-text-primary rounded-full font-medium text-sm transition-all duration-300 hover:border-accent hover:text-accent hover:scale-105 flex items-center gap-2"
         >
           <span data-i18n="hero.ctaStudio">{t.hero.ctaStudio}</span>
-          <span
-            class="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1"
-            >↗</span
-          >
+          <ExternalLink
+            class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+          />
         </a>
       </div>
     </div>
   </div>
 
   <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-    <svg
-      class="w-6 h-6 text-gray-300"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-    </svg>
+    <ArrowDown class="w-6 h-6 text-gray-300" />
   </div>
 </section>
 

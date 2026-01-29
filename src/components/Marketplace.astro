@@ -1,5 +1,16 @@
 ---
 import { translations } from "../i18n/translations.js";
+import {
+  Play,
+  ArrowRight,
+  CircleDollarSign,
+  Copy,
+  MessageCircle,
+  CheckCircle2,
+  Mail,
+  User,
+  Link2,
+} from "lucide-astro";
 const t = translations.en;
 
 const products = [
@@ -147,12 +158,7 @@ const products = [
               <div
                 class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 transform group-hover:scale-110 transition-transform duration-300"
               >
-                <svg
-                  class="w-8 h-8 text-white fill-current"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z"></path>
-                </svg>
+                <Play class="w-8 h-8 text-white fill-current" />
               </div>
               <p
                 class="absolute bottom-8 text-white font-medium tracking-wide text-sm bg-black/40 px-4 py-2 rounded-full backdrop-blur-sm"
@@ -296,18 +302,9 @@ const products = [
                   <span data-i18n="marketplace.mpLabel">
                     {t.marketplace.mpLabel}
                   </span>
-                  <svg
+                  <ArrowRight
                     class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                  </svg>
+                  />
                 </span>
                 <div
                   class="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
@@ -330,19 +327,7 @@ const products = [
                   <div
                     class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-accent shadow-sm border border-gray-100"
                   >
-                    <svg
-                      class="w-7 h-7"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      ></path>
-                    </svg>
+                    <CircleDollarSign class="w-7 h-7" />
                   </div>
                   <div>
                     <p
@@ -380,19 +365,7 @@ const products = [
                   id="copy-address"
                   class="w-full py-4 bg-white border border-gray-200 text-text-primary rounded-xl text-sm font-bold transition-all duration-300 hover:border-accent hover:bg-accent-soft/20 flex items-center justify-center gap-2"
                 >
-                  <svg
-                    class="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
-                    ></path>
-                  </svg>
+                  <Copy class="w-4 h-4" />
                   <span id="copy-text" data-i18n="marketplace.copyAddress">
                     {t.marketplace.copyAddress}
                   </span>
@@ -429,19 +402,7 @@ const products = [
             <div
               class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-accent shadow-sm border border-accent/10"
             >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                ></path>
-              </svg>
+              <MessageCircle class="w-6 h-6" />
             </div>
           </div>
           <a
@@ -463,18 +424,7 @@ const products = [
         <div
           class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-green-600"
         >
-          <svg
-            class="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
+          <CheckCircle2 class="w-8 h-8" />
         </div>
         <div>
           <h4
@@ -492,51 +442,22 @@ const products = [
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div class="space-y-4">
           <div class="flex items-center gap-3 text-text-secondary font-medium">
-            <svg
-              class="w-5 h-5 text-accent"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <Mail class="w-5 h-5 text-accent" />
+            <span data-i18n="marketplace.githubEmail"
+              >{t.marketplace.githubEmail}</span
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
-            <span>Email de GitHub</span>
           </div>
           <div class="flex items-center gap-3 text-text-secondary font-medium">
-            <svg
-              class="w-5 h-5 text-accent"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <User class="w-5 h-5 text-accent" />
+            <span data-i18n="marketplace.githubUser"
+              >{t.marketplace.githubUser}</span
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-            </svg>
-            <span>Usuario de GitHub</span>
           </div>
           <div class="flex items-center gap-3 text-text-secondary font-medium">
-            <svg
-              class="w-5 h-5 text-accent"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <Link2 class="w-5 h-5 text-accent" />
+            <span data-i18n="marketplace.githubLink"
+              >{t.marketplace.githubLink}</span
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101"
-              ></path>
-            </svg>
-            <span>Link al Perfil</span>
           </div>
         </div>
 
@@ -550,7 +471,7 @@ const products = [
           </a>
           <span
             class="text-xs font-bold text-text-muted uppercase tracking-widest pl-4"
-            >O TAMBIÉN A</span
+            data-i18n="marketplace.orAlsoTo">{t.marketplace.orAlsoTo}</span
           >
           <a
             href="mailto:franespindola71@gmail.com"

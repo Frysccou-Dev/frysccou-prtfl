@@ -1,14 +1,16 @@
 ---
 import { translations } from "../i18n/translations.js";
+import { ChevronRight } from "lucide-astro";
 const t = translations.en;
 ---
 
 <nav
   id="main-nav"
-  class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50 transition-all duration-500"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex justify-center pointer-events-none"
 >
   <div
-    class="bg-white/70 backdrop-blur-xl border border-white/40 shadow-2xl rounded-2xl px-6 py-3 flex items-center justify-between"
+    id="nav-container"
+    class="bg-white w-full px-6 py-4 flex items-center justify-between transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] border-b border-gray-100 pointer-events-auto"
   >
     <a
       href="#"
@@ -137,13 +139,10 @@ const t = translations.en;
         data-i18n="nav.about"
       >
         {t.nav.about}
-        <svg
+        <ChevronRight
           class="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          ><path d="M9 5l7 7-7 7" stroke-width="2.5"></path></svg
-        >
+          stroke-width={2.5}
+        />
       </a>
       <a
         href="#skills"
@@ -151,13 +150,10 @@ const t = translations.en;
         data-i18n="nav.skills"
       >
         {t.nav.skills}
-        <svg
+        <ChevronRight
           class="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          ><path d="M9 5l7 7-7 7" stroke-width="2.5"></path></svg
-        >
+          stroke-width={2.5}
+        />
       </a>
       <a
         href="#projects"
@@ -165,13 +161,10 @@ const t = translations.en;
         data-i18n="nav.projects"
       >
         {t.nav.projects}
-        <svg
+        <ChevronRight
           class="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          ><path d="M9 5l7 7-7 7" stroke-width="2.5"></path></svg
-        >
+          stroke-width={2.5}
+        />
       </a>
       <a
         href="#marketplace"
@@ -185,13 +178,10 @@ const t = translations.en;
             >HOT</span
           >
         </div>
-        <svg
+        <ChevronRight
           class="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          ><path d="M9 5l7 7-7 7" stroke-width="2.5"></path></svg
-        >
+          stroke-width={2.5}
+        />
       </a>
       <a
         href="#contact"
@@ -199,13 +189,10 @@ const t = translations.en;
         data-i18n="nav.contact"
       >
         {t.nav.contact}
-        <svg
+        <ChevronRight
           class="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          ><path d="M9 5l7 7-7 7" stroke-width="2.5"></path></svg
-        >
+          stroke-width={2.5}
+        />
       </a>
     </div>
   </div>
@@ -251,10 +238,43 @@ const t = translations.en;
 
   window.addEventListener("scroll", () => {
     const nav = document.getElementById("main-nav");
-    if (window.scrollY > 20) {
-      nav?.classList.replace("top-6", "top-4");
+    const container = document.getElementById("nav-container");
+    const isScrolled = window.scrollY > 60;
+
+    if (isScrolled) {
+      nav?.classList.add("top-6", "px-6");
+      container?.classList.add(
+        "max-w-5xl",
+        "rounded-2xl",
+        "bg-white/70",
+        "backdrop-blur-xl",
+        "border-white/40",
+        "shadow-2xl",
+        "py-3",
+      );
+      container?.classList.remove(
+        "bg-white",
+        "py-4",
+        "border-b",
+        "border-gray-100",
+      );
     } else {
-      nav?.classList.replace("top-4", "top-6");
+      nav?.classList.remove("top-6", "px-6");
+      container?.classList.remove(
+        "max-w-5xl",
+        "rounded-2xl",
+        "bg-white/70",
+        "backdrop-blur-xl",
+        "border-white/40",
+        "shadow-2xl",
+        "py-3",
+      );
+      container?.classList.add(
+        "bg-white",
+        "py-4",
+        "border-b",
+        "border-gray-100",
+      );
     }
   });
 </script>

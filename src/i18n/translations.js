@@ -33,6 +33,10 @@ export const translations = {
       helpDesc: "Have questions about implementation or licenses?",
       helpCta: "Contact now",
       previewBtn: "Click for preview",
+      githubEmail: "GitHub Email",
+      githubUser: "GitHub Username",
+      githubLink: "Profile Link",
+      orAlsoTo: "OR ALSO TO",
       items: {
         landing: {
           name: "Landing Template",
@@ -152,6 +156,10 @@ export const translations = {
       helpDesc: "¿Tienes dudas sobre la implementación o licencias?",
       helpCta: "Contactar ahora",
       previewBtn: "Click para ver preview",
+      githubEmail: "Email de GitHub",
+      githubUser: "Usuario de GitHub",
+      githubLink: "Link al Perfil",
+      orAlsoTo: "O TAMBIÉN A",
       items: {
         landing: {
           name: "Landing Template",

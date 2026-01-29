@@ -1,5 +1,6 @@
 ---
 import { translations } from "../i18n/translations.js";
+import { Coffee, ArrowRight } from "lucide-astro";
 const t = translations.en;
 ---
 
@@ -21,22 +22,7 @@ const t = translations.en;
         <div
           class="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-white shadow-xl shadow-accent/10 border border-accent/10 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-10 h-10 text-accent"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
-            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path>
-            <line x1="6" y1="2" x2="6" y2="4"></line>
-            <line x1="10" y1="2" x2="10" y2="4"></line>
-            <line x1="14" y1="2" x2="14" y2="4"></line>
-          </svg>
+          <Coffee class="w-10 h-10 text-accent" />
         </div>
 
         <h2
@@ -60,18 +46,9 @@ const t = translations.en;
           class="inline-flex items-center gap-3 px-10 py-5 bg-text-primary text-white rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-accent hover:scale-105 hover:shadow-2xl hover:shadow-accent/40 group/btn"
         >
           <span data-i18n="donations.button">{t.donations.button}</span>
-          <svg
+          <ArrowRight
             class="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2.5"
-              d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-          </svg>
+          />
         </a>
       </div>
     </div>

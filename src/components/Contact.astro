@@ -1,5 +1,6 @@
 ---
 import { translations } from "../i18n/translations.js";
+import { ArrowRight } from "lucide-astro";
 const t = translations.en;
 ---
 
@@ -36,13 +37,12 @@ const t = translations.en;
       >
         <a
           href="mailto:franespindola71@gmail.com"
-          class="group px-12 py-5 bg-text-primary text-white rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-accent hover:scale-105 hover:shadow-2xl hover:shadow-accent/40"
+          class="group px-12 py-5 bg-text-primary text-white rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-accent hover:scale-105 hover:shadow-2xl hover:shadow-accent/40 flex items-center gap-2"
         >
           <span data-i18n="contact.cta">{t.contact.cta}</span>
-          <span
-            class="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1"
-            >→</span
-          >
+          <ArrowRight
+            class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+          />
         </a>
       </div>
 
@@ -93,18 +93,7 @@ const t = translations.en;
             class="flex items-center justify-center gap-2 text-text-primary font-bold transition-all duration-300 group-hover:text-accent group-hover:gap-4"
           >
             <span>Visit Studio Website</span>
-            <svg
-              class="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2.5"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
+            <ArrowRight class="w-5 h-5 transition-transform" />
           </div>
         </div>
       </a>
