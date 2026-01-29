@@ -2,20 +2,57 @@
 import { translations } from "../i18n/translations.js";
 const t = translations.en;
 
-const technologies = [
-  "React",
-  "Portfolio",
-  "Marketing",
-  "Astro 5",
-  "Professional",
-  "Tailwind CSS 4",
-  "Framer Motion",
-  "Lucide React",
-  "Hexagonal Architecture",
+const products = [
+  {
+    id: "landing",
+    name: t.marketplace.items.landing.name,
+    priceARS: t.marketplace.items.landing.priceARS,
+    priceUSD: t.marketplace.items.landing.priceUSD,
+    mpLink: "https://mpago.la/2EQWepT",
+    image: "/templates/landing-template.png",
+    video: "/preview/preview.mp4",
+    desc: t.marketplace.items.landing.aboutDesc,
+    topics: [
+      "React",
+      "Portfolio",
+      "Marketing",
+      "Astro 5",
+      "Professional",
+      "Tailwind CSS 4",
+      "Framer Motion",
+      "Lucide React",
+      "Hexagonal Architecture",
+    ],
+  },
+  {
+    id: "blog",
+    name: t.marketplace.items.blog.name,
+    priceARS: t.marketplace.items.blog.priceARS,
+    priceUSD: t.marketplace.items.blog.priceUSD,
+    mpLink: "https://mpago.la/2qSZUuE",
+    image: "/templates/blog-template.png",
+    video: "/preview/blog-preview.mp4",
+    desc: t.marketplace.items.blog.aboutDesc,
+    topics: [
+      "Blog",
+      "SEO Optimized",
+      "Astro 5",
+      "Content Collections",
+      "Dynamic Routing",
+      "Tailwind CSS 4",
+      "Framer Motion",
+      "Responsive Design",
+      "TypeScript",
+    ],
+  },
 ];
 ---
 
-<section id="marketplace" class="py-32 relative overflow-hidden bg-white/50">
+<section
+  id="marketplace"
+  class="py-32 relative overflow-hidden bg-white/50"
+  data-products={JSON.stringify(products)}
+>
   <div class="max-w-7xl mx-auto px-6 relative z-10">
     <div class="text-center mb-16 marketplace-header opacity-0 translate-y-10">
       <h2
@@ -32,7 +69,62 @@ const technologies = [
       </p>
     </div>
 
-    <div class="grid lg:grid-cols-12 gap-12 items-start">
+    <!-- Showroom Grid -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 showroom-grid opacity-0 translate-y-10"
+    >
+      {
+        products.map((product) => (
+          <button
+            class="showroom-item group relative bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer text-left"
+            data-product-id={product.id}
+            id={`btn-${product.id}`}
+          >
+            <div class="aspect-video overflow-hidden">
+              <img
+                src={product.image}
+                alt={product.name}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span
+                  class="bg-white text-text-primary font-bold px-6 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                  data-i18n="marketplace.buyNow"
+                >
+                  {t.marketplace.buyNow}
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-xl font-[Outfit] font-bold text-text-primary mb-2"
+                data-i18n={`marketplace.items.${product.id}.name`}
+              >
+                {product.name}
+              </h3>
+              <div class="flex items-center gap-3">
+                <span
+                  class="text-accent font-bold"
+                  data-i18n={`marketplace.items.${product.id}.priceARS`}
+                >
+                  {product.priceARS}
+                </span>
+                <span class="w-1 h-1 bg-gray-300 rounded-full" />
+                <span
+                  class="text-text-muted font-bold text-sm"
+                  data-i18n={`marketplace.items.${product.id}.priceUSD`}
+                >
+                  {product.priceUSD}
+                </span>
+              </div>
+            </div>
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Active Product Display -->
+    <div class="grid lg:grid-cols-12 gap-12 items-start" id="display-area">
       <!-- Info Card -->
       <div
         class="lg:col-span-7 marketplace-card opacity-0 -translate-x-5 bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-xl shadow-accent-soft/10"
@@ -44,8 +136,8 @@ const technologies = [
           >
             <img
               id="template-image"
-              src="/templates/landing-template.png"
-              alt="Landing Page Professional Template"
+              src={products[0].image}
+              alt="Template Preview"
               class="w-full h-full object-cover transition-transform duration-700"
             />
             <div
@@ -75,15 +167,15 @@ const technologies = [
             class="hidden w-full h-full object-cover"
             controls
             playsinline
+            src={products[0].video}
           >
-            <source src="/preview/preview.mp4" type="video/mp4" />
           </video>
         </div>
 
         <div class="p-8 md:p-10">
-          <div class="flex flex-wrap gap-2 mb-6">
+          <div class="flex flex-wrap gap-2 mb-6" id="active-topics">
             {
-              technologies.map((tech) => (
+              products[0].topics.map((tech) => (
                 <span class="px-3 py-1 bg-gray-50 text-text-secondary text-xs font-semibold rounded-lg border border-gray-100">
                   {tech}
                 </span>
@@ -92,97 +184,18 @@ const technologies = [
           </div>
           <h3
             class="text-3xl font-[Outfit] font-bold text-text-primary mb-4"
-            data-i18n="marketplace.templateTitle"
+            id="active-title"
+            data-i18n={`marketplace.items.landing.name`}
           >
-            {t.marketplace.templateTitle}
+            {products[0].name}
           </h3>
           <p
             class="text-text-muted text-base leading-relaxed mb-8"
-            data-i18n="marketplace.templateDesc"
+            id="active-desc"
+            data-i18n={`marketplace.items.landing.aboutDesc`}
           >
-            {t.marketplace.templateDesc}
+            {products[0].desc}
           </p>
-
-          <div
-            class="bg-accent-soft/20 rounded-2xl p-6 border border-accent/10"
-          >
-            <p
-              class="text-sm font-bold text-accent uppercase tracking-wider mb-4 flex items-center gap-2"
-            >
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-              <span data-i18n="marketplace.postPaymentTitle">
-                {t.marketplace.postPaymentTitle}
-              </span>
-            </p>
-            <p
-              class="text-text-secondary text-sm mb-4"
-              data-i18n="marketplace.postPaymentDesc"
-            >
-              {t.marketplace.postPaymentDesc}
-            </p>
-            <div class="grid sm:grid-cols-2 gap-4">
-              <div
-                class="flex items-center gap-3 bg-white p-3 rounded-xl border border-gray-100"
-              >
-                <div
-                  class="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center text-accent"
-                >
-                  <svg
-                    class="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                </div>
-                <span class="text-xs font-medium text-text-primary truncate"
-                  >dot_studio_dev@gmail.com</span
-                >
-              </div>
-              <div
-                class="flex items-center gap-3 bg-white p-3 rounded-xl border border-gray-100"
-              >
-                <div
-                  class="w-8 h-8 bg-rose-soft rounded-lg flex items-center justify-center text-rose-accent"
-                >
-                  <svg
-                    class="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                </div>
-                <span class="text-xs font-medium text-text-primary truncate"
-                  >franespindola71@gmail.com</span
-                >
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -193,7 +206,6 @@ const technologies = [
         <div
           class="bg-white rounded-4xl p-10 border border-gray-100 shadow-2xl shadow-accent-soft/20 relative overflow-hidden"
         >
-          <!-- Decorative element -->
           <div
             class="absolute -top-12 -right-12 w-32 h-32 bg-accent/5 rounded-full blur-3xl"
           >
@@ -213,7 +225,6 @@ const technologies = [
               {t.marketplace.buySubtitle}
             </p>
 
-            <!-- Price Display with animated transition -->
             <div class="mb-10 min-h-25 flex items-center">
               <div id="price-ars" class="w-full">
                 <span
@@ -223,8 +234,9 @@ const technologies = [
                 >
                 <div class="flex items-baseline gap-3">
                   <span
+                    id="amount-ars"
                     class="text-6xl font-[Outfit] font-extrabold bg-linear-to-br from-accent to-purple-600 bg-clip-text text-transparent tracking-tight"
-                    >$35.000</span
+                    >{products[0].priceARS}</span
                   >
                   <span class="text-xl font-bold text-accent/60">ARS</span>
                 </div>
@@ -237,15 +249,15 @@ const technologies = [
                 >
                 <div class="flex items-baseline gap-3">
                   <span
+                    id="amount-usd"
                     class="text-6xl font-[Outfit] font-extrabold bg-linear-to-br from-accent to-purple-600 bg-clip-text text-transparent tracking-tight"
-                    >$30</span
+                    >{products[0].priceUSD}</span
                   >
                   <span class="text-xl font-bold text-accent/60">USD</span>
                 </div>
               </div>
             </div>
 
-            <!-- New Switcher UI -->
             <div
               class="bg-gray-50 p-2 rounded-2xl flex relative mb-8 border border-gray-100"
             >
@@ -270,10 +282,10 @@ const technologies = [
               </button>
             </div>
 
-            <!-- Action Area -->
             <div id="action-ars" class="block space-y-4">
               <a
-                href="https://mpago.la/2EQWepT"
+                id="mp-link"
+                href={products[0].mpLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="group relative block w-full py-5 bg-linear-to-r from-accent to-purple-600 text-white rounded-2xl font-bold text-center transition-all duration-300 hover:shadow-xl hover:shadow-accent/40 overflow-hidden"
@@ -394,7 +406,6 @@ const technologies = [
         <div
           class="bg-linear-to-br from-accent-soft to-white p-8 rounded-4xl border border-accent/10 shadow-xl shadow-accent-soft/20 overflow-hidden relative group"
         >
-          <!-- Animated gradient blob -->
           <div
             class="absolute -bottom-10 -right-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl group-hover:bg-accent/30 transition-colors duration-500"
           >
@@ -443,6 +454,114 @@ const technologies = [
         </div>
       </div>
     </div>
+
+    <!-- Post-Payment Section (Always Visible) -->
+    <div
+      class="mt-16 bg-off-white/80 backdrop-blur-md rounded-4xl p-8 md:p-12 border border-gray-100 shadow-xl opacity-0 translate-y-10 post-payment-section"
+    >
+      <div class="flex items-center gap-4 mb-8">
+        <div
+          class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-green-600"
+        >
+          <svg
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div>
+          <h4
+            class="text-2xl font-[Outfit] font-bold text-text-primary"
+            data-i18n="marketplace.postPaymentTitle"
+          >
+            {t.marketplace.postPaymentTitle}
+          </h4>
+          <p class="text-text-muted" data-i18n="marketplace.postPaymentDesc">
+            {t.marketplace.postPaymentDesc}
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="space-y-4">
+          <div class="flex items-center gap-3 text-text-secondary font-medium">
+            <svg
+              class="w-5 h-5 text-accent"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              ></path>
+            </svg>
+            <span>Email de GitHub</span>
+          </div>
+          <div class="flex items-center gap-3 text-text-secondary font-medium">
+            <svg
+              class="w-5 h-5 text-accent"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+            </svg>
+            <span>Usuario de GitHub</span>
+          </div>
+          <div class="flex items-center gap-3 text-text-secondary font-medium">
+            <svg
+              class="w-5 h-5 text-accent"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101"
+              ></path>
+            </svg>
+            <span>Link al Perfil</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <a
+            href="mailto:dot_studio_dev@gmail.com"
+            class="text-xl font-bold text-accent hover:text-text-primary transition-colors flex items-center gap-2"
+          >
+            <span class="w-2 h-2 bg-accent rounded-full"></span>
+            dot_studio_dev@gmail.com
+          </a>
+          <span
+            class="text-xs font-bold text-text-muted uppercase tracking-widest pl-4"
+            >O TAMBIÉN A</span
+          >
+          <a
+            href="mailto:franespindola71@gmail.com"
+            class="text-xl font-bold text-rose-accent hover:text-text-primary transition-colors flex items-center gap-2"
+          >
+            <span class="w-2 h-2 bg-rose-accent rounded-full"></span>
+            franespindola71@gmail.com
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -454,7 +573,12 @@ const technologies = [
   gsap.registerPlugin(ScrollTrigger);
 
   document.addEventListener("DOMContentLoaded", () => {
-    // Animations
+    const section = document.getElementById("marketplace");
+    if (!section) return;
+
+    const products = JSON.parse(section.dataset.products || "[]");
+
+    // Entrance Animations
     gsap.to(".marketplace-header", {
       scrollTrigger: {
         trigger: "#marketplace",
@@ -467,10 +591,22 @@ const technologies = [
       ease: "power3.out",
     });
 
+    gsap.to(".showroom-grid", {
+      scrollTrigger: {
+        trigger: ".showroom-grid",
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+
     gsap.to(".marketplace-card", {
       scrollTrigger: {
-        trigger: "#marketplace",
-        start: "top 70%",
+        trigger: "#display-area",
+        start: "top 80%",
         toggleActions: "play none none none",
       },
       opacity: 1,
@@ -481,8 +617,8 @@ const technologies = [
 
     gsap.to(".marketplace-payment", {
       scrollTrigger: {
-        trigger: "#marketplace",
-        start: "top 70%",
+        trigger: "#display-area",
+        start: "top 80%",
         toggleActions: "play none none none",
       },
       opacity: 1,
@@ -492,19 +628,38 @@ const technologies = [
       ease: "power3.out",
     });
 
-    // Video Logic
-    const mediaContainer = document.getElementById("media-container");
-    const templateVideo = document.getElementById(
-      "template-video",
-    ) as HTMLVideoElement;
-
-    mediaContainer?.addEventListener("click", () => {
-      mediaContainer.classList.add("hidden");
-      templateVideo?.classList.remove("hidden");
-      templateVideo?.play();
+    gsap.to(".post-payment-section", {
+      scrollTrigger: {
+        trigger: ".post-payment-section",
+        start: "top 90%",
+        toggleActions: "play none none none",
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
     });
 
-    // Reinvented Switcher Logic
+    // Elements
+    const mediaContainer = document.getElementById("media-container");
+    const playOverlay = document.getElementById("play-overlay");
+    const templateImage = document.getElementById(
+      "template-image",
+    ) as HTMLImageElement | null;
+    const templateVideo = document.getElementById(
+      "template-video",
+    ) as HTMLVideoElement | null;
+    const activeTitle = document.getElementById("active-title");
+    const activeDesc = document.getElementById("active-desc");
+    const activeTopics = document.getElementById("active-topics");
+    const amountArs = document.getElementById("amount-ars");
+    const amountUsd = document.getElementById("amount-usd");
+    const mpLink = document.getElementById(
+      "mp-link",
+    ) as HTMLAnchorElement | null;
+    const showroomItems = document.querySelectorAll(".showroom-item");
+
+    // Switcher Elements
     const btnArs = document.getElementById("btn-ars");
     const btnUsd = document.getElementById("btn-usd");
     const switcherBg = document.getElementById("switcher-bg");
@@ -513,7 +668,85 @@ const technologies = [
     const actionArs = document.getElementById("action-ars");
     const actionUsd = document.getElementById("action-usd");
 
-    function updateUI(toUsd: boolean) {
+    // Video Logic
+    mediaContainer?.addEventListener("click", () => {
+      playOverlay?.classList.add("hidden");
+      templateImage?.classList.add("hidden");
+      templateVideo?.classList.remove("hidden");
+      templateVideo?.play();
+    });
+
+    function resetVideo() {
+      playOverlay?.classList.remove("hidden");
+      templateImage?.classList.remove("hidden");
+      templateVideo?.classList.add("hidden");
+      templateVideo?.pause();
+    }
+
+    // Product Switcher Logic
+    function updateProduct(productId: string) {
+      const product = products.find((p: any) => p.id === productId);
+      if (!product) return;
+
+      showroomItems.forEach((btn) => {
+        btn.classList.remove("border-accent", "ring-2", "ring-accent");
+      });
+      document
+        .getElementById(`btn-${productId}`)
+        ?.classList.add("border-accent", "ring-2", "ring-accent");
+
+      // Update basic info
+      resetVideo();
+      if (templateImage) templateImage.src = product.image;
+      if (templateVideo) templateVideo.src = product.video;
+
+      if (activeTitle) {
+        activeTitle.textContent = product.name;
+        activeTitle.setAttribute(
+          "data-i18n",
+          `marketplace.items.${productId}.name`,
+        );
+      }
+
+      if (activeDesc) {
+        activeDesc.textContent = product.desc;
+        activeDesc.setAttribute(
+          "data-i18n",
+          `marketplace.items.${productId}.aboutDesc`,
+        );
+      }
+
+      if (amountArs) amountArs.textContent = product.priceARS;
+      if (amountUsd) amountUsd.textContent = product.priceUSD;
+      if (mpLink) mpLink.href = product.mpLink;
+
+      // Update Topics
+      if (activeTopics) {
+        activeTopics.innerHTML = "";
+        product.topics.forEach((tech: string) => {
+          const span = document.createElement("span");
+          span.className =
+            "px-3 py-1 bg-gray-50 text-text-secondary text-xs font-semibold rounded-lg border border-gray-100";
+          span.textContent = tech;
+          activeTopics.appendChild(span);
+        });
+      }
+
+      // Scroll to display
+      document
+        .getElementById("display-area")
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    showroomItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const id = (item as HTMLElement).dataset.productId;
+        if (id) updateProduct(id);
+      });
+    });
+
+    // Currency Switcher Logic
+    function updateCurrency(toUsd: boolean) {
       if (toUsd) {
         switcherBg?.style.setProperty("left", "calc(50%)");
         btnUsd?.classList.replace("text-text-muted", "text-text-primary");
@@ -535,8 +768,8 @@ const technologies = [
       }
     }
 
-    btnArs?.addEventListener("click", () => updateUI(false));
-    btnUsd?.addEventListener("click", () => updateUI(true));
+    btnArs?.addEventListener("click", () => updateCurrency(false));
+    btnUsd?.addEventListener("click", () => updateCurrency(true));
 
     // Copy Address
     const copyBtn = document.getElementById("copy-address");
@@ -547,29 +780,25 @@ const technologies = [
     copyBtn?.addEventListener("click", () => {
       if (walletAddress) {
         navigator.clipboard.writeText(walletAddress);
-
         const lang = (document.documentElement.lang as "en" | "es") || "en";
-        const t = (translations as any)[lang];
+        const tObj = (translations as any)[lang];
 
         if (copyText) {
           const originalText = copyText.innerHTML;
-          copyText.textContent = t.marketplace.copied;
-          copyBtn.classList.add(
-            "!text-green-600",
-            "border-green-200",
-            "bg-green-50",
-          );
+          copyText.textContent = tObj.marketplace.copied;
+          copyBtn.classList.add("!border-green-200", "bg-green-50");
 
           setTimeout(() => {
             copyText.innerHTML = originalText;
-            copyBtn.classList.remove(
-              "!text-green-600",
-              "border-green-200",
-              "bg-green-50",
-            );
+            copyBtn.classList.remove("!border-green-200", "bg-green-50");
           }, 2000);
         }
       }
     });
+
+    // Initialize first product as active
+    document
+      .getElementById("btn-landing")
+      ?.classList.add("border-accent", "ring-2", "ring-accent");
   });
 </script>

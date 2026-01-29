@@ -12,12 +12,10 @@ export const translations = {
       title: "Marketplace",
       subtitle:
         "Power up your digital presence with premium templates designed for maximum performance and scalability.",
-      templateTitle: "Landing Page Professional Template",
-      templateDesc:
-        "A professional, high-performance Landing Page template built with Astro 5, Tailwind CSS 4, and Framer Motion. Designed under Hexagonal Architecture for maximum maintainability and scalability. Ideal for developers looking for a solid and aesthetic base for their projects.",
+      buyNow: "Buy Now",
       postPaymentTitle: "Post-Payment Instructions",
       postPaymentDesc:
-        "After payment, send the receipt attaching your GitHub Email, Username, and Profile Link to grant you access to the private repository.",
+        "After payment, send the receipt to dot_studio_dev@gmail.com or franespindola71@gmail.com attaching your GitHub Email, Username, and Profile Link to grant you access to the private repository.",
       buyTitle: "Complete Purchase",
       buySubtitle:
         "Select your preferred currency to proceed with the payment.",
@@ -35,6 +33,22 @@ export const translations = {
       helpDesc: "Have questions about implementation or licenses?",
       helpCta: "Contact now",
       previewBtn: "Click for preview",
+      items: {
+        landing: {
+          name: "Landing Template",
+          priceARS: "$35.000",
+          priceUSD: "$30",
+          aboutDesc:
+            "A professional, high-performance Landing Page template built with Astro 5, Tailwind CSS 4, and Framer Motion. Designed under Hexagonal Architecture for maximum maintainability and scalability.",
+        },
+        blog: {
+          name: "Blog Template",
+          priceARS: "$47.500",
+          priceUSD: "$45",
+          aboutDesc:
+            "A professional and modern Blog template designed for high performance and SEO. Features a dynamic content system, smooth animations and a premium reading experience.",
+        },
+      },
     },
     hero: {
       greeting: "Hi, I'm",
@@ -118,12 +132,10 @@ export const translations = {
       title: "Marketplace",
       subtitle:
         "Potencia tu presencia digital con plantillas premium diseñadas para el máximo rendimiento y escalabilidad.",
-      templateTitle: "Landing Page Professional Template",
-      templateDesc:
-        "Una plantilla de Landing Page profesional y de alto rendimiento construida con Astro 5, Tailwind CSS 4 y Framer Motion. Diseñada bajo Arquitectura Hexagonal para máxima mantenibilidad y escalabilidad. Ideal para desarrolladores que buscan una base sólida y estética para sus proyectos.",
+      buyNow: "Comprar ahora",
       postPaymentTitle: "Instrucciones Post-Pago",
       postPaymentDesc:
-        "Tras el pago, envía el comprobante adjuntando tu Email de GitHub, Usuario y Link al perfil para darte acceso al repositorio privado.",
+        "Tras el pago, envía el comprobante a dot_studio_dev@gmail.com o franespindola71@gmail.com adjuntando tu Email de GitHub, Usuario y Link al perfil para darte acceso al repositorio privado.",
       buyTitle: "Completar compra",
       buySubtitle: "Selecciona tu moneda de preferencia para proceder al pago.",
       investment: "Inversión única",
@@ -140,6 +152,22 @@ export const translations = {
       helpDesc: "¿Tienes dudas sobre la implementación o licencias?",
       helpCta: "Contactar ahora",
       previewBtn: "Click para ver preview",
+      items: {
+        landing: {
+          name: "Landing Template",
+          priceARS: "$35.000",
+          priceUSD: "$30",
+          aboutDesc:
+            "Una plantilla de Landing Page profesional y de alto rendimiento construida con Astro 5, Tailwind CSS 4 y Framer Motion. Diseñada bajo Arquitectura Hexagonal para máxima mantenibilidad y escalabilidad.",
+        },
+        blog: {
+          name: "Blog Template",
+          priceARS: "$47.500",
+          priceUSD: "$45",
+          aboutDesc:
+            "Una plantilla de Blog profesional y moderna diseñada para el alto rendimiento y SEO. Incluye sistema de contenidos dinámico, animaciones fluidas y una experiencia de lectura premium.",
+        },
+      },
     },
     hero: {
       greeting: "Hola, soy",

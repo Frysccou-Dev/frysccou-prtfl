@@ -4,124 +4,209 @@ const t = translations.en;
 ---
 
 <nav
-  class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/80 border-b border-gray-100"
+  id="main-nav"
+  class="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50 transition-all duration-500"
 >
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+  <div
+    class="bg-white/70 backdrop-blur-xl border border-white/40 shadow-2xl rounded-2xl px-6 py-3 flex items-center justify-between"
+  >
     <a
       href="#"
-      class="text-2xl font-[Outfit] font-bold text-text-primary hover:text-accent transition-colors duration-300"
+      class="text-xl md:text-2xl font-[Outfit] font-bold text-text-primary hover:text-accent transition-all duration-300 group flex items-center gap-1"
     >
-      Frysccou<span class="text-accent">.</span>
+      <span class="group-hover:tracking-wider transition-all duration-500"
+        >Frysccou</span
+      >
+      <span
+        class="text-accent group-hover:rotate-12 transition-transform duration-300"
+        >.</span
+      >
     </a>
 
-    <div class="hidden md:flex items-center gap-8">
-      <a
-        href="#about"
-        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
-        data-i18n="nav.about">{t.nav.about}</a
-      >
-      <a
-        href="#skills"
-        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
-        data-i18n="nav.skills">{t.nav.skills}</a
-      >
+    <div
+      class="hidden md:flex items-center gap-6 lg:gap-8 bg-white/50 px-6 py-2 rounded-xl border border-white/40 shadow-sm"
+    >
+      <a href="#about" class="nav-item group relative" data-i18n="nav.about">
+        <span
+          class="text-text-muted text-xs font-bold uppercase tracking-widest group-hover:text-accent transition-colors duration-300"
+          >{t.nav.about}</span
+        >
+        <span
+          class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"
+        ></span>
+      </a>
+      <a href="#skills" class="nav-item group relative" data-i18n="nav.skills">
+        <span
+          class="text-text-muted text-xs font-bold uppercase tracking-widest group-hover:text-accent transition-colors duration-300"
+          >{t.nav.skills}</span
+        >
+        <span
+          class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"
+        ></span>
+      </a>
       <a
         href="#projects"
-        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
-        data-i18n="nav.projects">{t.nav.projects}</a
+        class="nav-item group relative"
+        data-i18n="nav.projects"
       >
-      <a
-        href="#experience"
-        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
-        data-i18n="nav.experience">{t.nav.experience}</a
-      >
+        <span
+          class="text-text-muted text-xs font-bold uppercase tracking-widest group-hover:text-accent transition-colors duration-300"
+          >{t.nav.projects}</span
+        >
+        <span
+          class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"
+        ></span>
+      </a>
       <a
         href="#marketplace"
-        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
-        data-i18n="nav.marketplace">{t.nav.marketplace}</a
+        class="nav-item group relative"
+        data-i18n="nav.marketplace"
       >
+        <div class="absolute -top-4 -right-1 flex items-center">
+          <span class="relative flex h-2 w-2 mr-1">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex rounded-full h-2 w-2 bg-rose-accent"
+            ></span>
+          </span>
+          <span
+            class="text-[8px] font-black italic text-white uppercase tracking-tighter bg-linear-to-r from-accent to-rose-accent px-1 rounded-sm shadow-sm group-hover:scale-110 transition-transform duration-300"
+            >HOT</span
+          >
+        </div>
+        <span
+          class="text-text-muted text-xs font-bold uppercase tracking-widest group-hover:text-accent transition-colors duration-300"
+          >{t.nav.marketplace}</span
+        >
+        <span
+          class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"
+        ></span>
+      </a>
       <a
         href="#contact"
-        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
-        data-i18n="nav.contact">{t.nav.contact}</a
+        class="nav-item group relative"
+        data-i18n="nav.contact"
       >
+        <span
+          class="text-text-muted text-xs font-bold uppercase tracking-widest group-hover:text-accent transition-colors duration-300"
+          >{t.nav.contact}</span
+        >
+        <span
+          class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"
+        ></span>
+      </a>
     </div>
 
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-3">
       <button
         id="lang-toggle"
-        class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-50 hover:bg-accent-soft hover:border-accent transition-colors duration-300 text-sm font-medium text-text-secondary border border-gray-200"
+        class="flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-900 text-white hover:bg-accent transition-all duration-300 text-[10px] font-bold tracking-widest uppercase shadow-lg shadow-black/10"
       >
         <span id="current-lang">EN</span>
-        <svg
-          class="w-4 h-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"></path>
-        </svg>
       </button>
 
       <button
         id="mobile-menu-btn"
-        class="md:hidden p-2 rounded-lg hover:bg-gray-50 transition-colors"
+        class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors group"
       >
-        <svg
-          class="w-6 h-6 text-text-primary"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
+        <span
+          class="w-5 h-0.5 bg-text-primary group-hover:bg-accent transition-all duration-300 origin-center"
+          id="bar1"></span>
+        <span
+          class="w-5 h-0.5 bg-text-primary group-hover:bg-accent transition-all duration-300"
+          id="bar2"></span>
+        <span
+          class="w-5 h-0.5 bg-text-primary group-hover:bg-accent transition-all duration-300 origin-center"
+          id="bar3"></span>
       </button>
     </div>
   </div>
 
   <div
     id="mobile-menu"
-    class="hidden md:hidden bg-white border-t border-gray-100 overflow-hidden"
+    class="fixed top-24 left-0 w-full opacity-0 pointer-events-none transition-all duration-500 scale-95 origin-top"
   >
-    <div class="px-6 py-4 flex flex-col gap-4">
+    <div
+      class="mx-6 p-4 bg-white/90 backdrop-blur-2xl rounded-3xl border border-gray-100 shadow-2xl flex flex-col gap-2"
+    >
       <a
         href="#about"
-        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
-        data-i18n="nav.about">{t.nav.about}</a
+        class="mobile-nav-link p-4 rounded-xl hover:bg-accent-soft hover:text-accent text-text-primary font-bold transition-all duration-300 flex items-center justify-between group"
+        data-i18n="nav.about"
       >
+        {t.nav.about}
+        <svg
+          class="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          ><path d="M9 5l7 7-7 7" stroke-width="2.5"></path></svg
+        >
+      </a>
       <a
         href="#skills"
-        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
-        data-i18n="nav.skills">{t.nav.skills}</a
+        class="mobile-nav-link p-4 rounded-xl hover:bg-accent-soft hover:text-accent text-text-primary font-bold transition-all duration-300 flex items-center justify-between group"
+        data-i18n="nav.skills"
       >
+        {t.nav.skills}
+        <svg
+          class="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          ><path d="M9 5l7 7-7 7" stroke-width="2.5"></path></svg
+        >
+      </a>
       <a
         href="#projects"
-        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
-        data-i18n="nav.projects">{t.nav.projects}</a
+        class="mobile-nav-link p-4 rounded-xl hover:bg-accent-soft hover:text-accent text-text-primary font-bold transition-all duration-300 flex items-center justify-between group"
+        data-i18n="nav.projects"
       >
-      <a
-        href="#experience"
-        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
-        data-i18n="nav.experience">{t.nav.experience}</a
-      >
+        {t.nav.projects}
+        <svg
+          class="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          ><path d="M9 5l7 7-7 7" stroke-width="2.5"></path></svg
+        >
+      </a>
       <a
         href="#marketplace"
-        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
-        data-i18n="nav.marketplace">{t.nav.marketplace}</a
+        class="mobile-nav-link p-4 rounded-xl hover:bg-accent-soft hover:text-accent text-text-primary font-bold transition-all duration-300 flex items-center justify-between group"
+        data-i18n="nav.marketplace"
       >
+        <div class="flex items-center gap-2">
+          {t.nav.marketplace}
+          <span
+            class="inline-flex items-center px-1.5 py-0.5 rounded-sm text-[8px] font-black bg-linear-to-r from-accent to-rose-accent text-white leading-none"
+            >HOT</span
+          >
+        </div>
+        <svg
+          class="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          ><path d="M9 5l7 7-7 7" stroke-width="2.5"></path></svg
+        >
+      </a>
       <a
         href="#contact"
-        class="text-text-muted hover:text-accent transition-colors duration-300 text-sm font-medium nav-link"
-        data-i18n="nav.contact">{t.nav.contact}</a
+        class="mobile-nav-link p-4 rounded-xl hover:bg-accent-soft hover:text-accent text-text-primary font-bold transition-all duration-300 flex items-center justify-between group"
+        data-i18n="nav.contact"
       >
+        {t.nav.contact}
+        <svg
+          class="w-5 h-5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          ><path d="M9 5l7 7-7 7" stroke-width="2.5"></path></svg
+        >
+      </a>
     </div>
   </div>
 </nav>
@@ -129,14 +214,47 @@ const t = translations.en;
 <script>
   const mobileMenuBtn = document.getElementById("mobile-menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
+  const bar1 = document.getElementById("bar1");
+  const bar2 = document.getElementById("bar2");
+  const bar3 = document.getElementById("bar3");
 
-  mobileMenuBtn?.addEventListener("click", () => {
-    mobileMenu?.classList.toggle("hidden");
-  });
+  let isOpen = false;
+
+  function toggleMenu() {
+    isOpen = !isOpen;
+    if (isOpen) {
+      mobileMenu?.classList.remove(
+        "opacity-0",
+        "scale-95",
+        "pointer-events-none",
+      );
+      mobileMenu?.classList.add("opacity-100", "scale-100");
+      if (bar1) bar1.style.transform = "rotate(45deg) translateY(7px)";
+      if (bar2) bar2.style.opacity = "0";
+      if (bar3) bar3.style.transform = "rotate(-45deg) translateY(-7px)";
+    } else {
+      mobileMenu?.classList.add("opacity-0", "scale-95", "pointer-events-none");
+      mobileMenu?.classList.remove("opacity-100", "scale-100");
+      if (bar1) bar1.style.transform = "none";
+      if (bar2) bar2.style.opacity = "1";
+      if (bar3) bar3.style.transform = "none";
+    }
+  }
+
+  mobileMenuBtn?.addEventListener("click", toggleMenu);
 
   document.querySelectorAll("#mobile-menu a").forEach((link) => {
     link.addEventListener("click", () => {
-      mobileMenu?.classList.add("hidden");
+      toggleMenu();
     });
+  });
+
+  window.addEventListener("scroll", () => {
+    const nav = document.getElementById("main-nav");
+    if (window.scrollY > 20) {
+      nav?.classList.replace("top-6", "top-4");
+    } else {
+      nav?.classList.replace("top-4", "top-6");
+    }
   });
 </script>
