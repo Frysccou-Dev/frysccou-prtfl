@@ -641,7 +641,6 @@ const products = [
       if (amountUsd) amountUsd.textContent = product.priceUSD;
       if (mpLink) mpLink.href = product.mpLink;
 
-      // Update Topics
       if (activeTopics) {
         activeTopics.innerHTML = "";
         product.topics.forEach((tech: string) => {

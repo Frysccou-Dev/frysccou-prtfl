@@ -1,0 +1,274 @@
+---
+import { translations } from "../i18n/translations.js";
+import { Clock, MapPin } from "lucide-astro";
+const t = translations.en;
+---
+
+<section id="availability" class="py-12 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div
+      class="availability-card opacity-0 translate-y-10 group relative p-px rounded-[2.5rem] bg-linear-to-r from-accent/20 to-rose-accent/20 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10"
+    >
+      <div
+        class="bg-white/80 backdrop-blur-xl rounded-[2.45rem] p-8 md:p-12 border border-white overflow-hidden relative"
+      >
+        <div
+          id="dynamic-bg"
+          class="absolute inset-0 opacity-10 transition-colors duration-2000 pointer-events-none"
+        >
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row items-center justify-between gap-12 relative z-10 mb-12"
+        >
+          <div class="flex items-center gap-6">
+            <div
+              class="w-16 h-16 rounded-2xl bg-accent-soft/30 flex items-center justify-center text-accent group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
+            >
+              <Clock class="w-8 h-8" />
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <MapPin class="w-4 h-4 text-text-muted" />
+                <span
+                  class="text-text-muted text-sm font-bold tracking-widest uppercase"
+                  data-i18n="availability.location"
+                  >{t.availability.location}</span
+                >
+              </div>
+              <h3
+                id="local-time"
+                class="text-4xl md:text-5xl font-[Outfit] font-bold text-text-primary tabular-nums"
+              >
+                00:00:00
+              </h3>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col items-center md:items-end text-center md:text-right max-w-sm"
+          >
+            <div
+              id="status-container"
+              class="flex items-center gap-3 mb-3 px-4 py-2 rounded-full bg-white shadow-sm border border-gray-100"
+            >
+              <span
+                id="status-dot"
+                class="w-3 h-3 rounded-full animate-pulse transition-colors duration-500"
+              ></span>
+              <span id="status-text" class="text-sm font-bold text-text-primary"
+                >{t.availability.checking}</span
+              >
+            </div>
+            <p
+              id="availability-msg"
+              class="text-text-muted text-sm md:text-base leading-relaxed font-medium"
+            >
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-10 border-t border-gray-100 relative z-10">
+          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div
+              class="routine-block p-4 rounded-2xl bg-gray-50/50 border border-gray-100 hover:border-accent/30 transition-all"
+            >
+              <span
+                class="text-[10px] font-bold text-accent uppercase tracking-wider block mb-1"
+                >08:00 - 17:00</span
+              >
+              <span
+                class="text-xs font-bold text-text-primary block"
+                data-i18n="availability.routineWorking"
+                >{t.availability.routineWorking}</span
+              >
+              <span
+                class="text-[10px] text-text-muted italic"
+                data-i18n="availability.routineWorkingSub"
+                >{t.availability.routineWorkingSub}</span
+              >
+            </div>
+            <div
+              class="routine-block p-4 rounded-2xl bg-gray-50/50 border border-gray-100 hover:border-accent/30 transition-all"
+            >
+              <span
+                class="text-[10px] font-bold text-rose-accent uppercase tracking-wider block mb-1"
+                >12:00 - 13:00</span
+              >
+              <span
+                class="text-xs font-bold text-text-primary block"
+                data-i18n="availability.routineLunch"
+                >{t.availability.routineLunch}</span
+              >
+              <span
+                class="text-[10px] text-text-muted italic"
+                data-i18n="availability.routineLunchSub"
+                >{t.availability.routineLunchSub}</span
+              >
+            </div>
+            <div
+              class="routine-block p-4 rounded-2xl bg-gray-50/50 border border-gray-100 hover:border-accent/30 transition-all"
+            >
+              <span
+                class="text-[10px] font-bold text-accent uppercase tracking-wider block mb-1"
+                >17:00 - 22:00</span
+              >
+              <span
+                class="text-xs font-bold text-text-primary block"
+                data-i18n="availability.routineHuman"
+                >{t.availability.routineHuman}</span
+              >
+              <span
+                class="text-[10px] text-text-muted italic"
+                data-i18n="availability.routineHumanSub"
+                >{t.availability.routineHumanSub}</span
+              >
+            </div>
+            <div
+              class="routine-block p-4 rounded-2xl bg-gray-50/50 border border-gray-100 hover:border-accent/30 transition-all"
+            >
+              <span
+                class="text-[10px] font-bold text-accent uppercase tracking-wider block mb-1"
+                >22:00 - 00:00</span
+              >
+              <span
+                class="text-xs font-bold text-text-primary block"
+                data-i18n="availability.routineGaming"
+                >{t.availability.routineGaming}</span
+              >
+              <span
+                class="text-[10px] text-text-muted italic"
+                data-i18n="availability.routineGamingSub"
+                >{t.availability.routineGamingSub}</span
+              >
+            </div>
+            <div
+              class="routine-block p-4 rounded-2xl bg-gray-50/50 border border-gray-100 hover:border-accent/30 transition-all hidden lg:block"
+            >
+              <span
+                class="text-[10px] font-bold text-indigo-400 uppercase tracking-wider block mb-1"
+                >02:00 - 07:00</span
+              >
+              <span
+                class="text-xs font-bold text-text-primary block"
+                data-i18n="availability.routineSleep"
+                >{t.availability.routineSleep}</span
+              >
+              <span
+                class="text-[10px] text-text-muted italic"
+                data-i18n="availability.routineSleepSub"
+                >{t.availability.routineSleepSub}</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { translations } from "../i18n/translations.js";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  let currentLang = "en";
+
+  function getCurrentTranslations() {
+    return (translations as any)[currentLang];
+  }
+
+  function updateAvailability() {
+    const t = getCurrentTranslations();
+    const timeEl = document.getElementById("local-time");
+    const statusDot = document.getElementById("status-dot");
+    const statusText = document.getElementById("status-text");
+    const availabilityMsg = document.getElementById("availability-msg");
+    const dynamicBg = document.getElementById("dynamic-bg");
+
+    if (!timeEl || !statusDot || !statusText || !availabilityMsg || !dynamicBg)
+      return;
+
+    const now = new Date();
+    const options: Intl.DateTimeFormatOptions = {
+      timeZone: "America/Argentina/Buenos_Aires",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    };
+
+    const formatter = new Intl.DateTimeFormat("en-US", options);
+    const parts = formatter.formatToParts(now);
+    const hour = parseInt(parts.find((p) => p.type === "hour")?.value || "0");
+    const timeStr = formatter.format(now);
+
+    timeEl.textContent = timeStr;
+
+    if (hour >= 8 && hour < 12) {
+      statusDot.className = "w-3 h-3 rounded-full animate-pulse bg-rose-500";
+      statusText.textContent = t.availability.workingBusy;
+      availabilityMsg.textContent = t.availability.workingMsg;
+      dynamicBg.style.backgroundColor = "#60a5fa";
+    } else if (hour >= 12 && hour < 13) {
+      statusDot.className = "w-3 h-3 rounded-full bg-rose-400";
+      statusText.textContent = t.availability.lunchBreak;
+      availabilityMsg.textContent = t.availability.lunchMsg;
+      dynamicBg.style.backgroundColor = "#fda4af";
+    } else if (hour >= 13 && hour < 17) {
+      statusDot.className = "w-3 h-3 rounded-full animate-pulse bg-rose-500";
+      statusText.textContent = t.availability.workingAfternoon;
+      availabilityMsg.textContent = t.availability.workingAfternoonMsg;
+      dynamicBg.style.backgroundColor = "#c4b5fd";
+    } else if (hour >= 17 && hour < 22) {
+      statusDot.className = "w-3 h-3 rounded-full bg-amber-400";
+      statusText.textContent = t.availability.humanMode;
+      availabilityMsg.textContent = t.availability.humanModeMsg;
+      dynamicBg.style.backgroundColor = "#fbbf24";
+    } else if (hour >= 22 || hour < 2) {
+      statusDot.className = "w-3 h-3 rounded-full animate-pulse bg-violet-400";
+      statusText.textContent = t.availability.gamingTime;
+      availabilityMsg.textContent = t.availability.gamingMsg;
+      dynamicBg.style.backgroundColor = "#8b5cf6";
+    } else {
+      statusDot.className = "w-3 h-3 rounded-full bg-indigo-500";
+      statusText.textContent = t.availability.sleeping;
+      availabilityMsg.textContent = t.availability.sleepingMsg;
+      dynamicBg.style.backgroundColor = "#4338ca";
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedLang = document.documentElement.lang || "en";
+    currentLang = savedLang;
+
+    updateAvailability();
+    setInterval(updateAvailability, 1000);
+
+    const observer = new MutationObserver(() => {
+      const newLang = document.documentElement.lang || "en";
+      if (newLang !== currentLang) {
+        currentLang = newLang;
+        updateAvailability();
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["lang"],
+    });
+
+    gsap.to(".availability-card", {
+      scrollTrigger: {
+        trigger: "#availability",
+        start: "top 90%",
+      },
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+  });
+</script>

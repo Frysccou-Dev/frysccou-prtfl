@@ -3,10 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
+import Availability from "../components/Availability.astro";
+import YoutubeMusic from "../components/YoutubeMusic.astro";
 import Skills from "../components/Skills.astro";
 import Projects from "../components/Projects.astro";
 import Experience from "../components/Experience.astro";
 import Marketplace from "../components/Marketplace.astro";
+import Guestbook from "../components/Guestbook.astro";
 import Contact from "../components/Contact.astro";
 import Donations from "../components/Donations.astro";
 import Footer from "../components/Footer.astro";
@@ -21,10 +24,13 @@ import FloatingCoffee from "../components/FloatingCoffee.astro";
   <main>
     <Hero />
     <About />
+    <Availability />
+    <YoutubeMusic />
     <Skills />
     <Projects />
     <Experience />
     <Marketplace />
+    <Guestbook />
     <Contact />
     <Donations />
   </main>
@@ -77,6 +83,10 @@ import FloatingCoffee from "../components/FloatingCoffee.astro";
       });
 
     document.documentElement.lang = lang;
+
+    // Disparar evento para componentes de React (Islas)
+    const event = new CustomEvent("languageChange", { detail: t });
+    window.dispatchEvent(event);
   }
 
   document.addEventListener("DOMContentLoaded", () => {

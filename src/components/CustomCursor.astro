@@ -1,19 +1,19 @@
 <div
   id="custom-cursor"
-  class="custom-cursor pointer-events-none fixed top-0 left-0 z-9999 hidden lg:block"
+  class="custom-cursor pointer-events-none fixed top-0 left-0 z-9999 opacity-0"
 >
   <div class="cursor-inner relative flex items-center justify-center">
-    <!-- El "punto" central: un pequeño rombo sutil -->
+    <!-- El "punto" central -->
     <div
       class="w-1.5 h-1.5 bg-text-primary rotate-45 transform transition-transform duration-300"
     >
     </div>
-    <!-- El "marco" exterior: un cuadrado rotado con borde lila -->
+    <!-- El "marco" exterior -->
     <div
       class="absolute w-8 h-8 border border-accent rotate-45 transform transition-all duration-500 ease-out opacity-50"
     >
     </div>
-    <!-- Elementos decorativos en las esquinas -->
+    <!-- Decoración -->
     <div
       class="absolute -top-1 -right-1 w-1 h-1 bg-rose-accent rounded-full scale-0 transition-transform duration-300 corner-dot"
     >
@@ -24,11 +24,25 @@
 <style>
   .custom-cursor {
     mix-blend-mode: difference;
-    transition: transform 0.1s ease-out;
+    transition: opacity 0.3s ease;
     will-change: transform;
+    pointer-events: none;
   }
 
-  /* Cuando el cursor está sobre un link o botón */
+  /* Ocultar en dispositivos táctiles o sin hover */
+  @media (hover: none) and (pointer: coarse) {
+    #custom-cursor {
+      display: none !important;
+    }
+  }
+
+  /* Mostrar solo si el dispositivo soporta hover fino */
+  @media (hover: hover) and (pointer: fine) {
+    #custom-cursor {
+      display: block;
+    }
+  }
+
   .cursor-active .cursor-inner div:first-child {
     transform: rotate(225deg) scale(0.5);
     background-color: var(--color-accent);
@@ -49,11 +63,21 @@
   import gsap from "gsap";
 
   const cursor = document.getElementById("custom-cursor");
-  const inner = cursor?.querySelector(".cursor-inner");
 
-  if (cursor) {
+  // Detección inicial de mouse solo en dispositivos no táctiles
+  let hasMouseMoved = false;
+
+  if (
+    cursor &&
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches
+  ) {
     window.addEventListener("mousemove", (e) => {
-      // Usamos GSAP para un movimiento suave (smoothing)
+      // Solo mostramos el cursor una vez que el usuario mueve el mouse
+      if (!hasMouseMoved) {
+        cursor.style.opacity = "1";
+        hasMouseMoved = true;
+      }
+
       gsap.to(cursor, {
         x: e.clientX,
         y: e.clientY,
