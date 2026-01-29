@@ -1,5 +1,5 @@
 ---
-import "../styles/global.css";
+import "../../styles/global.css";
 import Navbar from "../components/marketing/Navbar";
 import Footer from "../components/marketing/Footer.astro";
 
@@ -35,7 +35,7 @@ const navItems = [
   </head>
   <body class="grainy min-h-screen flex flex-col">
     <Navbar client:load items={navItems} />
-    <main class="flex-grow">
+    <main class="grow">
       <slot />
     </main>
     <Footer />
