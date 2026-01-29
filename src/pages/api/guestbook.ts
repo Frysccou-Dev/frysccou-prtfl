@@ -37,6 +37,24 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
+export const GET: APIRoute = async () => {
+  try {
+    const result = await turso.execute(
+      "SELECT id, author, message, created_at FROM guestbook ORDER BY created_at DESC LIMIT 50",
+    );
+    return new Response(JSON.stringify(result.rows), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    console.error("Error fetching guestbook:", error);
+    return new Response(JSON.stringify({ error: "Internal server error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+};
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     const clientIP = getClientIP(request);

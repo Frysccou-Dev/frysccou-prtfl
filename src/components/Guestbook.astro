@@ -1,7 +1,7 @@
 ---
 import { translations } from "../i18n/translations.js";
 import { BookHeart } from "lucide-astro";
-import GuestbookList from "./guestbook/GuestbookList.astro";
+import GuestbookList from "./guestbook/GuestbookList.tsx";
 import GuestbookForm from "./guestbook/GuestbookForm";
 
 const t = translations.en;
@@ -44,7 +44,7 @@ const t = translations.en;
             ></span>
             {t.guestbook.messagesTitle}
           </h3>
-          <GuestbookList />
+          <GuestbookList client:load translations={t.guestbook} />
         </div>
 
         <div class="order-1 md:order-2">
