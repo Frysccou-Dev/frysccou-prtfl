@@ -86,6 +86,10 @@ export const translations = {
       title: "What I listen to while coding",
       subtitle: "Music that keeps me in flow",
       viewPlaylist: "View full playlist",
+      playlistLabel: "Playlist",
+      tracksLabel: "Tracks",
+      durationLabel: "Duration",
+      viewsLabel: "Views",
     },
     availability: {
       location: "Buenos Aires, AR",
@@ -258,6 +262,10 @@ export const translations = {
       title: "Lo que escucho mientras codifico",
       subtitle: "Música que me mantiene en flow",
       viewPlaylist: "Ver playlist completa",
+      playlistLabel: "Lista de reproducción",
+      tracksLabel: "Pistas",
+      durationLabel: "Duración",
+      viewsLabel: "Vistas",
     },
     availability: {
       location: "Buenos Aires, AR",

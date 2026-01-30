@@ -64,6 +64,84 @@ const cleanTitle = (title: string) => {
         </p>
       </div>
 
+      <div
+        class="mb-8 p-px rounded-2xl bg-linear-to-r from-accent/20 to-rose-accent/20"
+      >
+        <div
+          class="bg-white/80 backdrop-blur-sm rounded-[calc(1rem-1px)] overflow-hidden border border-white"
+        >
+          <div class="grid md:grid-cols-[300px_1fr] gap-6 p-6">
+            <div
+              class="relative rounded-xl overflow-hidden shadow-lg aspect-square md:aspect-auto"
+            >
+              <img
+                src="/yt-music.jpg"
+                alt="90 degree angle"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"
+              >
+              </div>
+            </div>
+
+            <div class="flex flex-col justify-center space-y-4">
+              <div>
+                <h3
+                  class="text-2xl md:text-3xl font-bold text-text-primary mb-2"
+                >
+                  90 degree angle
+                </h3>
+                <p class="text-text-muted text-sm mb-3">
+                  frysccou • <span data-i18n="music.playlistLabel"
+                    >{t.music.playlistLabel}</span
+                  > • Pública • 2026
+                </p>
+                <p class="text-text-muted text-sm line-clamp-3 leading-relaxed">
+                  what about 88.78 degree angle??
+                </p>
+              </div>
+
+              <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-200">
+                <div class="text-center">
+                  <div class="text-xl md:text-2xl font-bold text-accent">
+                    222
+                  </div>
+                  <div
+                    class="text-xs text-text-muted uppercase tracking-wide"
+                    data-i18n="music.tracksLabel"
+                  >
+                    {t.music.tracksLabel}
+                  </div>
+                </div>
+                <div class="text-center">
+                  <div class="text-xl md:text-2xl font-bold text-accent">
+                    13+h
+                  </div>
+                  <div
+                    class="text-xs text-text-muted uppercase tracking-wide"
+                    data-i18n="music.durationLabel"
+                  >
+                    {t.music.durationLabel}
+                  </div>
+                </div>
+                <div class="text-center">
+                  <div class="text-xl md:text-2xl font-bold text-accent">
+                    29K
+                  </div>
+                  <div
+                    class="text-xs text-text-muted uppercase tracking-wide"
+                    data-i18n="music.viewsLabel"
+                  >
+                    {t.music.viewsLabel}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
         {
           tracks.map((track: Track) => (
