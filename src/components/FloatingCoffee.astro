@@ -1,103 +1,33 @@
 ---
-import { translations } from "../i18n/translations.js";
-const t = translations.en;
+
 ---
 
-<button
-  id="floating-coffee"
-  class="fixed bottom-8 right-8 z-40 group flex items-center gap-3 bg-white/80 backdrop-blur-xl p-2 pr-6 rounded-2xl border border-white/50 shadow-2xl hover:shadow-accent/40 transition-all duration-500 hover:-translate-y-2 opacity-0 translate-y-10"
-  aria-label="Buy me a coffee"
+<a
+  href="#contact"
+  id="floating-studio"
+  class="fixed bottom-6 right-6 z-40 group opacity-0 translate-y-10"
+  aria-label="Visit Dot Studio"
 >
-  <div
-    class="relative w-12 h-12 bg-linear-to-br from-accent via-rose-300 to-white rounded-xl flex items-center justify-center text-white shadow-lg overflow-hidden group-hover:rotate-6 transition-transform duration-500"
-  >
-    <div
-      class="coffee-steam absolute -top-1 left-1/2 -translate-x-1/2 flex gap-1 items-end h-4"
-    >
-      <span class="w-0.5 h-1.5 bg-white/40 rounded-full animate-steam-1"></span>
-      <span class="w-0.5 h-2.5 bg-white/60 rounded-full animate-steam-2"></span>
-      <span class="w-0.5 h-1.5 bg-white/40 rounded-full animate-steam-3"></span>
-    </div>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-6 h-6"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
-      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"></path>
-    </svg>
-  </div>
-  <div class="flex flex-col items-start leading-tight">
-    <span
-      class="text-[10px] font-bold text-accent uppercase tracking-widest"
-      data-i18n="donations.title">{t.donations.title}</span
-    >
-    <span
-      class="text-sm font-bold text-text-primary"
-      data-i18n="donations.button">{t.donations.button}</span
-    >
-  </div>
-</button>
+  <img
+    src="/work/dot-logo.svg"
+    alt="Dot Studio"
+    class="w-16 h-16 rounded-full bg-white p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100"
+  />
+</a>
 
 <style>
-  .animate-steam-1 {
-    animation: steam 2s infinite ease-in-out;
-  }
-  .animate-steam-2 {
-    animation: steam 2s infinite ease-in-out 0.4s;
-  }
-  .animate-steam-3 {
-    animation: steam 2s infinite ease-in-out 0.8s;
-  }
-
-  @keyframes steam {
-    0% {
-      transform: translateY(0) scale(1);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-8px) scale(1.5);
-      opacity: 0;
-    }
-  }
-
-  #floating-coffee.visible {
+  #floating-studio.visible {
     opacity: 1;
     transform: translateY(0);
   }
 </style>
 
 <script>
-  import gsap from "gsap";
-
   document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("floating-coffee");
+    const btn = document.getElementById("floating-studio");
 
     setTimeout(() => {
       btn?.classList.add("visible");
     }, 2000);
-
-    btn?.addEventListener("click", () => {
-      const target = document.querySelector("#donations");
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    });
-
-    gsap.to(btn, {
-      y: "-=5",
-      duration: 2,
-      repeat: -1,
-      yoyo: true,
-      ease: "sine.inOut",
-    });
   });
 </script>
